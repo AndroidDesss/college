@@ -1,4 +1,4 @@
-package com.desss.collegeproduct.repository
+package com.desss.collegeproduct.repository.service
 
 import retrofit2.Call
 import retrofit2.http.*
