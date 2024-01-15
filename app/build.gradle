@@ -13,7 +13,6 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -44,7 +43,7 @@ android {
             versionName "1.0"
             applicationId "com.desss.firstcollege"
             resValue "string", "app_name", "First College"
-            buildConfigField 'String', 'URL', '"https://"'
+            buildConfigField 'String', 'BASE_URL', '"https://api.example.com"'
             manifestPlaceholders = [
                     appIcon: "@mipmap/ic_launcher",
                     appIconRound: "@mipmap/ic_launcher_round"
@@ -55,7 +54,7 @@ android {
             versionName "1.0"
             applicationId "com.desss.secondcollege"
             resValue "string", "app_name", "Second College"
-            buildConfigField 'String', 'URL', '"https://"'
+            buildConfigField 'String', 'BASE_URL', '"https://api.example.com"'
             manifestPlaceholders = [
                     appIcon: "@mipmap/ic_launcher",
                     appIconRound: "@mipmap/ic_launcher_round"
@@ -67,6 +66,7 @@ android {
     buildFeatures {
         //noinspection DataBindingWithoutKapt
         dataBinding true
+        buildConfig true
     }
 
 }
@@ -86,8 +86,15 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
     implementation 'com.google.code.gson:gson:2.10'
 
-    //sdpi
-    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    //sdp and ssp lib
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+    //viewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0"
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.7.0'
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
