@@ -14,8 +14,6 @@ import java.util.concurrent.TimeUnit
 
 object ApiClient {
     private var retrofit: Retrofit? = null
-    private val googleSearchretrofit: Retrofit? = null
-    private val ppRetrofit: Retrofit? = null
     val httpClient: OkHttpClient
         get() {
             val interceptor = HttpLoggingInterceptor()

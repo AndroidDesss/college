@@ -1,14 +1,11 @@
 package com.desss.collegeproduct.module.splash
 
 
-import android.content.Context
-import com.desss.collegeproduct.repository.model.requestModel.LoginRequestModel
-import com.desss.collegeproduct.repository.model.responseModel.LoginModel
-import com.desss.collegeproduct.repository.service.ApiUtils
-import com.desss.collegeproduct.repository.service.retrofit.Request
-import retrofit2.Call
-import java.util.*
+import android.app.Activity
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import com.desss.collegeproduct.module.splash.activity.SplashScreen
 
-class SplashScreenViewModel (val context: Context) : Observable()  {
-
+class SplashScreenViewModel(application: Application, val activity: Activity) :
+    AndroidViewModel(application) {
 }

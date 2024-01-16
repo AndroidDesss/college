@@ -1,17 +1,15 @@
 package com.desss.collegeproduct.repository.service
 
-import com.google.gson.JsonObject
+import com.desss.collegeproduct.module.auth.model.LoginModel
 import retrofit2.Call
 import retrofit2.http.*
 
 
 interface ApiServices {
-//    @Headers(*["Content-Type: application/json;charset=UTF-8"])
-//    @POST("User/LoginWithConfirmationofSession")
-//    fun deviceExceedLogout(
-//        @Header("Authorization") authHeader: String?,
-//        @Body bean: JsonObject?
-//    ): Call<DeviceLogoutModel?>?
+    @Headers(*["Content-Type: application/json;charset=UTF-8"])
+    @GET("dynamic/dynamicapi.php")
+    fun loginSubmit(@Query("action") action: String?, @Query("table") accountsUser: String?, @Query("user_id") userId: String?, @Query("password") password: String?
+    ): Call<LoginModel?>?
 //
 //    @Headers(*["Content-Type: application/json;charset=UTF-8"])
 //    @GET("StudentCourseMaterial/GetTopicAndMaterialDetail")
