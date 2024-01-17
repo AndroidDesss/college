@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">CollegeProduct</string>
+    <string name="college_name">KNOWLEDGE INSTITUTE OF TECHNOLOGY</string>
+    <string name="college_logo">appLogo</string>
+    <string name="login">Login</string>
+    <string name="lock">lockIcon</string>
+    <string name="getStarted">Let\'s get started</string>
+    <string name="userId">User Id</string>
+    <string name="password">Password</string>
+    <string name="forgotPassword">Forgot password ?</string>
+    <string name="name">Name</string>
+    <string name="registerNo">Register No</string>
+    <string name="studentDashBoard">Student DashBoard</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

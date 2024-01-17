@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="appBackgroundColor">#0a4445</color>
+    <color name="textViewColor">#ffd601</color>
 </resources>

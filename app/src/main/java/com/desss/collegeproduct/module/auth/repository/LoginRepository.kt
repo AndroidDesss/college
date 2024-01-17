@@ -11,7 +11,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
 object LoginRepository {
 
     fun submitLogin(activity: Activity,action:String,table:String,userId:String,password:String): LiveData<LoginModel> {

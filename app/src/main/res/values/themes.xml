@@ -6,4 +6,8 @@
     </style>
 
     <style name="Theme.CollegeProduct" parent="Base.Theme.CollegeProduct" />
+
+    <style name="alertFont">
+        <item name="fontFamily">@font/regular</item>
+    </style>
 </resources>

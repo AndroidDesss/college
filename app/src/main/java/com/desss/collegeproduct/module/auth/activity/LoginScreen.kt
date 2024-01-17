@@ -17,7 +17,7 @@ class LoginScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         loginScreenBinding = DataBindingUtil.setContentView(this, R.layout.activity_login_screen)
         loginScreenViewModel = LoginViewModel(application, this)
-        loginScreenBinding.btnSubmit.setOnClickListener {
+        loginScreenBinding.btnLogin.setOnClickListener {
             loginScreenViewModel.submitLogin(this, "read", "accounts_user", "know1", "Dess@123")
             observeViewModel(loginScreenViewModel)
         }
