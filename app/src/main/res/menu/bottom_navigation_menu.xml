@@ -3,14 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/home"
-        android:icon="@drawable/home_icon"
+        android:icon="@drawable/custom_home_menu"
         android:title=""/>
     <item
         android:id="@+id/profile"
-        android:icon="@drawable/profile_icon"
+        android:icon="@drawable/custom_profile_menu"
         android:title=""/>
     <item
         android:id="@+id/notification"
-        android:icon="@drawable/notification_icon"
+        android:icon="@drawable/custom_notification_menu"
         android:title=""/>
 </menu>

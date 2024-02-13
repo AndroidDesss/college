@@ -15,20 +15,17 @@ import com.desss.collegeproduct.module.splash.SplashScreenViewModel
 class SplashScreen : AppCompatActivity() {
 
     private lateinit var splashScreenBinding: ActivitySplashScreenBinding
-    private lateinit var splashScreenViewModel: SplashScreenViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         splashScreenBinding = DataBindingUtil.setContentView(this, R.layout.activity_splash_screen)
-        splashScreenViewModel = SplashScreenViewModel(application, this)
         moveToLogin()
-        CommonUtility.Companion.toastString("Hi",this)
     }
 
     private fun moveToLogin() {
-        Handler().postDelayed({ startIntent() }, 3000)
+        Handler().postDelayed({ startIntent() }, 1500)
     }
 
     private fun startIntent() {
-        CommonUtility.Companion.commonStartActivity(this,LoginScreen::class.java,null,false)
+        CommonUtility.Companion.commonStartActivity(this, LoginScreen::class.java, null, true)
     }
 }

@@ -4,4 +4,23 @@
     <color name="white">#FFFFFFFF</color>
     <color name="appBackgroundColor">#0a4445</color>
     <color name="textViewColor">#ffd601</color>
+    <color name="darkGrey">#3a3a3a</color>
+    <color name="lightBlue">#1AA7EC</color>
+    <color name="lightGreen">#01a94f</color>
+    <color name="lightGrey">#555555</color>
+    <color name="darkGreen">#009345</color>
+    <color name="blueBackground">#76D6FF </color>
+    <color name="grey_dim">#ECEBEB</color>
+    <color name="shimmer_grey">#dddddd</color>
+    <color name="professorGreyBackground">#cdcccc</color>
+    <color name="presentBackground">#58bc82</color>
+    <color name="notPresentBackground">#f7937e</color>
+    <color name="totalBackground">#79b1fb</color>
+    <color name="lateBackground">#cfd33c</color>
+    <color name="purpleBackGroundColor">#8b88d0</color>
+    <color name="lightSandalBackGroundColor">#fbb97c</color>
+    <color name="violet">#AF52DE</color>
+
+
+
 </resources>

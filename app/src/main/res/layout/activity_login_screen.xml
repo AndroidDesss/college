@@ -23,9 +23,9 @@
 
         <ImageView
             android:id="@+id/loginLogo"
-            android:layout_width="@dimen/_120sdp"
-            android:layout_height="@dimen/_120sdp"
-            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:layout_marginTop="@dimen/_25sdp"
             android:background="@drawable/lock"
             android:contentDescription="@string/lock"
             app:layout_constraintEnd_toEndOf="parent"
@@ -54,6 +54,7 @@
                     android:fontFamily="@font/bold"
                     android:gravity="center"
                     android:text="@string/getStarted"
+                    android:textStyle="bold"
                     android:textColor="@color/appBackgroundColor"
                     android:textSize="@dimen/_18ssp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -67,9 +68,9 @@
                     android:layout_marginLeft="@dimen/_30sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_30sdp"
-                    android:hint="@string/userId"
+                    android:hint="@string/emailId"
+                    app:hintTextColor="@color/black"
                     app:boxBackgroundColor="@color/white"
-                    app:boxBackgroundMode="filled"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/loginContentTv">
@@ -81,6 +82,7 @@
                         android:drawableEnd="@drawable/user_icon"
                         android:fontFamily="@font/regular"
                         android:maxLines="1"
+                        android:text="sathyan@desss.com"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14ssp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -93,8 +95,8 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_30sdp"
                     android:hint="@string/password"
+                    app:hintTextColor="@color/black"
                     app:boxBackgroundColor="@color/white"
-                    app:boxBackgroundMode="filled"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tinUserId">
@@ -106,6 +108,8 @@
                         android:drawableEnd="@drawable/password_icon"
                         android:fontFamily="@font/regular"
                         android:maxLines="1"
+                        android:inputType="textPassword"
+                        android:text="Dess@123"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14ssp"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -115,12 +119,12 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:fontFamily="@font/bold"
-                    android:gravity="end"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center"
                     android:text="@string/forgotPassword"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14ssp"
-                    app:layout_constraintEnd_toEndOf="@+id/tinPassword"
+                    android:textColor="@color/lightGrey"
+                    android:textSize="@dimen/_15ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tinPassword"/>
 
@@ -129,18 +133,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_30sdp"
-                    android:layout_marginTop="@dimen/_50sdp"
-                    android:layout_marginBottom="@dimen/_50sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
                     android:background="@drawable/background_button"
                     android:fontFamily="@font/bold"
                     android:text="@string/login"
                     android:textAllCaps="false"
                     android:textColor="@color/textViewColor"
                     android:textSize="@dimen/_15ssp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/forgotPasswordTv" />
+
+                <TextView
+                    android:id="@+id/admissionTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:fontFamily="@font/bold"
+                    android:gravity="center"
+                    android:text="@string/admissionManagement"
+                    android:textColor="@color/violet"
+                    android:textSize="@dimen/_15ssp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnLogin"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

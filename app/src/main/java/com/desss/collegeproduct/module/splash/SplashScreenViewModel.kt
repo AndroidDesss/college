@@ -6,6 +6,5 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import com.desss.collegeproduct.module.splash.activity.SplashScreen
 
-class SplashScreenViewModel(application: Application, val activity: Activity) :
-    AndroidViewModel(application) {
+class SplashScreenViewModel(application: Application, val activity: Activity) : AndroidViewModel(application) {
 }

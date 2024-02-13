@@ -6,6 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         tools:context=".module.dashboard.DashBoardScreen">
 
         <FrameLayout
@@ -20,15 +21,18 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            android:paddingTop="@dimen/_5sdp"
             android:background="@drawable/bottom_navigation_background"
-            app:itemIconSize="@dimen/_25sdp"
             app:itemIconTint="@drawable/bottom_selector"
+            android:paddingBottom="@dimen/_5sdp"
+            android:theme="@style/Widget.BottomNavigationView"
+            app:itemIconSize="@dimen/_18sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_navigation_menu" />
+            app:menu="@menu/bottom_navigation_menu"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

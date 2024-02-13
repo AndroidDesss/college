@@ -7,9 +7,11 @@ class CommonValidation {
 
     companion object {
 
-        private const val EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
+        private const val EMAIL_PATTERN =
+            "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
 
-        private const val PHONE_NUMBER_PATTERN = "^[+]?[0-9]{1,4}[-\\s.?]?[(]?[0-9]{1,3}[)]?[-\\s.?]?[0-9]{1,4}[-\\s.?]?[0-9]{1,9}$"
+        private const val PHONE_NUMBER_PATTERN =
+            "^[+]?[0-9]{1,4}[-\\s.?]?[(]?[0-9]{1,3}[)]?[-\\s.?]?[0-9]{1,4}[-\\s.?]?[0-9]{1,9}$"
 
         private val emailPattern: Pattern = Pattern.compile(EMAIL_PATTERN)
 
@@ -34,7 +36,7 @@ class CommonValidation {
         }
 
         //To Check Valid Password
-        fun isPasswordValid(password: String,passwordLength: Int): Boolean {
+        fun isPasswordValid(password: String, passwordLength: Int): Boolean {
             return password.length >= passwordLength
         }
 
