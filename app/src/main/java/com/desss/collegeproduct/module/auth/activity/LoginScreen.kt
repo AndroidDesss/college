@@ -120,6 +120,7 @@ class LoginScreen : AppCompatActivity() {
                     SharedPref.setCourse(this, it.cource)
                     SharedPref.setSemester(this, it.semester)
                     SharedPref.setSection(this, it.section)
+                    SharedPref.setParentLogin(this, response.parent)
 
                     startIntent()
                 }
@@ -136,7 +137,6 @@ class LoginScreen : AppCompatActivity() {
                 override fun dialogOkBtnClicked(value: String?) {
                     finishAffinity()
                 }
-
                 override fun dialogNoBtnClicked(value: String?) {}
             }
         )

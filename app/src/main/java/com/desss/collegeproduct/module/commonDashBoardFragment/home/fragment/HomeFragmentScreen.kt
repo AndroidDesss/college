@@ -71,8 +71,15 @@ class HomeFragmentScreen : Fragment() {
         if (SharedPref.getRollId(context) == "4") //Student
         {
             CommonUtility.showProgressDialog(context)
-            fragmentHomeScreenBinding.logOut.isVisible = false
-            fragmentHomeScreenBinding.dashBoardTv.text = "Student DashBoard"
+            fragmentHomeScreenBinding.logOut.visibility = View.INVISIBLE
+            if(SharedPref.getParentLogin(context) == "Yes" || SharedPref.getRollId(context).equals("Yes"))
+            {
+                fragmentHomeScreenBinding.dashBoardTv.text = "Hello Parent"
+            }
+            else
+            {
+                fragmentHomeScreenBinding.dashBoardTv.text = "Hello Student"
+            }
             setCategoriesValues(
                 Constants.studentCategoriesArray,
                 Constants.studentCategoriesImage,
@@ -81,8 +88,8 @@ class HomeFragmentScreen : Fragment() {
         } else if (SharedPref.getRollId(context) == "3") //Professor
         {
             CommonUtility.showProgressDialog(context)
-            fragmentHomeScreenBinding.logOut.isVisible = false
-            fragmentHomeScreenBinding.dashBoardTv.text = "Professor DashBoard"
+            fragmentHomeScreenBinding.logOut.visibility = View.INVISIBLE
+            fragmentHomeScreenBinding.dashBoardTv.text = "Hello Faculty"
             setCategoriesValues(
                 Constants.professorCategoriesArray,
                 Constants.professorCategoriesImage,
@@ -91,8 +98,8 @@ class HomeFragmentScreen : Fragment() {
         }else if (SharedPref.getRollId(context) == "2") //Management DashBoard
         {
             CommonUtility.showProgressDialog(context)
-            fragmentHomeScreenBinding.logOut.isVisible = true
-            fragmentHomeScreenBinding.dashBoardTv.text = "Management DashBoard"
+            fragmentHomeScreenBinding.logOut.visibility = View.VISIBLE
+            fragmentHomeScreenBinding.dashBoardTv.text = "Hello Admin"
             setCategoriesValues(
                 Constants.managementCategoriesArray,
                 Constants.managementCategoriesImage,

@@ -82,4 +82,12 @@ object SharedPref {
     fun getSection(context: Context?): String? {
         return SharedPrefUtils.getString(context, "section")
     }
+
+    fun setParentLogin(context: Context, parentLogin: String?) {
+        SharedPrefUtils.putString(context, "parentLogin", parentLogin)
+    }
+
+    fun getParentLogin(context: Context?): String? {
+        return SharedPrefUtils.getString(context, "parentLogin")
+    }
 }

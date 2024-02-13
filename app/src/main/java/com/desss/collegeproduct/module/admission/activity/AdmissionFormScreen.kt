@@ -83,6 +83,7 @@ class AdmissionFormScreen : AppCompatActivity() {
             val userProfile: AdmissionModel? = loginDataList.firstOrNull()
             userProfile?.let {
                 if (it.msg == "Inserted Successfully") {
+                    CommonUtility.toastString("Congratulations on submitting your application.",this)
                     startIntent()
                 }
             }
