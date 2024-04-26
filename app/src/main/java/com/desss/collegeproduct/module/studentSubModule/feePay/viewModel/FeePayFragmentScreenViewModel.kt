@@ -12,6 +12,7 @@ import com.desss.collegeproduct.module.studentSubModule.feePay.repository.FeePay
 @SuppressLint("StaticFieldLeak")
 class FeePayFragmentScreenViewModel(application: Application, val activity: Activity) :
     AndroidViewModel(application) {
+
     private var feePayDataObservable: LiveData<CommonResponseModel<FeePayModel>>? = null
 
     fun callFeePayApi(activity: Activity, action: String, table: String, userId: String) {

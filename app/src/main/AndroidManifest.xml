@@ -69,16 +69,19 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".module.dashboard.DashBoardScreen"
-            android:exported="false"
+            android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
+            android:exported="true"
             android:theme="@style/Theme.CollegeProduct"
-            tools:ignore="LockedOrientationActivity" />
+            tools:ignore="LockedOrientationActivity">
+        </activity>
         <activity
             android:name=".module.auth.activity.LoginScreen"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.CollegeProduct"
-            tools:ignore="LockedOrientationActivity" />
+            tools:ignore="LockedOrientationActivity"/>
+
         <activity
             android:name=".module.splash.activity.SplashScreen"
             android:exported="true"
@@ -87,7 +90,6 @@
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

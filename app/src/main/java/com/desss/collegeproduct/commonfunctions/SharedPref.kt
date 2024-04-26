@@ -90,4 +90,12 @@ object SharedPref {
     fun getParentLogin(context: Context?): String? {
         return SharedPrefUtils.getString(context, "parentLogin")
     }
+
+    fun setIsAllVideoWatched(context: Context, isAllVideoWatched: String?) {
+        SharedPrefUtils.putString(context, "isAllVideoWatched", isAllVideoWatched)
+    }
+
+    fun getIsAllVideoWatched(context: Context?): String? {
+        return SharedPrefUtils.getString(context, "isAllVideoWatched")
+    }
 }

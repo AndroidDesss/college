@@ -23,8 +23,6 @@ class FeePayFragmentScreen : Fragment() {
 
     private lateinit var feePayFragmentScreenViewModel: FeePayFragmentScreenViewModel
 
-    private var feePayList = arrayListOf<FeePayModel>()
-
     private var feePayAdapter: FeePayAdapter? = null
 
     override fun onCreateView(

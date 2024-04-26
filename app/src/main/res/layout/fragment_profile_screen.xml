@@ -50,7 +50,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white">
+                android:background="@color/greyLight">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profileImage"
@@ -143,7 +143,7 @@
                         android:id="@+id/childLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/blueBackground">
+                        android:background="@color/greyLight">
 
                         <TextView
                             android:id="@+id/firstNameTv"

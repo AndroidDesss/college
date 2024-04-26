@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".module.studentSubModule.Lms.fragment.LMSExamFragmentScreen">
+
+        <TextView
+            android:id="@+id/finishTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:fontFamily="@font/bold"
+            android:gravity="end"
+            android:text="@string/finish"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/questionNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/finishTextView"/>
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/questionNumberTextView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/containerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/questionTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:fontFamily="@font/bold"
+                    android:padding="@dimen/_5sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <RadioGroup
+            android:id="@+id/optionsRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/buttonHandleLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scrollView"/>
+
+
+        <LinearLayout
+            android:id="@+id/buttonHandleLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/previousButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:background="@drawable/background_button"
+                android:fontFamily="@font/bold"
+                android:text="Previous"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/nextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:background="@drawable/background_button"
+                android:fontFamily="@font/bold"
+                android:text="Next"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp"/>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

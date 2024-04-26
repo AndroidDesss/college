@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".module.studentSubModule.transport.TransportFragment">
+
+        <TextView
+            android:id="@+id/attendanceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/bold"
+            android:text="Transport Details"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_21ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/meetingLogo"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/online_class"
+            android:contentDescription="@string/lock"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/attendanceTv" />
+
+        <TextView
+            android:id="@+id/busNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/bold"
+            android:text="Bus No/Name:"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/meetingLogo"/>
+
+
+        <TextView
+            android:id="@+id/busNameValueTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/bold"
+            android:text="1GA"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/busNameTv"
+            app:layout_constraintTop_toBottomOf="@id/meetingLogo"/>
+
+        <TextView
+            android:id="@+id/driverNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/bold"
+            android:text="Driver Name:"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/busNameValueTv"/>
+
+        <TextView
+            android:id="@+id/driverNameValueTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/bold"
+            android:text="Kumar.T"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/driverNameTv"
+            app:layout_constraintTop_toBottomOf="@id/busNameValueTv"/>
+
+        <TextView
+            android:id="@+id/contactNumberTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/bold"
+            android:text="Contact Number:"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/driverNameValueTv"/>
+
+        <TextView
+            android:id="@+id/contactNumberValueTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/bold"
+            android:text="9876543210"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/contactNumberTv"
+            app:layout_constraintTop_toBottomOf="@id/driverNameValueTv"/>
+
+        <TextView
+            android:id="@+id/routeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/bold"
+            android:text="Route:"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/contactNumberValueTv"/>
+
+        <TextView
+            android:id="@+id/routeValueTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/bold"
+            android:text="Adayar  -  Velachery"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/routeTv"
+            app:layout_constraintTop_toBottomOf="@id/contactNumberValueTv"/>
+
+        <TextView
+            android:id="@+id/viaTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/bold"
+            android:text="Via:"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/routeValueTv"/>
+
+        <TextView
+            android:id="@+id/viaValueTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/bold"
+            android:text="Porur,DLF,Guindy,Phoenix Mall"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/viaTv"
+            app:layout_constraintTop_toBottomOf="@id/routeValueTv"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

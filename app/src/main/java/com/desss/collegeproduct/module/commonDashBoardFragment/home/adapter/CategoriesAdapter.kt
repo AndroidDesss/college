@@ -20,13 +20,17 @@ import com.desss.collegeproduct.module.professorSubModule.professorAttendance.fr
 import com.desss.collegeproduct.module.professorSubModule.report.fragment.ReportFragmentScreen
 import com.desss.collegeproduct.module.professorSubModule.schedule.fragment.ScheduleFragmentScreen
 import com.desss.collegeproduct.module.professorSubModule.studentAttendance.fragment.StudentAttendanceFragmentScreen
+import com.desss.collegeproduct.module.studentSubModule.Lms.fragment.LMSExamFragmentScreen
+import com.desss.collegeproduct.module.studentSubModule.Lms.fragment.LmsLessonFragment
 import com.desss.collegeproduct.module.studentSubModule.attendance.fragment.AttendanceFragmentScreen
 import com.desss.collegeproduct.module.studentSubModule.examTimeTable.fragment.ExamTimeTableFragmentScreen
 import com.desss.collegeproduct.module.studentSubModule.feePay.fragment.FeePayFragmentScreen
+import com.desss.collegeproduct.module.studentSubModule.meetings.MeetingFragments
 import com.desss.collegeproduct.module.studentSubModule.notes.fragment.NotesFragmentScreen
 import com.desss.collegeproduct.module.studentSubModule.remarks.fragment.RemarksFragmentScreen
 import com.desss.collegeproduct.module.studentSubModule.results.fragment.StudentResultsFragmentScreen
 import com.desss.collegeproduct.module.studentSubModule.syllabus.fragment.SyllabusFragmentScreen
+import com.desss.collegeproduct.module.studentSubModule.transport.TransportFragment
 
 class CategoriesAdapter(
     private val context: Context?,
@@ -142,6 +146,37 @@ class CategoriesAdapter(
                             true
                         )
                     }
+                }
+
+                "Meetings" -> {
+                    val meetingsFragmentScreen = MeetingFragments()
+                    CommonUtility.navigateToFragment(
+                        (context as FragmentActivity).supportFragmentManager,
+                        meetingsFragmentScreen,
+                        R.id.container,
+                        true
+                    )
+                }
+
+                "LMS" -> {
+                    val lmsLessonFragmentScreen  = LmsLessonFragment()
+//                    LmsLessonFragment()
+                    CommonUtility.navigateToFragment(
+                        (context as FragmentActivity).supportFragmentManager,
+                        lmsLessonFragmentScreen,
+                        R.id.container,
+                        true
+                    )
+                }
+
+                "Transport" -> {
+                    val transportFragmentScreen = TransportFragment()
+                    CommonUtility.navigateToFragment(
+                        (context as FragmentActivity).supportFragmentManager,
+                        transportFragmentScreen,
+                        R.id.container,
+                        true
+                    )
                 }
 
                 "Student Attendance" -> {

@@ -4,7 +4,7 @@
     <string name="college_logo">appLogo</string>
     <string name="login">Login</string>
     <string name="lock">lockIcon</string>
-    <string name="getStarted">Let\'s get started</string>
+    <string name="getStarted">Let\'s get started !</string>
     <string name="userId">User Id</string>
     <string name="password">Password</string>
     <string name="forgotPassword">Forgot password ?</string>
@@ -105,4 +105,9 @@
     <string name="alterPhone">Alternate Phone</string>
     <string name="submit">Submit</string>
     <string name="results">Results</string>
+    <string name="joinMeeting">Join Meeting</string>
+    <string name="learningManagement">Learning Management</string>
+    <string name="finish">Finish</string>
+    <string name="reviewQuestions">Review Questions</string>
+    <string name="selectedAns">Selected Ans:</string>
 </resources>

@@ -128,7 +128,6 @@ class LoginScreen : AppCompatActivity() {
         }
     }
 
-
     @Deprecated("Deprecated in Java")
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
@@ -142,4 +141,3 @@ class LoginScreen : AppCompatActivity() {
         )
     }
 }
-

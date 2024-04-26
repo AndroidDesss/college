@@ -25,6 +25,7 @@ import com.desss.collegeproduct.module.professorSubModule.schedule.model.UpdateS
 import com.desss.collegeproduct.module.professorSubModule.schedule.model.ViewScheduleModel
 import com.desss.collegeproduct.module.professorSubModule.studentAttendance.model.AddStudentAttendanceModel
 import com.desss.collegeproduct.module.professorSubModule.studentAttendance.model.StudentCountModel
+import com.desss.collegeproduct.module.studentSubModule.Lms.model.LmsModel
 import com.desss.collegeproduct.module.studentSubModule.attendance.model.StudentAttendanceModel
 import com.desss.collegeproduct.module.studentSubModule.examTimeTable.model.ExamTimeTableModel
 import com.desss.collegeproduct.module.studentSubModule.feePay.model.FeePayModel
@@ -377,5 +378,25 @@ interface ApiServices {
         @Query("timetable_id") timeTableId: String?,
         @Query("user_id") userId: String?
     ): Call<CommonResponseModel<ResultsModel>?>?
+
+    //LmsLessonApi
+    @Headers(*["Content-Type: application/json;charset=UTF-8"])
+    @GET("dynamic/dynamicapi.php")
+    fun lmsLessonData(
+        @Query("action") action: String?,
+        @Query("degree") degree: String?,
+        @Query("department") department: String?,
+        @Query("semester") semester: String?
+    ): Call<CommonResponseModel<LmsModel>?>?
+
+    @Headers(*["Content-Type: application/json;charset=UTF-8"])
+    @GET("dynamic/dynamicapi.php")
+    fun lmsSingleLessonData(
+        @Query("action") action: String?,
+        @Query("degree") degree: String?,
+        @Query("department") department: String?,
+        @Query("semester") semester: String?,
+        @Query("id") lessonId: String?
+    ): Call<CommonResponseModel<LmsModel>?>?
 
 }

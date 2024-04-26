@@ -20,6 +20,8 @@
     <color name="purpleBackGroundColor">#8b88d0</color>
     <color name="lightSandalBackGroundColor">#fbb97c</color>
     <color name="violet">#AF52DE</color>
+    <color name="textInputLayoutBackground">#FBF4EC</color>
+    <color name="greyLight">#EEEEEE</color>
 
 
 

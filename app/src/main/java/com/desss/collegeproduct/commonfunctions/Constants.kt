@@ -18,10 +18,10 @@ object Constants {
     val studentResultsDownloadUrl = "https://edusync.desss-portfolio.com/dynamic/timetables_results/"
 
     val studentCategoriesBackGroundColor =
-        arrayOf("#8b88d0", "#79b1fb", "#fbb97c", "#df90c9", "#f7937e", "#e5a9ac","#8b88d0")
+        arrayOf("#8b88d0", "#79b1fb", "#fbb97c", "#df90c9", "#f7937e", "#e5a9ac","#8b88d0","#8b88d0","#79b1fb", "#fbb97c")
 
     val studentCategoriesArray =
-        arrayOf("Fee Pay", "Attendance", "Results","Syllabus", "Exam Timetable", "Reports", "Notes")
+        arrayOf("Fee Pay", "Attendance", "Results","Syllabus", "Exam Timetable", "Reports", "Notes","Meetings","LMS", "Transport")
 
     val studentCategoriesImage = arrayOf(
         R.drawable.fee_pay,
@@ -30,11 +30,14 @@ object Constants {
         R.drawable.student_syllabus,
         R.drawable.exam_timetable,
         R.drawable.student_remark,
-        R.drawable.student_notes
+        R.drawable.student_notes,
+        R.drawable.fee_pay,
+        R.drawable.student_attendance,
+        R.drawable.student_results
     )
 
     val professorCategoriesBackGroundColor =
-        arrayOf("#8b88d0", "#79b1fb", "#fbb97c", "#df90c9", "#f7937e", "#e5a9ac")
+        arrayOf("#8b88d0", "#79b1fb", "#fbb97c", "#df90c9", "#f7937e", "#e5a9ac","#8b88d0")
 
     val professorCategoriesArray = arrayOf(
         "Student Attendance",
@@ -42,7 +45,8 @@ object Constants {
         "Department",
         "Schedule",
         "Report",
-        "Notes"
+        "Notes",
+        "Transport"
     )
 
     val professorCategoriesImage = arrayOf(
@@ -51,7 +55,8 @@ object Constants {
         R.drawable.department_icon,
         R.drawable.schedule_icon,
         R.drawable.student_remark,
-        R.drawable.student_notes
+        R.drawable.student_notes,
+        R.drawable.student_attendance,
     )
 
     val managementCategoriesArray =

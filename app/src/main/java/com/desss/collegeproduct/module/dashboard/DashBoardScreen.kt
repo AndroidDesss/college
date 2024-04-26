@@ -7,13 +7,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.desss.collegeproduct.R
 import com.desss.collegeproduct.commonfunctions.CommonUtility
-import com.desss.collegeproduct.commonfunctions.Constants
 import com.desss.collegeproduct.commonfunctions.SharedPref
 import com.desss.collegeproduct.databinding.ActivityDashBoardScreenBinding
 import com.desss.collegeproduct.module.auth.activity.LoginScreen
 import com.desss.collegeproduct.module.commonDashBoardFragment.home.fragment.HomeFragmentScreen
 import com.desss.collegeproduct.module.commonDashBoardFragment.notification.fragment.NotificationFragmentScreen
 import com.desss.collegeproduct.module.commonDashBoardFragment.profile.fragment.ProfileFragmentScreen
+import com.desss.collegeproduct.module.studentSubModule.Lms.fragment.LmsVideoExamFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class DashBoardScreen : AppCompatActivity() {
@@ -70,23 +70,51 @@ class DashBoardScreen : AppCompatActivity() {
         transaction.commit()
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed()
-    {
-        if (supportFragmentManager.backStackEntryCount == 1)
-        {
-            CommonUtility.showAlertDialog(this, "", "Are you sure you want to exit?", "Yes", "No",
-                object : CommonUtility.DialogClickListener {
-                    override fun dialogOkBtnClicked(value: String?) {
-                        CommonUtility.commonStartActivity(this@DashBoardScreen, LoginScreen::class.java,null,true)
+//    @Deprecated("Deprecated in Java")
+//    override fun onBackPressed()
+//    {
+//        if (supportFragmentManager.backStackEntryCount == 1)
+//        {
+//            CommonUtility.showAlertDialog(this, "", "Are you sure you want to exit?", "Yes", "No",
+//                object : CommonUtility.DialogClickListener {
+//                    override fun dialogOkBtnClicked(value: String?) {
+//                        CommonUtility.commonStartActivity(this@DashBoardScreen, LoginScreen::class.java,null,true)
+//                    }
+//                    override fun dialogNoBtnClicked(value: String?) {}
+//                }
+//            )
+//        }
+//        else
+//        {
+//            super.onBackPressed()
+//        }
+//    }
+
+    override fun onBackPressed() {
+        val fragment = supportFragmentManager.findFragmentById(R.id.container)
+        if (fragment is LmsVideoExamFragment && !fragment.handleBackPressed()) {
+            if (!(fragment).isFullscreen) {
+                super.onBackPressed()
+            }
+        } else {
+            if (supportFragmentManager.backStackEntryCount == 1) {
+                CommonUtility.showAlertDialog(
+                    this, "", "Are you sure you want to exit?", "Yes", "No",
+                    object : CommonUtility.DialogClickListener {
+                        override fun dialogOkBtnClicked(value: String?) {
+                            CommonUtility.commonStartActivity(
+                                this@DashBoardScreen,
+                                LoginScreen::class.java,
+                                null,
+                                true
+                            )
+                        }
+                        override fun dialogNoBtnClicked(value: String?) {}
                     }
-                    override fun dialogNoBtnClicked(value: String?) {}
-                }
-            )
-        }
-        else
-        {
-            super.onBackPressed()
+                )
+            } else {
+                super.onBackPressed()
+            }
         }
     }
 }
