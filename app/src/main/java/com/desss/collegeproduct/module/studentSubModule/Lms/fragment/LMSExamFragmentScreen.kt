@@ -65,7 +65,7 @@ class LMSExamFragmentScreen : Fragment() {
     private fun callApi() {
         CommonUtility.showProgressDialog(context)
         lmsLessonScreenViewModel.callLmsSingleLessonApi(
-            requireActivity(), "lms", SharedPref.getDegree(context).toString(),
+            requireActivity(), "get_lms", SharedPref.getDegree(context).toString(),
             SharedPref.getCourse(context).toString(), SharedPref.getSemester(context).toString(),
             lessonId
         )

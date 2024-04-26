@@ -35,7 +35,7 @@ class LMSFragments : Fragment() {
     private val onClickListener = View.OnClickListener { view ->
         when (view.id) {
             R.id.btnZoom ->  {
-                if (SharedPref.getIsAllVideoWatched(context) == "yes")
+                if (SharedPref.getCourse(context) == "yes")
                 {
                     CommonUtility.showAlertDialog(context, "", "Are you sure you want to watch the course again?", "Yes", "No",
                         object : CommonUtility.DialogClickListener {

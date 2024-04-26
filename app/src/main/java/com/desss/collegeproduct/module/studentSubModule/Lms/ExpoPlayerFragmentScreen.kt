@@ -176,7 +176,6 @@ class ExpoPlayerFragmentScreen : Fragment() {
         }
         else
         {
-            SharedPref.setIsAllVideoWatched(requireContext(), "yes")
             val lmsExamFragmentScreen = LMSExamFragmentScreen()
             CommonUtility.navigateToFragment(
                 (context as FragmentActivity).supportFragmentManager,

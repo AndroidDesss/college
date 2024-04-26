@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.desss.collegeproduct.R
 import com.desss.collegeproduct.commonfunctions.CommonUtility
-import com.desss.collegeproduct.commonfunctions.SharedPref
 import com.desss.collegeproduct.databinding.FragmentLmsVideoExamBinding
 import com.google.android.exoplayer2.DefaultRenderersFactory
 import com.google.android.exoplayer2.Player
@@ -178,14 +177,7 @@ class LmsVideoExamFragment : Fragment() {
             currentVideoIndex++
         } else
         {
-            SharedPref.setIsAllVideoWatched(requireContext(), "yes")
-            val lmsExamFragmentScreen = LMSExamFragmentScreen()
-            CommonUtility.navigateToFragment(
-                (context as FragmentActivity).supportFragmentManager,
-                lmsExamFragmentScreen,
-                R.id.container,
-                false
-            )
+            CommonUtility.toastString("No Next video..!", activity)
         }
     }
 
@@ -193,6 +185,9 @@ class LmsVideoExamFragment : Fragment() {
         if (currentVideoIndex > 0) {
             playVideoAtIndex(currentVideoIndex - 1)
             currentVideoIndex--
+        }else
+        {
+            CommonUtility.toastString("No Previous video..!", activity)
         }
     }
 
@@ -220,12 +215,8 @@ class LmsVideoExamFragment : Fragment() {
 
     private fun playVideoAtIndex(index: Int) {
         val mediaUrl = videoUrls!![index]
-        val dataSourceFactory = DefaultDataSourceFactory(
-            requireContext(),
-            Util.getUserAgent(requireContext(), "YourApplicationName")
-        )
-        val mediaSource = ProgressiveMediaSource.Factory(dataSourceFactory)
-            .createMediaSource(Uri.parse(mediaUrl))
+        val dataSourceFactory = DefaultDataSourceFactory(requireContext(), Util.getUserAgent(requireContext(), "YourApplicationName"))
+        val mediaSource = ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(mediaUrl))
         player.prepare(mediaSource)
         isNewVideoLoaded = true
         currentPosition = index
@@ -301,12 +292,11 @@ class LmsVideoExamFragment : Fragment() {
             val currentSeconds = (player.currentPosition / 1000).toInt()
             watchedSecondsSet.add(currentSeconds)
             handler.postDelayed(this, 1000) // Update every 1 second
-            val twentyPercentDuration = (videoDurationSeconds * 0.05).toInt()
+            val twentyPercentDuration = (videoDurationSeconds * 0.20).toInt()
             if(watchedSecondsSet.size >= twentyPercentDuration)
             {
                 fragmentLmsVideoExamBinding.btnNext.isClickable = true
                 fragmentLmsVideoExamBinding.btnAttendTest.visibility = View.VISIBLE
-
             }
             else
             {
