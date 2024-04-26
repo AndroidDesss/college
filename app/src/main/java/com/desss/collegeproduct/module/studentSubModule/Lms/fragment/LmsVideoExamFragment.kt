@@ -228,6 +228,7 @@ class LmsVideoExamFragment : Fragment() {
             .createMediaSource(Uri.parse(mediaUrl))
         player.prepare(mediaSource)
         isNewVideoLoaded = true
+        currentPosition = index
         updatePreviousButtonVisibility()
     }
 
@@ -290,8 +291,6 @@ class LmsVideoExamFragment : Fragment() {
         }
         override fun onPositionDiscontinuity(reason: Int) {
             super.onPositionDiscontinuity(reason)
-            val newPosition = player.currentWindowIndex
-            setCurrentPosition(newPosition)
             updateSeekBar()
         }
     }
@@ -302,7 +301,7 @@ class LmsVideoExamFragment : Fragment() {
             val currentSeconds = (player.currentPosition / 1000).toInt()
             watchedSecondsSet.add(currentSeconds)
             handler.postDelayed(this, 1000) // Update every 1 second
-            val twentyPercentDuration = (videoDurationSeconds * 0.20).toInt()
+            val twentyPercentDuration = (videoDurationSeconds * 0.05).toInt()
             if(watchedSecondsSet.size >= twentyPercentDuration)
             {
                 fragmentLmsVideoExamBinding.btnNext.isClickable = true
@@ -347,10 +346,6 @@ class LmsVideoExamFragment : Fragment() {
         {
             return false
         }
-    }
-
-    fun setCurrentPosition(position: Int) {
-        this.currentPosition = position
     }
 
     private fun getCurrentLessonId(): String? {
