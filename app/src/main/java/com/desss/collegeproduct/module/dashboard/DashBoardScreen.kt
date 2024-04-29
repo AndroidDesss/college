@@ -112,6 +112,22 @@ class DashBoardScreen : AppCompatActivity() {
                         override fun dialogNoBtnClicked(value: String?) {}
                     }
                 )
+            }
+            else if (supportFragmentManager.backStackEntryCount == 0) {
+                CommonUtility.showAlertDialog(
+                    this, "", "Are you sure you want to exit?", "Yes", "No",
+                    object : CommonUtility.DialogClickListener {
+                        override fun dialogOkBtnClicked(value: String?) {
+                            CommonUtility.commonStartActivity(
+                                this@DashBoardScreen,
+                                LoginScreen::class.java,
+                                null,
+                                true
+                            )
+                        }
+                        override fun dialogNoBtnClicked(value: String?) {}
+                    }
+                )
             } else {
                 super.onBackPressed()
             }

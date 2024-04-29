@@ -14,6 +14,7 @@ import com.desss.collegeproduct.R
 import com.desss.collegeproduct.commonfunctions.CommonUtility
 import com.desss.collegeproduct.commonfunctions.SharedPref
 import com.desss.collegeproduct.databinding.FragmentLmsExamPreviewBinding
+import com.desss.collegeproduct.module.commonDashBoardFragment.home.fragment.HomeFragmentScreen
 import com.desss.collegeproduct.module.dashboard.DashBoardScreen
 import com.desss.collegeproduct.module.studentSubModule.Lms.adapter.LmsExamPreviewAdapter
 import com.desss.collegeproduct.module.studentSubModule.Lms.model.QusAns
@@ -121,8 +122,11 @@ class LmsExamPreviewFragment : Fragment() {
     }
 
     private fun navigateToDashboardScreen() {
-        val intent = Intent(requireContext(), DashBoardScreen::class.java)
-        requireContext().startActivity(intent)
+        requireActivity().supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        val homeFragment = HomeFragmentScreen()
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.container, homeFragment)
+        transaction.commit()
     }
 
 }

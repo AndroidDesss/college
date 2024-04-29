@@ -317,7 +317,7 @@ class LmsVideoFragment : Fragment() {
             val currentSeconds = (player.currentPosition / 1000).toInt()
             watchedSecondsSet.add(currentSeconds)
             handler.postDelayed(this, 1000) // Update every 1 second
-            val twentyPercentDuration = (videoDurationSeconds * 0.01).toInt()
+            val twentyPercentDuration = (videoDurationSeconds * 0.20).toInt()
             if(watchedSecondsSet.size >= twentyPercentDuration)
             {
                 fragmentLmsVideoExamBinding.btnNext.isClickable = true
