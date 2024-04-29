@@ -50,7 +50,6 @@ class LmsLessonFragment : Fragment() {
     }
 
     private fun observeViewModel(viewModel: LmsLessonScreenViewModel) {
-
         viewModel.getLmsLessonData()?.observe(requireActivity(), Observer { lmsData ->
             if (lmsData != null) {
                 if (lmsData.status == 403 && lmsData.data.isNotEmpty()) {

@@ -172,6 +172,7 @@ class LMSExamFragmentScreen : Fragment() {
                         putSerializable("questionList", ArrayList(questionList))
                         putInt("correctAnswersCount", correctAnswersCount)
                         putInt("totalQuestions", totalQuestions)
+                        putString("lessonId", lessonId)
                     }
                     val lmsExamPreviewFragment  = LmsExamPreviewFragment()
                     lmsExamPreviewFragment.arguments = bundle

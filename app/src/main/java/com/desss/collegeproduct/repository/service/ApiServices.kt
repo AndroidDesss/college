@@ -28,6 +28,7 @@ import com.desss.collegeproduct.module.professorSubModule.studentAttendance.mode
 import com.desss.collegeproduct.module.studentSubModule.Lms.model.LmsDurationModel
 import com.desss.collegeproduct.module.studentSubModule.Lms.model.LmsModel
 import com.desss.collegeproduct.module.studentSubModule.Lms.model.PostLmsDurationModel
+import com.desss.collegeproduct.module.studentSubModule.Lms.model.UpdateLmsExamModel
 import com.desss.collegeproduct.module.studentSubModule.attendance.model.StudentAttendanceModel
 import com.desss.collegeproduct.module.studentSubModule.examTimeTable.model.ExamTimeTableModel
 import com.desss.collegeproduct.module.studentSubModule.feePay.model.FeePayModel
@@ -418,5 +419,16 @@ interface ApiServices {
         @Part("last_watched_duration") lastWatchedDuration: RequestBody?,
         @Part("custom_duration") customDuration: RequestBody?
     ): Call<CommonResponseModel<PostLmsDurationModel>?>?
+
+    @Multipart
+    @POST("dynamic/dynamicapi.php")
+    fun postExamAnswers(
+        @Part("action") action: RequestBody?,
+        @Part("user_id") userId: RequestBody?,
+        @Part("lms_id") lmsId: RequestBody?,
+        @Part("question_count") questionCount: RequestBody?,
+        @Part("answer_count") answerCount: RequestBody?,
+        @Part("qus_ans") questionAnswer: RequestBody?
+    ): Call<CommonResponseModel<UpdateLmsExamModel>?>?
 
 }

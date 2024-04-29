@@ -9,6 +9,7 @@ import com.desss.collegeproduct.commonfunctions.CommonResponseModel
 import com.desss.collegeproduct.module.studentSubModule.Lms.model.LmsDurationModel
 import com.desss.collegeproduct.module.studentSubModule.Lms.model.LmsModel
 import com.desss.collegeproduct.module.studentSubModule.Lms.model.PostLmsDurationModel
+import com.desss.collegeproduct.module.studentSubModule.Lms.model.UpdateLmsExamModel
 import com.desss.collegeproduct.module.studentSubModule.Lms.repository.LmsRepository
 
 @SuppressLint("StaticFieldLeak")
@@ -22,6 +23,8 @@ class LmsLessonScreenViewModel(application: Application, val activity: Activity)
     private var lmsVideoDurationDataObservable: LiveData<CommonResponseModel<LmsDurationModel>>? = null
 
     private var lmsVideoPostDurationDataObservable: LiveData<CommonResponseModel<PostLmsDurationModel>>? = null
+
+    private var lmsExamUpdateDataObservable: LiveData<CommonResponseModel<UpdateLmsExamModel>>? = null
 
     fun callLmsLessonApi(activity: Activity, action: String, degree: String, department: String, semester: String) {
         lmsLessonDataObservable = LmsRepository.getLessonData(activity, action, degree, department,semester)
@@ -49,6 +52,13 @@ class LmsLessonScreenViewModel(application: Application, val activity: Activity)
     }
     fun getLmsVideoPostDurationData(): LiveData<CommonResponseModel<PostLmsDurationModel>>? {
         return lmsVideoPostDurationDataObservable
+    }
+
+    fun callLmsPostExamUpdateApi(activity: Activity, action: String, userId: String, lmsId: String,questionCount: String,answerCount: String,questionAnswer: String) {
+        lmsExamUpdateDataObservable = LmsRepository.postLmsExamData(activity, action, userId, lmsId,questionCount,answerCount,questionAnswer)
+    }
+    fun getLmsPostExamUpdateData(): LiveData<CommonResponseModel<UpdateLmsExamModel>>? {
+        return lmsExamUpdateDataObservable
     }
 
 }

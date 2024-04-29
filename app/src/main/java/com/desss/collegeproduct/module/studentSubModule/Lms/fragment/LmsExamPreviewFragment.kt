@@ -1,19 +1,25 @@
 package com.desss.collegeproduct.module.studentSubModule.Lms.fragment
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Observer
 import com.desss.collegeproduct.R
 import com.desss.collegeproduct.commonfunctions.CommonUtility
 import com.desss.collegeproduct.commonfunctions.SharedPref
 import com.desss.collegeproduct.databinding.FragmentLmsExamPreviewBinding
+import com.desss.collegeproduct.module.dashboard.DashBoardScreen
 import com.desss.collegeproduct.module.studentSubModule.Lms.adapter.LmsExamPreviewAdapter
 import com.desss.collegeproduct.module.studentSubModule.Lms.model.QusAns
 import com.desss.collegeproduct.module.studentSubModule.Lms.viewModel.LmsLessonScreenViewModel
+import com.google.gson.Gson
+import com.google.gson.JsonObject
 
 class LmsExamPreviewFragment : Fragment() {
 
@@ -27,6 +33,10 @@ class LmsExamPreviewFragment : Fragment() {
 
     private var totalQuestions: Int = 0
 
+    private lateinit var lessonId: String
+
+    private lateinit var questionAnswersJson: String
+
     private var lmsExamPreviewAdapter: LmsExamPreviewAdapter? = null
 
     private lateinit var lmsLessonScreenViewModel: LmsLessonScreenViewModel
@@ -38,6 +48,7 @@ class LmsExamPreviewFragment : Fragment() {
             questionList = it.getSerializable("questionList") as List<QusAns>
             correctAnswersCount = it.getInt("correctAnswersCount")
             totalQuestions = it.getInt("totalQuestions")
+            lessonId = it.getString("lessonId").toString()
         }
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -67,21 +78,51 @@ class LmsExamPreviewFragment : Fragment() {
     private val onClickListener = View.OnClickListener { view ->
         when (view.id) {
             R.id.submitButton ->  {
-                CommonUtility.toastString("Thanks for attending the test..!", activity)
+                val gson = Gson()
+                val jsonArray = ArrayList<JsonObject>()
+                userAnswersMap.forEach { (questionId, answer) ->
+                    val questionText = questionList.find { it.question_id == questionId }?.question_text ?: ""
+                    val jsonObject = JsonObject().apply {
+                        addProperty("question_id", questionId)
+                        addProperty("question_text", questionText)
+                        addProperty("answer", answer)
+                    }
+                    jsonArray.add(jsonObject)
+                }
+                questionAnswersJson = gson.toJson(jsonArray)
+                updateExamResults()
+                observeViewModel(lmsLessonScreenViewModel)
             }
         }
     }
 
-//    private fun updateExamResults()
-//    {
-//        CommonUtility.showProgressDialog(context)
-//        lmsLessonScreenViewModel.updateExamResults(
-//            requireActivity(), "lms", SharedPref.getDegree(context).toString(),
-//            SharedPref.getCourse(context).toString(), SharedPref.getSemester(context).toString()
-//        )
-//    }
+    private fun updateExamResults()
+    {
+        CommonUtility.showProgressDialog(context)
+        lmsLessonScreenViewModel.callLmsPostExamUpdateApi(
+            requireActivity(), "update_lms", SharedPref.getId(context).toString(),lessonId,totalQuestions.toString(),
+            totalQuestions.toString(), questionAnswersJson)
+    }
 
+    private fun observeViewModel(viewModel: LmsLessonScreenViewModel) {
+        viewModel.getLmsPostExamUpdateData()?.observe(requireActivity(), Observer { lmsData ->
+            if (lmsData != null) {
+                if (lmsData.status == 403 && lmsData.data.isNotEmpty()) {
+                    CommonUtility.cancelProgressDialog(activity)
+                } else {
+                    CommonUtility.cancelProgressDialog(activity)
+                    CommonUtility.toastString("Thanks for attending the test..!", activity)
+                    navigateToDashboardScreen()
+                }
+            } else {
+                CommonUtility.cancelProgressDialog(activity)
+            }
+        })
+    }
 
-
+    private fun navigateToDashboardScreen() {
+        val intent = Intent(requireContext(), DashBoardScreen::class.java)
+        requireContext().startActivity(intent)
+    }
 
 }

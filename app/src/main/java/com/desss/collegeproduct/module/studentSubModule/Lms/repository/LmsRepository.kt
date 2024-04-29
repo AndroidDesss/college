@@ -8,6 +8,7 @@ import com.desss.collegeproduct.commonfunctions.CommonUtility
 import com.desss.collegeproduct.module.studentSubModule.Lms.model.LmsDurationModel
 import com.desss.collegeproduct.module.studentSubModule.Lms.model.LmsModel
 import com.desss.collegeproduct.module.studentSubModule.Lms.model.PostLmsDurationModel
+import com.desss.collegeproduct.module.studentSubModule.Lms.model.UpdateLmsExamModel
 import com.desss.collegeproduct.repository.service.ApiServices
 import com.desss.collegeproduct.repository.service.retrofit.ApiClient
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -118,6 +119,37 @@ object LmsRepository {
 
             override fun onFailure(
                 call: Call<CommonResponseModel<PostLmsDurationModel>?>,
+                t: Throwable
+            ) {
+                CommonUtility.cancelProgressDialog(activity)
+            }
+        })
+        return data
+    }
+
+    fun postLmsExamData(
+        activity: Activity,
+        action: String,
+        userId: String,
+        lmsId: String,
+        questionCount: String,
+        answerCount: String,
+        questionAnswer: String
+    ): LiveData<CommonResponseModel<UpdateLmsExamModel>> {
+        val data: MutableLiveData<CommonResponseModel<UpdateLmsExamModel>> =
+            MutableLiveData<CommonResponseModel<UpdateLmsExamModel>>()
+        val apiService = ApiClient.client?.create(ApiServices::class.java)
+        val call: Call<CommonResponseModel<UpdateLmsExamModel>?>? = apiService?.postExamAnswers(toRequestBody(action), toRequestBody(userId), toRequestBody(lmsId), toRequestBody(questionCount), toRequestBody(answerCount), toRequestBody(questionAnswer))
+        call?.enqueue(object : Callback<CommonResponseModel<UpdateLmsExamModel>?> {
+            override fun onResponse(
+                call: Call<CommonResponseModel<UpdateLmsExamModel>?>,
+                response: Response<CommonResponseModel<UpdateLmsExamModel>?>
+            ) {
+                data.value = response.body()
+            }
+
+            override fun onFailure(
+                call: Call<CommonResponseModel<UpdateLmsExamModel>?>,
                 t: Throwable
             ) {
                 CommonUtility.cancelProgressDialog(activity)
