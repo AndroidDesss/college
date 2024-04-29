@@ -25,7 +25,9 @@ import com.desss.collegeproduct.module.professorSubModule.schedule.model.UpdateS
 import com.desss.collegeproduct.module.professorSubModule.schedule.model.ViewScheduleModel
 import com.desss.collegeproduct.module.professorSubModule.studentAttendance.model.AddStudentAttendanceModel
 import com.desss.collegeproduct.module.professorSubModule.studentAttendance.model.StudentCountModel
+import com.desss.collegeproduct.module.studentSubModule.Lms.model.LmsDurationModel
 import com.desss.collegeproduct.module.studentSubModule.Lms.model.LmsModel
+import com.desss.collegeproduct.module.studentSubModule.Lms.model.PostLmsDurationModel
 import com.desss.collegeproduct.module.studentSubModule.attendance.model.StudentAttendanceModel
 import com.desss.collegeproduct.module.studentSubModule.examTimeTable.model.ExamTimeTableModel
 import com.desss.collegeproduct.module.studentSubModule.feePay.model.FeePayModel
@@ -398,5 +400,23 @@ interface ApiServices {
         @Query("semester") semester: String?,
         @Query("id") lessonId: String?
     ): Call<CommonResponseModel<LmsModel>?>?
+
+    @Headers(*["Content-Type: application/json;charset=UTF-8"])
+    @GET("dynamic/dynamicapi.php")
+    fun lmsDurationData(
+        @Query("action") action: String?,
+        @Query("user_id") userId: String?,
+        @Query("lms_id") lmsId: String?
+    ): Call<CommonResponseModel<LmsDurationModel>?>?
+
+    @Multipart
+    @POST("dynamic/dynamicapi.php")
+    fun postDuration(
+        @Part("action") action: RequestBody?,
+        @Part("user_id") userId: RequestBody?,
+        @Part("lms_id") lmsId: RequestBody?,
+        @Part("last_watched_duration") lastWatchedDuration: RequestBody?,
+        @Part("custom_duration") customDuration: RequestBody?
+    ): Call<CommonResponseModel<PostLmsDurationModel>?>?
 
 }

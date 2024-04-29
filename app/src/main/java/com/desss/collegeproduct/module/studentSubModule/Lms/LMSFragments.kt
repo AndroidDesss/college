@@ -12,7 +12,7 @@ import com.desss.collegeproduct.commonfunctions.CommonUtility
 import com.desss.collegeproduct.commonfunctions.SharedPref
 import com.desss.collegeproduct.databinding.FragmentLMSFragmentsBinding
 import com.desss.collegeproduct.module.studentSubModule.Lms.fragment.LMSExamFragmentScreen
-import com.desss.collegeproduct.module.studentSubModule.Lms.fragment.LmsVideoExamFragment
+import com.desss.collegeproduct.module.studentSubModule.Lms.fragment.LmsVideoFragment
 
 
 class LMSFragments : Fragment() {
@@ -40,20 +40,13 @@ class LMSFragments : Fragment() {
                     CommonUtility.showAlertDialog(context, "", "Are you sure you want to watch the course again?", "Yes", "No",
                         object : CommonUtility.DialogClickListener {
                             override fun dialogOkBtnClicked(value: String?) {
-                                val lmsVideoExamFragment = LmsVideoExamFragment()
+                                val lmsVideoExamFragment = LmsVideoFragment()
                                 CommonUtility.navigateToFragment(
                                     (context as FragmentActivity).supportFragmentManager,
                                     lmsVideoExamFragment,
                                     R.id.container,
                                     true
                                 )
-//                                val expoPlayerFragmentScreen = ExpoPlayerFragmentScreen()
-//                                CommonUtility.navigateToFragment(
-//                                    (context as FragmentActivity).supportFragmentManager,
-//                                    expoPlayerFragmentScreen,
-//                                    R.id.container,
-//                                    true
-//                                )
                             }
                             override fun dialogNoBtnClicked(value: String?) {
                                 val lmsExamFragmentScreen = LMSExamFragmentScreen()
@@ -69,7 +62,7 @@ class LMSFragments : Fragment() {
                 }
                 else
                 {
-                    val lmsVideoExamFragment = LmsVideoExamFragment()
+                    val lmsVideoExamFragment = LmsVideoFragment()
                     CommonUtility.navigateToFragment(
                         (context as FragmentActivity).supportFragmentManager,
                         lmsVideoExamFragment,

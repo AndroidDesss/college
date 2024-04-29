@@ -13,7 +13,7 @@ import com.desss.collegeproduct.R
 import com.desss.collegeproduct.commonfunctions.CommonUtility
 import com.desss.collegeproduct.commonfunctions.Constants
 import com.desss.collegeproduct.databinding.AdapterLmsLessonBinding
-import com.desss.collegeproduct.module.studentSubModule.Lms.fragment.LmsVideoExamFragment
+import com.desss.collegeproduct.module.studentSubModule.Lms.fragment.LmsVideoFragment
 import com.desss.collegeproduct.module.studentSubModule.Lms.model.LmsModel
 import kotlin.random.Random
 
@@ -48,7 +48,7 @@ class LmsLessonAdapter(private val context: Context?, private val lmsLessonList:
                 putStringArrayList("lessonIds", ArrayList(lessonIds))
                 putInt("position", position)
             }
-            val lmsVideoExamFragment  = LmsVideoExamFragment()
+            val lmsVideoExamFragment  = LmsVideoFragment()
             lmsVideoExamFragment.arguments = bundle
             CommonUtility.navigateToFragment(
                 (context as FragmentActivity).supportFragmentManager,

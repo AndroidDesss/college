@@ -11,9 +11,14 @@ import android.widget.SeekBar
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.Observer
 import com.desss.collegeproduct.R
+import com.desss.collegeproduct.commonfunctions.CommonResponseModel
 import com.desss.collegeproduct.commonfunctions.CommonUtility
+import com.desss.collegeproduct.commonfunctions.SharedPref
 import com.desss.collegeproduct.databinding.FragmentLmsVideoExamBinding
+import com.desss.collegeproduct.module.studentSubModule.Lms.model.LmsDurationModel
+import com.desss.collegeproduct.module.studentSubModule.Lms.viewModel.LmsLessonScreenViewModel
 import com.google.android.exoplayer2.DefaultRenderersFactory
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
@@ -23,7 +28,7 @@ import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 import java.util.Locale
-class LmsVideoExamFragment : Fragment() {
+class LmsVideoFragment : Fragment() {
 
     private lateinit var fragmentLmsVideoExamBinding: FragmentLmsVideoExamBinding
 
@@ -49,6 +54,10 @@ class LmsVideoExamFragment : Fragment() {
 
     var isFullscreen = false
 
+    private var lastWatchedTime: String = "00:00:00"
+
+    private lateinit var lmsLessonScreenViewModel: LmsLessonScreenViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val bundle = arguments
@@ -56,7 +65,6 @@ class LmsVideoExamFragment : Fragment() {
             videoUrls = bundle.getStringArrayList("videoUrls")
             lessonIds = bundle.getStringArrayList("lessonIds")
             currentPosition = bundle.getInt("position",-1)
-
         }
     }
 
@@ -65,6 +73,7 @@ class LmsVideoExamFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         fragmentLmsVideoExamBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_lms_video_exam, container, false)
+        initViewModel()
         initListener()
         fragmentLmsVideoExamBinding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -81,6 +90,11 @@ class LmsVideoExamFragment : Fragment() {
         })
 
         return fragmentLmsVideoExamBinding.root
+    }
+
+    private fun initViewModel() {
+        lmsLessonScreenViewModel =
+            LmsLessonScreenViewModel(activity?.application!!, requireActivity())
     }
 
 
@@ -173,6 +187,10 @@ class LmsVideoExamFragment : Fragment() {
 
     private fun loadNextVideo() {
         if (currentVideoIndex < videoUrls!!.size - 1) {
+            getCurrentLessonId()?.let { lessonId ->
+                callPostDurationApi(lessonId)
+            }
+            currentPosition = currentVideoIndex + 1
             playVideoAtIndex(currentVideoIndex + 1)
             currentVideoIndex++
         } else
@@ -183,6 +201,10 @@ class LmsVideoExamFragment : Fragment() {
 
     private fun loadPreviousVideo() {
         if (currentVideoIndex > 0) {
+            getCurrentLessonId()?.let { lessonId ->
+                callPostDurationApi(lessonId)
+            }
+            currentPosition = currentVideoIndex - 1
             playVideoAtIndex(currentVideoIndex - 1)
             currentVideoIndex--
         }else
@@ -214,13 +236,11 @@ class LmsVideoExamFragment : Fragment() {
     }
 
     private fun playVideoAtIndex(index: Int) {
+        watchedSecondsSet.clear()
         val mediaUrl = videoUrls!![index]
-        val dataSourceFactory = DefaultDataSourceFactory(requireContext(), Util.getUserAgent(requireContext(), "YourApplicationName"))
-        val mediaSource = ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(mediaUrl))
-        player.prepare(mediaSource)
-        isNewVideoLoaded = true
-        currentPosition = index
-        updatePreviousButtonVisibility()
+        val id = getCurrentLessonId()
+        callApi(id.toString())
+        observeViewModel(lmsLessonScreenViewModel,mediaUrl,index)
     }
 
     private fun updatePreviousButtonVisibility() {
@@ -235,6 +255,9 @@ class LmsVideoExamFragment : Fragment() {
 
     override fun onStop() {
         super.onStop()
+        getCurrentLessonId()?.let { lessonId ->
+            callPostDurationApi(lessonId)
+        }
         player.playWhenReady = false
         stopTrackingProgress()
     }
@@ -242,6 +265,9 @@ class LmsVideoExamFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         player.release()
+        getCurrentLessonId()?.let { lessonId ->
+            callPostDurationApi(lessonId)
+        }
     }
 
     private fun startTrackingProgress() {
@@ -269,7 +295,6 @@ class LmsVideoExamFragment : Fragment() {
             super.onTimelineChanged(timeline, reason)
             videoDurationSeconds = player.duration / 1000
             if (isNewVideoLoaded) {
-                watchedSecondsSet.clear()
                 isNewVideoLoaded = false
             }
         }
@@ -292,7 +317,7 @@ class LmsVideoExamFragment : Fragment() {
             val currentSeconds = (player.currentPosition / 1000).toInt()
             watchedSecondsSet.add(currentSeconds)
             handler.postDelayed(this, 1000) // Update every 1 second
-            val twentyPercentDuration = (videoDurationSeconds * 0.20).toInt()
+            val twentyPercentDuration = (videoDurationSeconds * 0.01).toInt()
             if(watchedSecondsSet.size >= twentyPercentDuration)
             {
                 fragmentLmsVideoExamBinding.btnNext.isClickable = true
@@ -317,13 +342,20 @@ class LmsVideoExamFragment : Fragment() {
             val percentage = (position * 100 / duration).toInt()
             fragmentLmsVideoExamBinding.seekBar.progress = percentage
         }
+        updateLastWatchedSeconds(position)
     }
+
+    private fun updateLastWatchedSeconds(currentPosition: Long) {
+        lastWatchedTime = formatTime(currentPosition)
+    }
+
 
     private fun formatTime(timeMs: Long): String {
         val totalSeconds = timeMs / 1000
-        val minutes = totalSeconds / 60
+        val hours = totalSeconds / 3600
+        val minutes = (totalSeconds % 3600) / 60
         val seconds = totalSeconds % 60
-        return String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds)
+        return String.format(Locale.getDefault(), "%02d:%02d:%02d", hours, minutes, seconds)
     }
 
     fun handleBackPressed(): Boolean {
@@ -344,6 +376,64 @@ class LmsVideoExamFragment : Fragment() {
         } else {
             null
         }
+    }
+
+    private fun callApi(videoId: String) {
+        CommonUtility.showProgressDialog(context)
+        lmsLessonScreenViewModel.callLmsVideoDurationApi(
+            requireActivity(), "get_lms_duration", SharedPref.getId(context).toString(),
+            videoId)
+    }
+
+    private fun observeViewModel(viewModel: LmsLessonScreenViewModel,mediaUrl: String,index: Int) {
+        viewModel.getLmsVideoDurationData()?.observe(requireActivity(), Observer { lmsDurationData ->
+            if (lmsDurationData != null) {
+                if (lmsDurationData.status == 401 && lmsDurationData.data.isNotEmpty()) {
+                    CommonUtility.cancelProgressDialog(activity)
+                } else {
+                    handleLmsDurationData(lmsDurationData,mediaUrl,index)
+                }
+            } else {
+                CommonUtility.cancelProgressDialog(activity)
+            }
+        })
+    }
+
+    private fun handleLmsDurationData(response: CommonResponseModel<LmsDurationModel>,mediaUrl: String,index: Int) {
+        if (response.status == 200) {
+            val durationDataList: List<LmsDurationModel> = response.data
+            val userProfile: LmsDurationModel? = durationDataList.firstOrNull()
+
+            userProfile?.let {
+                val dataSourceFactory = DefaultDataSourceFactory(requireContext(), Util.getUserAgent(requireContext(), "YourApplicationName"))
+                val mediaSource = ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(mediaUrl))
+                player.prepare(mediaSource)
+                val durationString = it.duration
+                val durationParts = durationString.split(":")
+                val hours = durationParts[0].toLong()
+                val minutes = durationParts[1].toLong()
+                val seconds = durationParts[2].toLong()
+                val seekDuration = hours * 3600 + minutes * 60 + seconds
+                player.seekTo(seekDuration * 1000)
+                isNewVideoLoaded = true
+                currentPosition = index
+                if(it.custom_duration!= null || it.custom_duration !="")
+                {
+                    val customDurationParts = it.custom_duration.replace("[", "").replace("]", "").split(",")
+                    for (part in customDurationParts) {
+                        watchedSecondsSet.add(part.trim().toIntOrNull() ?: 0)
+                    }
+                }
+                updatePreviousButtonVisibility()
+            }
+        }
+    }
+
+    private fun callPostDurationApi(lessonId: String) {
+        lmsLessonScreenViewModel.callLmsVideoPostDurationApi(
+            requireActivity(), "update_duration_lms", SharedPref.getId(context).toString(),
+            lessonId,lastWatchedTime, watchedSecondsSet.toString()
+        )
     }
 
 }

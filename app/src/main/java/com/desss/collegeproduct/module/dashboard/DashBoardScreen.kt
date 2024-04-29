@@ -13,7 +13,7 @@ import com.desss.collegeproduct.module.auth.activity.LoginScreen
 import com.desss.collegeproduct.module.commonDashBoardFragment.home.fragment.HomeFragmentScreen
 import com.desss.collegeproduct.module.commonDashBoardFragment.notification.fragment.NotificationFragmentScreen
 import com.desss.collegeproduct.module.commonDashBoardFragment.profile.fragment.ProfileFragmentScreen
-import com.desss.collegeproduct.module.studentSubModule.Lms.fragment.LmsVideoExamFragment
+import com.desss.collegeproduct.module.studentSubModule.Lms.fragment.LmsVideoFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class DashBoardScreen : AppCompatActivity() {
@@ -92,7 +92,7 @@ class DashBoardScreen : AppCompatActivity() {
 
     override fun onBackPressed() {
         val fragment = supportFragmentManager.findFragmentById(R.id.container)
-        if (fragment is LmsVideoExamFragment && !fragment.handleBackPressed()) {
+        if (fragment is LmsVideoFragment && !fragment.handleBackPressed()) {
             if (!(fragment).isFullscreen) {
                 super.onBackPressed()
             }
