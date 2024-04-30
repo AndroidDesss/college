@@ -91,4 +91,14 @@ object SharedPref {
         return SharedPrefUtils.getString(context, "parentLogin")
     }
 
+    fun setBusNo(context: Context, busNo: String?) {
+        SharedPrefUtils.putString(context, "busNo", busNo)
+    }
+
+    fun getBusNo(context: Context?): String? {
+        return SharedPrefUtils.getString(context, "busNo")
+    }
+
+
+
 }

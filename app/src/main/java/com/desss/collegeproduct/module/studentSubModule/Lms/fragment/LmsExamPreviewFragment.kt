@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import com.desss.collegeproduct.R
@@ -102,7 +103,7 @@ class LmsExamPreviewFragment : Fragment() {
         CommonUtility.showProgressDialog(context)
         lmsLessonScreenViewModel.callLmsPostExamUpdateApi(
             requireActivity(), "update_lms", SharedPref.getId(context).toString(),lessonId,totalQuestions.toString(),
-            totalQuestions.toString(), questionAnswersJson)
+            correctAnswersCount.toString(), questionAnswersJson)
     }
 
     private fun observeViewModel(viewModel: LmsLessonScreenViewModel) {
@@ -113,20 +114,23 @@ class LmsExamPreviewFragment : Fragment() {
                 } else {
                     CommonUtility.cancelProgressDialog(activity)
                     CommonUtility.toastString("Thanks for attending the test..!", activity)
-                    navigateToDashboardScreen()
+                    val bundle = Bundle().apply {
+                        putInt("correctAnswersCount", correctAnswersCount)
+                        putInt("totalQuestions", totalQuestions)
+                    }
+                    val lmsResultFragment  = LmsResultFragment()
+                    lmsResultFragment.arguments = bundle
+                    CommonUtility.navigateToFragment(
+                        (context as FragmentActivity).supportFragmentManager,
+                        lmsResultFragment,
+                        R.id.container,
+                        true
+                    )
                 }
             } else {
                 CommonUtility.cancelProgressDialog(activity)
             }
         })
-    }
-
-    private fun navigateToDashboardScreen() {
-        requireActivity().supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-        val homeFragment = HomeFragmentScreen()
-        val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container, homeFragment)
-        transaction.commit()
     }
 
 }

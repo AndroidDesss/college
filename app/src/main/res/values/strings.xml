@@ -110,4 +110,13 @@
     <string name="finish">Finish</string>
     <string name="reviewQuestions">Review Questions</string>
     <string name="selectedAns">Selected Ans:</string>
+    <string name="transportDetails">Transport Details</string>
+    <string name="driverName">Driver Name :</string>
+    <string name="contactNumber">Contact Number :</string>
+    <string name="route">Route :</string>
+    <string name="via">Via :</string>
+    <string name="summaryResult">Summary Result</string>
+    <string name="reviewContent">Review your exam scores..!</string>
+    <string name="yourScore">Your Score</string>
+    <string name="returnHome">Return to Home</string>
 </resources>

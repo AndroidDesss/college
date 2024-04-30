@@ -36,6 +36,7 @@ import com.desss.collegeproduct.module.studentSubModule.notes.model.NotesModel
 import com.desss.collegeproduct.module.studentSubModule.remarks.model.RemarksModel
 import com.desss.collegeproduct.module.studentSubModule.results.model.ResultsModel
 import com.desss.collegeproduct.module.studentSubModule.syllabus.model.SyllabusModel
+import com.desss.collegeproduct.module.studentSubModule.transport.model.TransportModel
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -430,5 +431,13 @@ interface ApiServices {
         @Part("answer_count") answerCount: RequestBody?,
         @Part("qus_ans") questionAnswer: RequestBody?
     ): Call<CommonResponseModel<UpdateLmsExamModel>?>?
+
+
+    @Headers(*["Content-Type: application/json;charset=UTF-8"])
+    @GET("dynamic/dynamicapi.php")
+    fun transportData(
+        @Query("action") action: String?,
+        @Query("bus_no") degree: String?
+    ): Call<CommonResponseModel<TransportModel>?>?
 
 }

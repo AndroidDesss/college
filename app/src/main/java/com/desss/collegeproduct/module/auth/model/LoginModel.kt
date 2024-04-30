@@ -40,6 +40,8 @@ data class LoginModel(
     val roll_id: String,
     val roll_no: String,
     val salary: String,
+    val bus_no: String,
+    val bus_seat_no: String,
     val section: String,
     val semester: String,
     val state: String,

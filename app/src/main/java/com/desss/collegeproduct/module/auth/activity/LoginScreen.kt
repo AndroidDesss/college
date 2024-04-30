@@ -121,6 +121,7 @@ class LoginScreen : AppCompatActivity() {
                     SharedPref.setSemester(this, it.semester)
                     SharedPref.setSection(this, it.section)
                     SharedPref.setParentLogin(this, response.parent)
+                    SharedPref.setBusNo(this, it.bus_no)
 
                     startIntent()
                 }
