@@ -32,23 +32,47 @@ class NotificationAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         notificationModel = notificationModelList[position]
         //Read More and Read Less
-        val originalText = notificationModel!!.text
-        val shortText = originalText.substring(0, 100) + "... Read More"
+
+        val originalText = notificationModel?.text ?: ""
+        val maxLength = 100
+        val shortText = if (originalText.length > maxLength) {
+            originalText.substring(0, maxLength) + "... Read More"
+        } else {
+            originalText
+        }
+
         var isFullTextShown = false
         val spannableString = SpannableStringBuilder(shortText)
         val readMoreSpan = ForegroundColorSpan(Color.BLUE)
         val readLessSpan = ForegroundColorSpan(Color.RED)
-        spannableString.setSpan(readMoreSpan, shortText.indexOf("Read More"), shortText.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+// Set "Read More" span
+        if (shortText.contains("Read More")) {
+            spannableString.setSpan(readMoreSpan, shortText.indexOf("Read More"), shortText.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        }
+
         holder.binding.notificationContentTv.text = spannableString
+
         holder.binding.notificationContentTv.setOnClickListener {
             isFullTextShown = !isFullTextShown
             if (isFullTextShown) {
+                // Display full text with "Read Less"
                 val fullText = originalText + " Read Less"
                 val fullSpannableString = SpannableStringBuilder(fullText)
                 fullSpannableString.setSpan(readLessSpan, fullText.indexOf("Read Less"), fullText.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                 holder.binding.notificationContentTv.text = fullSpannableString
             } else {
-                holder.binding.notificationContentTv.text = spannableString
+                // Display shortened text with "Read More"
+                val newShortText = if (originalText.length > maxLength) {
+                    originalText.substring(0, maxLength) + "... Read More"
+                } else {
+                    originalText
+                }
+                val newSpannableString = SpannableStringBuilder(newShortText)
+                if (newShortText.contains("Read More")) {
+                    newSpannableString.setSpan(readMoreSpan, newShortText.indexOf("Read More"), newShortText.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                }
+                holder.binding.notificationContentTv.text = newSpannableString
             }
         }
 

@@ -44,22 +44,45 @@ class RemarksAdapter(
 
         //Read More and Read Less
         val originalText = remarksModel!!.content
-        val shortText = originalText.substring(0, 100) + "... Read More"
+        val maxLength = 100
+        val shortText = if (originalText.length > maxLength) {
+            originalText.substring(0, maxLength) + "... Read More"
+        } else {
+            originalText
+        }
+
         var isFullTextShown = false
         val spannableString = SpannableStringBuilder(shortText)
         val readMoreSpan = ForegroundColorSpan(Color.BLUE)
         val readLessSpan = ForegroundColorSpan(Color.RED)
-        spannableString.setSpan(readMoreSpan, shortText.indexOf("Read More"), shortText.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+// Set "Read More" span
+        if (shortText.contains("Read More")) {
+            spannableString.setSpan(readMoreSpan, shortText.indexOf("Read More"), shortText.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        }
+
         holder.binding.remarksTv.text = spannableString
+
         holder.binding.remarksTv.setOnClickListener {
             isFullTextShown = !isFullTextShown
             if (isFullTextShown) {
+                // Display full text with "Read Less"
                 val fullText = originalText + " Read Less"
                 val fullSpannableString = SpannableStringBuilder(fullText)
                 fullSpannableString.setSpan(readLessSpan, fullText.indexOf("Read Less"), fullText.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                 holder.binding.remarksTv.text = fullSpannableString
             } else {
-                holder.binding.remarksTv.text = spannableString
+                // Display shortened text with "Read More"
+                val newShortText = if (originalText.length > maxLength) {
+                    originalText.substring(0, maxLength) + "... Read More"
+                } else {
+                    originalText
+                }
+                val newSpannableString = SpannableStringBuilder(newShortText)
+                if (newShortText.contains("Read More")) {
+                    newSpannableString.setSpan(readMoreSpan, newShortText.indexOf("Read More"), newShortText.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                }
+                holder.binding.remarksTv.text = newSpannableString
             }
         }
     }
