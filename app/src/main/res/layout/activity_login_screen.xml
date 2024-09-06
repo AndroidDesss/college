@@ -5,81 +5,80 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/login_background"
+        android:background="@drawable/login_background_gradient"
         tools:context=".module.auth.activity.LoginScreen">
-
-        <TextView
-            android:id="@+id/loginTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:fontFamily="@font/bold"
-            android:text="@string/login"
-            android:textColor="@color/appBackgroundColor"
-            android:textSize="@dimen/_25ssp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <ImageView
-            android:id="@+id/loginLogo"
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="@dimen/_100sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/login_top_logo"
-            android:contentDescription="@string/lock"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loginTv" />
 
         <ScrollView
             android:id="@+id/scrollview"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/admissionTv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginLogo">
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/parentLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                android:layout_marginTop="@dimen/_70sdp">
+
+                <ImageView
+                    android:id="@+id/loginLogo"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_marginTop="@dimen/_35sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:background="@drawable/college_cap_logo"
+                    android:contentDescription="@string/lock"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/loginContentTv"
-                    android:layout_width="match_parent"
+                    android:id="@+id/loginTv"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/bold"
-                    android:gravity="center"
-                    android:text="@string/getStarted"
-                    android:textStyle="bold"
-                    android:textColor="@color/lightGrey"
-                    android:textSize="@dimen/_18ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/sanssemibold"
+                    android:text="@string/welcome_text"
+                    android:textColor="@color/darkOrange"
+                    android:textSize="@dimen/_22ssp"
+                    android:layout_marginStart="@dimen/_20sdp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toBottomOf="@id/loginLogo"/>
+
+                <TextView
+                    android:id="@+id/loginWelcomeTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sanssemibold"
+                    android:text="@string/welcome_text1"
+                    android:textColor="@color/lightBlack"
+                    android:textSize="@dimen/_20ssp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/loginTv"/>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tinUserId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_30sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginRight="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_20sdp"
                     android:hint="@string/emailId"
+                    app:hintTextColor="@color/lightBlack"
                     app:boxBackgroundColor="@color/textInputLayoutBackground"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/loginContentTv">
+                    app:layout_constraintTop_toBottomOf="@id/loginWelcomeTv">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etUserId"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableEnd="@drawable/user_icon"
-                        android:fontFamily="@font/regular"
+                        android:drawableEnd="@drawable/login_username_icon"
+                        android:fontFamily="@font/sansregular"
                         android:maxLines="1"
                         android:text="yuvaraj.p@desss.com"
                         android:textColor="@color/black"
@@ -90,11 +89,11 @@
                     android:id="@+id/tinPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:layout_marginLeft="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginRight="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_20sdp"
                     android:hint="@string/password"
-                    app:hintTextColor="@color/black"
+                    app:hintTextColor="@color/lightBlack"
                     app:boxBackgroundColor="@color/textInputLayoutBackground"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -104,8 +103,8 @@
                         android:id="@+id/etPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableEnd="@drawable/password_icon"
-                        android:fontFamily="@font/regular"
+                        android:drawableEnd="@drawable/login_password_icon"
+                        android:fontFamily="@font/sansregular"
                         android:maxLines="1"
                         android:inputType="textPassword"
                         android:text="Dess@123"
@@ -115,50 +114,52 @@
 
                 <TextView
                     android:id="@+id/forgotPasswordTv"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
-                    android:gravity="center"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:fontFamily="@font/sanssemibold"
+                    android:gravity="start"
                     android:text="@string/forgotPassword"
-                    android:textColor="@color/lightGrey"
+                    android:textColor="@color/darkBlue"
                     android:textSize="@dimen/_15ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tinPassword"/>
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnLogin"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_30sdp"
-                    android:layout_marginTop="@dimen/_30sdp"
-                    android:background="@drawable/background_button"
-                    android:fontFamily="@font/bold"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:background="@drawable/orange_background_button"
+                    android:fontFamily="@font/sanssemibold"
                     android:text="@string/login"
                     android:textAllCaps="false"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_12sdp"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:drawableEnd="@drawable/login_btn_icon"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_15ssp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/forgotPasswordTv" />
-
-                <TextView
-                    android:id="@+id/admissionTv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_25sdp"
-                    android:fontFamily="@font/bold"
-                    android:gravity="center"
-                    android:text="@string/admissionManagement"
-                    android:textColor="@color/appBackgroundColor"
-                    android:textSize="@dimen/_15ssp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnLogin"/>
+                    app:layout_constraintTop_toBottomOf="@id/tinPassword" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
+
+        <TextView
+            android:id="@+id/admissionTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_25sdp"
+            android:fontFamily="@font/sanssemibold"
+            android:gravity="center"
+            android:text="@string/admissionManagement"
+            android:textColor="@color/darkBlue"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

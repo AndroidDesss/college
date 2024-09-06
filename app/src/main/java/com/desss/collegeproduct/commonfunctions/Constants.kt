@@ -20,6 +20,20 @@ object Constants {
     val studentCategoriesBackGroundColor =
         arrayOf("#8b88d0", "#79b1fb", "#fbb97c", "#df90c9", "#f7937e", "#e5a9ac","#8b88d0","#8b88d0","#79b1fb", "#fbb97c")
 
+    val categoriesBackGroundImage =
+        arrayOf(
+            R.drawable.background_one,
+            R.drawable.background_one,
+            R.drawable.background_one,
+            R.drawable.background_one,
+            R.drawable.background_one,
+            R.drawable.background_one,
+            R.drawable.background_one,
+            R.drawable.background_one,
+            R.drawable.background_one,
+            R.drawable.background_one
+        )
+
     val studentCategoriesArray =
         arrayOf("Fee Pay", "Attendance", "Results","Syllabus", "Exam Timetable", "Reports", "Notes","Meetings","LMS", "Transport")
 
@@ -29,11 +43,11 @@ object Constants {
         R.drawable.student_results,
         R.drawable.student_syllabus,
         R.drawable.exam_timetable,
-        R.drawable.student_remark,
+        R.drawable.student_report,
         R.drawable.student_notes,
-        R.drawable.fee_pay,
-        R.drawable.student_attendance,
-        R.drawable.student_results
+        R.drawable.student_meetings,
+        R.drawable.student_lms,
+        R.drawable.student_transport
     )
 
     val professorCategoriesBackGroundColor =

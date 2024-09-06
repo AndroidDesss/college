@@ -54,12 +54,9 @@ class CategoriesAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         categoriesModel = categoriesModelList[position]
         holder.binding.categoriesName.text = categoriesModel!!.categoriesName
-        holder.binding.parentLayout.setBackgroundColor(
-            android.graphics.Color.parseColor(
-                categoriesModel!!.categoriesColor
-            )
-        )
+        holder.binding.parentLayout.setBackgroundResource(categoriesModel!!.categoriesBackground)
         holder.binding.categoriesImage.setImageResource(categoriesModel!!.categoriesImg)
+        holder.binding.blurredCategoriesImage.setImageResource(categoriesModel!!.categoriesImg)
         holder.itemView.setOnClickListener {
             categoriesModel = categoriesModelList[position]
             screenName = categoriesModel!!.categoriesName

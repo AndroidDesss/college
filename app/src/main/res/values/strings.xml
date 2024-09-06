@@ -119,4 +119,6 @@
     <string name="reviewContent">Review your exam scores..!</string>
     <string name="yourScore">Your Score</string>
     <string name="returnHome">Return to Home</string>
+    <string name="welcome_text">Welcome,</string>
+    <string name="welcome_text1">Login to Continue</string>
 </resources>

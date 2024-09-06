@@ -4,7 +4,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_90sdp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"
@@ -28,12 +28,12 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/categoriesImage"
-                    android:layout_width="@dimen/_45sdp"
-                    android:layout_height="@dimen/_45sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,21 +41,35 @@
                     android:id="@+id/categoriesName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_12sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
                     android:ellipsize="end"
-                    android:fontFamily="@font/bold"
-                    android:gravity="center"
+                    android:fontFamily="@font/sansbold"
+                    android:gravity="start"
                     android:maxLines="2"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_12ssp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/blurredCategoriesImage"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/categoriesImage"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/blurredCategoriesImage"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:alpha="0.3"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

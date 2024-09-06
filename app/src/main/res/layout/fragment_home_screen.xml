@@ -16,107 +16,48 @@
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:fontFamily="@font/bold"
+            android:fontFamily="@font/sansbold"
             android:gravity="start"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_21ssp"
+            android:textColor="@color/darkOrange"
+            android:textSize="@dimen/_18ssp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/logOut"
+            app:layout_constraintEnd_toStartOf="@id/profileImage"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/logOut"
-            android:layout_width="@dimen/_18sdp"
-            android:layout_height="@dimen/_18sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_15sdp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            android:src="@drawable/logout_icon"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/infoCardView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImage"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            app:cardCornerRadius="@dimen/_20sdp"
-            app:cardElevation="3dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:src="@drawable/boy"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/lightGrey"
+            android:layout_marginTop="@dimen/_1sdp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dashBoardTv">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profileImage"
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="@dimen/_70sdp"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginBottom="@dimen/_5sdp"
-                    android:src="@drawable/boy"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-                <TextView
-                    android:id="@+id/nameValueTv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/bold"
-                    android:maxLines="1"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_16ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/profileImage"
-                    app:layout_constraintTop_toTopOf="@+id/profileImage"/>
-
-                <TextView
-                    android:id="@+id/userIdValueTv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/bold"
-                    android:maxLines="2"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_16ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/profileImage"
-                    app:layout_constraintTop_toBottomOf="@+id/nameValueTv"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profileImage"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_5sdp"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/infoCardView"
-            app:spanCount="2" />
-
-
+            app:layout_constraintTop_toBottomOf="@id/view" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

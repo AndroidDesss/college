@@ -17,7 +17,6 @@ import com.desss.collegeproduct.module.auth.activity.LoginScreen
 import com.desss.collegeproduct.module.commonDashBoardFragment.home.adapter.CategoriesAdapter
 import com.desss.collegeproduct.module.commonDashBoardFragment.home.model.CategoriesModel
 
-
 class HomeFragmentScreen : Fragment() {
 
     private lateinit var fragmentHomeScreenBinding: FragmentHomeScreenBinding
@@ -39,39 +38,38 @@ class HomeFragmentScreen : Fragment() {
     }
 
     private fun initListener() {
-        fragmentHomeScreenBinding.logOut.setOnClickListener(onClickListener)
+//        fragmentHomeScreenBinding.logOut.setOnClickListener(onClickListener)
     }
 
-    private val onClickListener = View.OnClickListener { view ->
-        when (view.id) {
-            R.id.logOut ->
-                CommonUtility.showAlertDialog(context,
-                    "",
-                    "Are you sure you want to exit?",
-                    "Yes",
-                    "No",
-                    object : CommonUtility.DialogClickListener {
-                        override fun dialogOkBtnClicked(value: String?) {
-                            CommonUtility.commonStartActivity(
-                                activity!!,
-                                LoginScreen::class.java,
-                                null,
-                                true
-                            )
-                        }
-
-                        override fun dialogNoBtnClicked(value: String?) {}
-                    }
-                )
-        }
-    }
+//    private val onClickListener = View.OnClickListener { view ->
+//        when (view.id) {
+//            R.id.logOut ->
+//                CommonUtility.showAlertDialog(context,
+//                    "",
+//                    "Are you sure you want to exit?",
+//                    "Yes",
+//                    "No",
+//                    object : CommonUtility.DialogClickListener {
+//                        override fun dialogOkBtnClicked(value: String?) {
+//                            CommonUtility.commonStartActivity(
+//                                activity!!,
+//                                LoginScreen::class.java,
+//                                null,
+//                                true
+//                            )
+//                        }
+//
+//                        override fun dialogNoBtnClicked(value: String?) {}
+//                    }
+//                )
+//        }
+//    }
 
     @SuppressLint("SetTextI18n")
     private fun checkUser() {
         if (SharedPref.getRollId(context) == "4") //Student
         {
             CommonUtility.showProgressDialog(context)
-            fragmentHomeScreenBinding.logOut.visibility = View.INVISIBLE
             if(SharedPref.getParentLogin(context) == "Yes" || SharedPref.getRollId(context).equals("Yes"))
             {
                 fragmentHomeScreenBinding.dashBoardTv.text = "Hello Parent"
@@ -83,27 +81,26 @@ class HomeFragmentScreen : Fragment() {
             setCategoriesValues(
                 Constants.studentCategoriesArray,
                 Constants.studentCategoriesImage,
-                Constants.studentCategoriesBackGroundColor
+                Constants.categoriesBackGroundImage
             )
         } else if (SharedPref.getRollId(context) == "3") //Professor
         {
             CommonUtility.showProgressDialog(context)
-            fragmentHomeScreenBinding.logOut.visibility = View.INVISIBLE
             fragmentHomeScreenBinding.dashBoardTv.text = "Hello Faculty"
             setCategoriesValues(
                 Constants.professorCategoriesArray,
                 Constants.professorCategoriesImage,
-                Constants.professorCategoriesBackGroundColor
+                Constants.categoriesBackGroundImage
             )
         }else if (SharedPref.getRollId(context) == "2") //Management DashBoard
         {
             CommonUtility.showProgressDialog(context)
-            fragmentHomeScreenBinding.logOut.visibility = View.VISIBLE
+//            fragmentHomeScreenBinding.logOut.visibility = View.VISIBLE
             fragmentHomeScreenBinding.dashBoardTv.text = "Hello Admin"
             setCategoriesValues(
                 Constants.managementCategoriesArray,
                 Constants.managementCategoriesImage,
-                Constants.managementCategoriesBackGroundColor
+                Constants.categoriesBackGroundImage
             )
         }
     }
@@ -111,11 +108,11 @@ class HomeFragmentScreen : Fragment() {
     private fun setCategoriesValues(
         nameArray: Array<String>,
         imageArray: Array<Int>,
-        colorArray: Array<String>
+        backGroundImageArray: Array<Int>
     ) {
         categoriesList.clear()
         for (i in 0 until nameArray.size) {
-            categoriesList.add(CategoriesModel(nameArray[i], imageArray[i], colorArray[i]))
+            categoriesList.add(CategoriesModel(nameArray[i], imageArray[i], backGroundImageArray[i]))
         }
         setBindingAdapter(categoriesList)
     }
@@ -125,9 +122,6 @@ class HomeFragmentScreen : Fragment() {
         categoriesAdapter = CategoriesAdapter(context, categoriesModel)
         fragmentHomeScreenBinding.recyclerView.adapter = categoriesAdapter
         categoriesAdapter!!.notifyDataSetChanged()
-        fragmentHomeScreenBinding.nameValueTv.text =
-            SharedPref.getFirstName(context) + " " + SharedPref.getLastName(context)
-        fragmentHomeScreenBinding.userIdValueTv.text = SharedPref.getEmailId(context)
         CommonUtility.cancelProgressDialog(context)
     }
 
