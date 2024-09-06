@@ -121,4 +121,6 @@
     <string name="returnHome">Return to Home</string>
     <string name="welcome_text">Welcome,</string>
     <string name="welcome_text1">Login to Continue</string>
+    <string name="notificationsInfo">Notifications Info</string>
+    <string name="attendanceInfo">Your Attendance Details</string>
 </resources>

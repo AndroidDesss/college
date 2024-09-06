@@ -33,13 +33,9 @@ class StudentAttendanceAdapter(
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         attendanceModel = attendanceModelList[position]
-        val randomColor =
-            Color.parseColor(Constants.studentCategoriesBackGroundColor[Random.nextInt(Constants.studentCategoriesBackGroundColor.size)])
-        holder.binding.startView.setBackgroundColor(randomColor)
         holder.binding.monthTv.text = attendanceModel!!.Month + "  " + attendanceModel!!.Year
         holder.binding.workingDaysValueTv.text = attendanceModel!!.all_count.toString()
         holder.binding.daysPresentValueTv.text = attendanceModel!!.count.toString()
-
     }
 
     override fun getItemCount(): Int {

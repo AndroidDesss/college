@@ -23,15 +23,15 @@ object Constants {
     val categoriesBackGroundImage =
         arrayOf(
             R.drawable.background_one,
-            R.drawable.background_one,
-            R.drawable.background_one,
-            R.drawable.background_one,
-            R.drawable.background_one,
-            R.drawable.background_one,
-            R.drawable.background_one,
-            R.drawable.background_one,
-            R.drawable.background_one,
-            R.drawable.background_one
+            R.drawable.background_two,
+            R.drawable.background_three,
+            R.drawable.background_four,
+            R.drawable.background_five,
+            R.drawable.background_six,
+            R.drawable.background_seven,
+            R.drawable.background_eight,
+            R.drawable.background_nine,
+            R.drawable.background_ten
         )
 
     val studentCategoriesArray =
@@ -50,8 +50,7 @@ object Constants {
         R.drawable.student_transport
     )
 
-    val professorCategoriesBackGroundColor =
-        arrayOf("#8b88d0", "#79b1fb", "#fbb97c", "#df90c9", "#f7937e", "#e5a9ac","#8b88d0")
+    val professorCategoriesBackGroundColor = arrayOf("#8b88d0", "#79b1fb", "#fbb97c", "#df90c9", "#f7937e", "#e5a9ac","#8b88d0")
 
     val professorCategoriesArray = arrayOf(
         "Student Attendance",
@@ -82,8 +81,7 @@ object Constants {
         R.drawable.management_professor_details_icon,
     )
 
-    val managementCategoriesBackGroundColor =
-        arrayOf("#8b88d0", "#79b1fb", "#df90c9")
+    val managementCategoriesBackGroundColor = arrayOf("#8b88d0", "#79b1fb", "#df90c9")
 
     val PICK_PDF_FILE_REQUEST_CODE = 1
 

@@ -30,8 +30,7 @@ class HomeFragmentScreen : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        fragmentHomeScreenBinding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_home_screen, container, false)
+        fragmentHomeScreenBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home_screen, container, false)
         checkUser()
         initListener()
         return fragmentHomeScreenBinding.root
