@@ -14,13 +14,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_6sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:fontFamily="@font/sansbold"
+            android:fontFamily="@font/poppins_semi_bold"
             android:gravity="start"
+            android:text="Hello Student"
             android:textColor="@color/darkOrange"
             android:textSize="@dimen/_18ssp"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/view"
             app:layout_constraintEnd_toStartOf="@id/profileImage"
             app:layout_constraintTop_toTopOf="parent"/>
 
@@ -32,6 +34,7 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginBottom="@dimen/_5sdp"
             android:src="@drawable/boy"
+            app:layout_constraintBottom_toTopOf="@id/view"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -39,11 +42,12 @@
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_1sdp"
+            android:alpha="0.3"
             android:background="@color/lightGrey"
-            android:layout_marginTop="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_3sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profileImage"/>
+            app:layout_constraintTop_toBottomOf="@id/dashBoardTv"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

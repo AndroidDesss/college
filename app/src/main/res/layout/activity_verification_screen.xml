@@ -5,7 +5,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@drawable/login_background_gradient"
         tools:context=".module.auth.activity.VerificationScreen">
 
         <ScrollView
@@ -23,6 +23,17 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center">
 
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_marginTop="@dimen/_35sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:background="@drawable/college_cap_logo"
+                    android:contentDescription="@string/lock"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
                     android:id="@+id/verificationContentTv"
                     android:layout_width="match_parent"
@@ -30,28 +41,13 @@
                     android:layout_marginStart="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_20sdp"
-                    android:fontFamily="@font/bold"
-                    android:text="@string/verification"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_18ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-                <TextView
-                    android:id="@+id/enterOtpContentTv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_20sdp"
-                    android:fontFamily="@font/bold"
-                    android:text="@string/enterOtp"
-                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:text="@string/checkMail"
+                    android:textColor="@color/darkOrange"
                     android:textSize="@dimen/_20ssp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/verificationContentTv"/>
+                    app:layout_constraintTop_toBottomOf="@id/logo"/>
 
                 <TextView
                     android:id="@+id/forgotFirstContentTv"
@@ -60,12 +56,12 @@
                     android:layout_marginStart="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_20sdp"
-                    android:fontFamily="@font/bold"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:textColor="@color/lightGrey"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_13ssp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/enterOtpContentTv"/>
+                    app:layout_constraintTop_toBottomOf="@+id/verificationContentTv"/>
 
                 <LinearLayout
                     android:id="@+id/otpLayout"
@@ -88,7 +84,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:background="@drawable/edit_text_box_background"
-                        android:fontFamily="@font/regular"
+                        android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:imeOptions="actionNext"
                         android:importantForAutofill="no"
@@ -108,7 +104,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:background="@drawable/edit_text_box_background"
-                        android:fontFamily="@font/regular"
+                        android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:imeOptions="actionNext"
                         android:importantForAutofill="no"
@@ -128,7 +124,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:background="@drawable/edit_text_box_background"
-                        android:fontFamily="@font/regular"
+                        android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:imeOptions="actionNext"
                         android:importantForAutofill="no"
@@ -149,7 +145,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:background="@drawable/edit_text_box_background"
-                        android:fontFamily="@font/regular"
+                        android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:imeOptions="actionNext"
                         android:importantForAutofill="no"
@@ -169,7 +165,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:background="@drawable/edit_text_box_background"
-                        android:fontFamily="@font/regular"
+                        android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:imeOptions="actionNext"
                         android:importantForAutofill="no"
@@ -189,7 +185,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:background="@drawable/edit_text_box_background"
-                        android:fontFamily="@font/regular"
+                        android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:imeOptions="actionNext"
                         android:importantForAutofill="no"
@@ -208,9 +204,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:fontFamily="@font/bold"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:textColor="@color/lightGrey"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_13ssp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/otpLayout"/>
 
@@ -220,12 +216,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_20sdp"
-                    android:fontFamily="@font/bold"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:gravity="end"
                     android:text="@string/reSendOtp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_16ssp"
                     android:visibility="invisible"
+                    android:textColor="@color/darkBlue"
+                    android:textSize="@dimen/_13ssp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/reSendContentTv"
                     app:layout_constraintTop_toBottomOf="@+id/otpLayout"/>
@@ -233,22 +229,25 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnContinue"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_25sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_25sdp"
                     android:layout_marginBottom="@dimen/_20sdp"
-                    android:background="@drawable/background_button"
-                    android:fontFamily="@font/bold"
-                    android:text="@string/continueTv"
+                    android:background="@drawable/orange_background_button"
+                    android:drawableEnd="@drawable/key_icon"
+                    android:paddingEnd="@dimen/_12sdp"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:text="@string/verify"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_13ssp"
                     app:cornerRadius="@dimen/_5sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/reSendContentTv" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

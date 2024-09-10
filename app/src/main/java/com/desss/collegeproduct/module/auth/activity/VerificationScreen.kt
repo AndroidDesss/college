@@ -59,10 +59,8 @@ class VerificationScreen : AppCompatActivity() {
             intent != null -> {
                 intentOtp = intent.getStringExtra("otp")!!
                 email = intent.getStringExtra("email")!!
-                verificationScreenBinding.forgotFirstContentTv.setText("Enter the 4-digit code sent to you at  $email")
+                verificationScreenBinding.forgotFirstContentTv.setText("Enter the 6-digit code sent to you at  $email")
                 countDownTimer.start()
-                Log.d("intentOtp", intentOtp)
-                Log.d("intentOtp", email)
             }
         }
     }

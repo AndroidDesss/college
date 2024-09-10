@@ -9,7 +9,6 @@ import com.desss.collegeproduct.R
 import com.desss.collegeproduct.commonfunctions.CommonUtility
 import com.desss.collegeproduct.databinding.ActivitySplashScreenBinding
 import com.desss.collegeproduct.module.auth.activity.LoginScreen
-import com.desss.collegeproduct.module.splash.SplashScreenViewModel
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreen : AppCompatActivity() {

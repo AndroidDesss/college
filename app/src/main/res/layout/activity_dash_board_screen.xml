@@ -34,6 +34,7 @@
             android:layout_gravity="bottom"
             app:itemIconTint="@drawable/bottom_selector"
             android:paddingBottom="@dimen/_3sdp"
+            android:background="@color/white"
             android:theme="@style/Widget.BottomNavigationView"
             app:itemIconSize="@dimen/_18sdp"
             app:layout_constraintBottom_toBottomOf="parent"

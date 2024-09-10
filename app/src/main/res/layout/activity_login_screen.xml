@@ -21,7 +21,7 @@
                 android:id="@+id/parentLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_70sdp">
+                android:layout_gravity="center">
 
                 <ImageView
                     android:id="@+id/loginLogo"
@@ -39,10 +39,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:fontFamily="@font/sanssemibold"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/welcome_text"
                     android:textColor="@color/darkOrange"
-                    android:textSize="@dimen/_22ssp"
+                    android:textSize="@dimen/_20ssp"
                     android:layout_marginStart="@dimen/_20sdp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/loginLogo"/>
@@ -51,10 +51,10 @@
                     android:id="@+id/loginWelcomeTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/sanssemibold"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/welcome_text1"
                     android:textColor="@color/lightBlack"
-                    android:textSize="@dimen/_20ssp"
+                    android:textSize="@dimen/_18ssp"
                     android:layout_marginStart="@dimen/_20sdp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/loginTv"/>
@@ -68,7 +68,6 @@
                     android:layout_marginRight="@dimen/_20sdp"
                     android:hint="@string/emailId"
                     app:hintTextColor="@color/lightBlack"
-                    app:boxBackgroundColor="@color/textInputLayoutBackground"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/loginWelcomeTv">
@@ -78,7 +77,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableEnd="@drawable/login_username_icon"
-                        android:fontFamily="@font/sansregular"
+                        android:paddingEnd="@dimen/_5sdp"
+                        android:fontFamily="@font/poppins_regular"
                         android:maxLines="1"
                         android:text="yuvaraj.p@desss.com"
                         android:textColor="@color/black"
@@ -94,7 +94,6 @@
                     android:layout_marginRight="@dimen/_20sdp"
                     android:hint="@string/password"
                     app:hintTextColor="@color/lightBlack"
-                    app:boxBackgroundColor="@color/textInputLayoutBackground"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tinUserId">
@@ -104,7 +103,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableEnd="@drawable/login_password_icon"
-                        android:fontFamily="@font/sansregular"
+                        android:paddingEnd="@dimen/_5sdp"
+                        android:fontFamily="@font/poppins_regular"
                         android:maxLines="1"
                         android:inputType="textPassword"
                         android:text="Dess@123"
@@ -116,15 +116,15 @@
                     android:id="@+id/forgotPasswordTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginStart="@dimen/_20sdp"
-                    android:fontFamily="@font/sanssemibold"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:gravity="start"
                     android:text="@string/forgotPassword"
                     android:textColor="@color/darkBlue"
-                    android:textSize="@dimen/_15ssp"
+                    android:textSize="@dimen/_13ssp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tinPassword"/>
+                    app:layout_constraintTop_toTopOf="@+id/btnLogin"
+                    app:layout_constraintBottom_toBottomOf="@id/btnLogin"/>
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnLogin"
@@ -133,7 +133,7 @@
                     android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_20sdp"
                     android:background="@drawable/orange_background_button"
-                    android:fontFamily="@font/sanssemibold"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/login"
                     android:textAllCaps="false"
                     android:drawablePadding="@dimen/_10sdp"
@@ -141,7 +141,7 @@
                     android:paddingStart="@dimen/_12sdp"
                     android:drawableEnd="@drawable/login_btn_icon"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_15ssp"
+                    android:textSize="@dimen/_13ssp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tinPassword" />
 
@@ -153,11 +153,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_25sdp"
-            android:fontFamily="@font/sanssemibold"
+            android:fontFamily="@font/poppins_semi_bold"
             android:gravity="center"
             android:text="@string/admissionManagement"
             android:textColor="@color/darkBlue"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_14ssp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
