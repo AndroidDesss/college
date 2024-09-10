@@ -66,24 +66,10 @@ class ProfileFragmentScreen : Fragment() {
     }
 
     private fun handleVisibility() {
-        if (SharedPref.getRollId(context) == "4") //Student
+        if (SharedPref.getRollId(context) == "3") //Professor
         {
-            fragmentProfileFragmentScreenBinding.joinDateTv.visibility = View.GONE
-            fragmentProfileFragmentScreenBinding.joinDateValueTv.visibility = View.GONE
-            fragmentProfileFragmentScreenBinding.professorUserIdTv.visibility = View.GONE
-            fragmentProfileFragmentScreenBinding.professorUserIdValueTv.visibility = View.GONE
-            fragmentProfileFragmentScreenBinding.detailsProfessorIdTv.visibility = View.GONE
-            fragmentProfileFragmentScreenBinding.detailsProfessorIdValueTv.visibility = View.GONE
-            fragmentProfileFragmentScreenBinding.salaryTv.visibility = View.GONE
-            fragmentProfileFragmentScreenBinding.salaryValueTv.visibility = View.GONE
-        } else if (SharedPref.getRollId(context) == "3") //Professor
-        {
-            fragmentProfileFragmentScreenBinding.tenthMarkSheetTv.visibility = View.GONE
-            fragmentProfileFragmentScreenBinding.downloadTenthMarkSheet.visibility = View.GONE
-            fragmentProfileFragmentScreenBinding.plusTwoMarkSheetTv.visibility = View.GONE
-            fragmentProfileFragmentScreenBinding.downloadPlusTwoMarkSheet.visibility = View.GONE
-            fragmentProfileFragmentScreenBinding.alternateMobileNumberTv.visibility = View.GONE
-            fragmentProfileFragmentScreenBinding.alternateMobileNumberValueTv.visibility = View.GONE
+            fragmentProfileFragmentScreenBinding.markSheetLayoutInfo.visibility = View.GONE
+            fragmentProfileFragmentScreenBinding.alternateNoInfo.visibility = View.GONE
         }
         callStudentApi()
     }
@@ -142,14 +128,10 @@ class ProfileFragmentScreen : Fragment() {
                     fragmentProfileFragmentScreenBinding.emailPhoneValueTv.text = it.email
                     fragmentProfileFragmentScreenBinding.firstNameValueTv.text = it.first_name
                     fragmentProfileFragmentScreenBinding.lastNameValueTv.text = it.last_name
-                    fragmentProfileFragmentScreenBinding.joinDateValueTv.text = it.admission_date
                     fragmentProfileFragmentScreenBinding.birthDateValueTv.text = it.dob
-                    fragmentProfileFragmentScreenBinding.professorUserIdValueTv.text = it.reg_no
-                    fragmentProfileFragmentScreenBinding.detailsProfessorIdValueTv.text = it.id
                     fragmentProfileFragmentScreenBinding.birthDateValueTv.text = it.dob
                     fragmentProfileFragmentScreenBinding.emailIdValueTv.text = it.email
                     fragmentProfileFragmentScreenBinding.mobileNumberValueTv.text = it.phone
-                    fragmentProfileFragmentScreenBinding.salaryValueTv.text = it.salary
                     fragmentProfileFragmentScreenBinding.addressValueTv.text = it.address
                     CommonUtility.cancelProgressDialog(context)
                 }

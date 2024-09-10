@@ -23,7 +23,7 @@
     <string name="dateOfBirth">Date of Birth</string>
     <string name="emailId">Email ID</string>
     <string name="mobileNumber">Mobile Number</string>
-    <string name="alternativeMobileNumber">Alternative Mobile Number</string>
+    <string name="alternativeMobileNumber">Alternative Number</string>
     <string name="address">Address</string>
     <string name="tenthMarkSheet">10th Mark Sheet</string>
     <string name="twelfthMarkSheet">12th Mark Sheet</string>
@@ -128,4 +128,6 @@
     <string name="welcome_text1">Login to Continue</string>
     <string name="notificationsInfo">Notifications Info</string>
     <string name="attendanceInfo">Your Attendance Details</string>
+    <string name="chooseDegree">Choose Your Degree</string>
+    <string name="please_wait">Please wait...</string>
 </resources>

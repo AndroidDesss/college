@@ -37,9 +37,7 @@ class RemarksAdapter(
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         remarksModel = remarksModelList[position]
-        val randomColor =
-            Color.parseColor(Constants.studentCategoriesBackGroundColor[Random.nextInt(Constants.studentCategoriesBackGroundColor.size)])
-        holder.binding.startView.setBackgroundColor(randomColor)
+
         holder.binding.monthTv.text = remarksModel!!.date
 
         //Read More and Read Less

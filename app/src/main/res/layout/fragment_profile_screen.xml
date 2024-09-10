@@ -9,17 +9,28 @@
         android:background="@color/white"
         tools:context=".module.commonDashBoardFragment.profile.fragment.ProfileFragmentScreen">
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_3sdp"
+            android:background="@color/darkOrange"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/profileTv"
+            app:layout_constraintTop_toTopOf="@id/profileTv"/>
+
         <TextView
             android:id="@+id/profileTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:fontFamily="@font/bold"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textColor="@color/darkOrange"
+            android:textSize="@dimen/_18ssp"
             android:text="@string/profile"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_21ssp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/view"
             app:layout_constraintTop_toTopOf="parent"/>
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -34,505 +45,403 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/infoCardView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImage"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
             android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_9sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            app:cardCornerRadius="@dimen/_20sdp"
-            app:cardElevation="3dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:src="@drawable/boy"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logOut">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/greyLight">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profileImage"
-                    android:layout_width="@dimen/_50sdp"
-                    android:layout_height="@dimen/_50sdp"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:src="@drawable/boy"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-                <TextView
-                    android:id="@+id/nameValueTv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/regular"
-                    android:maxLines="1"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_16ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/profileImage"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-                <TextView
-                    android:id="@+id/emailPhoneValueTv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/regular"
-                    android:maxLines="2"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_16ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/profileImage"
-                    app:layout_constraintTop_toBottomOf="@+id/nameValueTv"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+            app:layout_constraintTop_toBottomOf="@+id/logOut"/>
 
         <TextView
-            android:id="@+id/detailOfProfileTv"
-            android:layout_width="wrap_content"
+            android:id="@+id/nameValueTv"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:fontFamily="@font/regular"
-            android:text="@string/detailOfProfile"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:maxLines="1"
             android:textColor="@color/black"
             android:textSize="@dimen/_16ssp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/infoCardView"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/profileImage"
+            app:layout_constraintTop_toTopOf="@+id/profileImage"/>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/detailsCardView"
+        <TextView
+            android:id="@+id/emailPhoneValueTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_regular"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/profileImage"
+            app:layout_constraintTop_toBottomOf="@+id/nameValueTv"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detailsLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            app:cardCornerRadius="@dimen/_20sdp"
-            app:cardElevation="3dp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detailOfProfileTv">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profileImage">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/parentLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <ScrollView
+                android:id="@+id/scrollviewa"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <ScrollView
-                    android:id="@+id/scrollview"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/childLayouta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/nameLayoutInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:baselineAligned="false">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/childLayout"
+                    <LinearLayout
+                        android:id="@+id/firstNameInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        app:layout_constraintTop_toBottomOf="@+id/shippingAddress"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/firstNameTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/greyLight">
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:text="@string/firstName"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_13ssp"/>
 
-                        <TextView
-                            android:id="@+id/firstNameTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:fontFamily="@font/regular"
-                            android:text="@string/firstName"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"/>
+                    <TextView
+                        android:id="@+id/firstNameValueTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/poppins_regular"
+                        android:maxLines="1"
+                        android:textColor="@color/lightBlack"
+                        android:textSize="@dimen/_12ssp"/>
+                    </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/firstNameValueTv"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/regular"
-                            android:gravity="end"
-                            android:maxLines="1"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/firstNameTv"
-                            app:layout_constraintTop_toTopOf="parent"/>
+                    <LinearLayout
+                        android:id="@+id/lastNameInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        app:layout_constraintTop_toBottomOf="@+id/shippingAddress"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:ignore="UselessParent">
 
                         <TextView
                             android:id="@+id/lastNameTv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:fontFamily="@font/regular"
+                            android:fontFamily="@font/poppins_semi_bold"
                             android:text="@string/lastName"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/firstNameTv"/>
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_13ssp"/>
 
                         <TextView
                             android:id="@+id/lastNameValueTv"
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
                             android:ellipsize="end"
-                            android:fontFamily="@font/regular"
-                            android:gravity="end"
+                            android:fontFamily="@font/poppins_regular"
                             android:maxLines="1"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/lastNameTv"
-                            app:layout_constraintTop_toBottomOf="@id/firstNameValueTv"/>
+                            android:textSize="@dimen/_12ssp"/>
+                    </LinearLayout>
+                </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/joinDateTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:fontFamily="@font/regular"
-                            android:text="Date of Join"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/lastNameTv"/>
+                    <LinearLayout
+                        android:id="@+id/dobEmailLayoutInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:layout_constraintTop_toBottomOf="@id/nameLayoutInfo"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:baselineAligned="false">
 
-                        <TextView
-                            android:id="@+id/joinDateValueTv"
+                        <LinearLayout
+                            android:id="@+id/dobInfo"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/regular"
-                            android:gravity="end"
-                            android:maxLines="1"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/joinDateTv"
-                            app:layout_constraintTop_toBottomOf="@id/lastNameValueTv"/>
-
-                        <TextView
-                            android:id="@+id/birthDateTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:fontFamily="@font/regular"
-                            android:text="@string/dateOfBirth"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="@dimen/_16ssp"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            app:layout_constraintTop_toBottomOf="@+id/shippingAddress"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/joinDateTv"/>
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:ignore="UselessParent">
 
-                        <TextView
-                            android:id="@+id/birthDateValueTv"
+                            <TextView
+                                android:id="@+id/birthDateTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:text="@string/dateOfBirth"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13ssp"/>
+
+                            <TextView
+                                android:id="@+id/birthDateValueTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/poppins_regular"
+                                android:maxLines="1"
+                                android:textColor="@color/lightBlack"
+                                android:textSize="@dimen/_12ssp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/emailInfo"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/regular"
-                            android:gravity="end"
-                            android:maxLines="1"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/birthDateTv"
-                            app:layout_constraintTop_toBottomOf="@id/joinDateValueTv"/>
-
-                        <TextView
-                            android:id="@+id/professorUserIdTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:fontFamily="@font/regular"
-                            android:text="User Id"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="@dimen/_16ssp"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            app:layout_constraintTop_toBottomOf="@+id/shippingAddress"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/birthDateTv"/>
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:ignore="UselessParent">
 
-                        <TextView
-                            android:id="@+id/professorUserIdValueTv"
+                            <TextView
+                                android:id="@+id/emailIdTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:text="@string/emailId"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13ssp"/>
+
+                            <TextView
+                                android:id="@+id/emailIdValueTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/poppins_regular"
+                                android:maxLines="1"
+                                android:textColor="@color/lightBlack"
+                                android:textSize="@dimen/_12ssp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/mobileNoLayoutInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:layout_constraintTop_toBottomOf="@id/dobEmailLayoutInfo"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:baselineAligned="false">
+
+                        <LinearLayout
+                            android:id="@+id/mobileNoInfo"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/regular"
-                            android:gravity="end"
-                            android:maxLines="1"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/professorUserIdTv"
-                            app:layout_constraintTop_toBottomOf="@id/birthDateValueTv"/>
-
-                        <TextView
-                            android:id="@+id/detailsProfessorIdTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:fontFamily="@font/regular"
-                            android:text="Professor Id"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="@dimen/_16ssp"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            app:layout_constraintTop_toBottomOf="@+id/shippingAddress"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/professorUserIdTv"/>
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:ignore="UselessParent">
 
-                        <TextView
-                            android:id="@+id/detailsProfessorIdValueTv"
+                            <TextView
+                                android:id="@+id/mobileNumberTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:text="@string/mobileNumber"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13ssp"/>
+
+                            <TextView
+                                android:id="@+id/mobileNumberValueTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/poppins_regular"
+                                android:maxLines="1"
+                                android:textColor="@color/lightBlack"
+                                android:textSize="@dimen/_12ssp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/alternateNoInfo"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/regular"
-                            android:gravity="end"
-                            android:maxLines="1"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/detailsProfessorIdTv"
-                            app:layout_constraintTop_toBottomOf="@id/professorUserIdValueTv"/>
-
-                        <TextView
-                            android:id="@+id/emailIdTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:fontFamily="@font/regular"
-                            android:text="@string/emailId"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="@dimen/_16ssp"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            app:layout_constraintTop_toBottomOf="@+id/shippingAddress"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/detailsProfessorIdTv"/>
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:ignore="UselessParent">
 
-                        <TextView
-                            android:id="@+id/emailIdValueTv"
+                            <TextView
+                                android:id="@+id/alternateMobileNumberTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:text="@string/alternativeMobileNumber"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13ssp"/>
+
+                            <TextView
+                                android:id="@+id/alternateMobileNumberValueTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/poppins_regular"
+                                android:maxLines="1"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/addressLayoutInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:layout_constraintTop_toBottomOf="@id/mobileNoLayoutInfo"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:baselineAligned="false">
+
+                        <LinearLayout
+                            android:id="@+id/addressInfo"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/regular"
-                            android:gravity="end"
-                            android:maxLines="1"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/emailIdTv"
-                            app:layout_constraintTop_toBottomOf="@id/detailsProfessorIdValueTv"/>
-
-                        <TextView
-                            android:id="@+id/mobileNumberTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:fontFamily="@font/regular"
-                            android:text="@string/mobileNumber"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="@dimen/_16ssp"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            app:layout_constraintTop_toBottomOf="@+id/shippingAddress"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/emailIdTv"/>
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:ignore="UselessParent">
 
-                        <TextView
-                            android:id="@+id/mobileNumberValueTv"
+                            <TextView
+                                android:id="@+id/addressTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:text="@string/address"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13ssp"/>
+
+                            <TextView
+                                android:id="@+id/addressValueTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_regular"
+                                android:textColor="@color/lightBlack"
+                                android:textSize="@dimen/_12ssp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/markSheetLayoutInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:layout_constraintTop_toBottomOf="@id/addressLayoutInfo"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:baselineAligned="false">
+
+                        <LinearLayout
+                            android:id="@+id/tenthMarkSheetInfo"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/regular"
-                            android:gravity="end"
-                            android:maxLines="1"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/mobileNumberTv"
-                            app:layout_constraintTop_toBottomOf="@id/emailIdValueTv"/>
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            tools:ignore="UselessParent">
 
-                        <TextView
-                            android:id="@+id/alternateMobileNumberTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:fontFamily="@font/regular"
-                            android:text="@string/alternativeMobileNumber"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/mobileNumberTv"/>
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/tenthMarkSheetTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:background="@drawable/orange_background_button"
+                                android:drawableEnd="@drawable/download_icon"
+                                android:paddingEnd="@dimen/_12sdp"
+                                android:paddingStart="@dimen/_12sdp"
+                                android:drawablePadding="@dimen/_10sdp"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:text="@string/tenthMarkSheet"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_13ssp"
+                                app:cornerRadius="@dimen/_5sdp" />
+                        </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/alternateMobileNumberValueTv"
+                        <LinearLayout
+                            android:id="@+id/plusTwoMarkSheetInfo"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/regular"
-                            android:gravity="end"
-                            android:maxLines="1"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/alternateMobileNumberTv"
-                            app:layout_constraintTop_toBottomOf="@id/mobileNumberValueTv"/>
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            tools:ignore="UselessParent">
 
-                        <TextView
-                            android:id="@+id/salaryTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:fontFamily="@font/regular"
-                            android:text="@string/salary"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/alternateMobileNumberTv" />
-
-                        <TextView
-                            android:id="@+id/salaryValueTv"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/regular"
-                            android:gravity="end"
-                            android:maxLines="1"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/salaryTv"
-                            app:layout_constraintTop_toBottomOf="@id/alternateMobileNumberValueTv"/>
-
-                        <TextView
-                            android:id="@+id/addressTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:fontFamily="@font/regular"
-                            android:text="@string/address"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/salaryTv"/>
-
-                        <TextView
-                            android:id="@+id/addressValueTv"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:fontFamily="@font/regular"
-                            android:gravity="end"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/addressTv"
-                            app:layout_constraintTop_toBottomOf="@id/salaryValueTv"/>
-
-                        <TextView
-                            android:id="@+id/tenthMarkSheetTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:fontFamily="@font/regular"
-                            android:text="@string/tenthMarkSheet"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/addressValueTv"/>
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/downloadTenthMarkSheet"
-                            android:layout_width="@dimen/_20sdp"
-                            android:layout_height="@dimen/_20sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:adjustViewBounds="true"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/blue_download_icon"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/addressValueTv" />
-
-                        <TextView
-                            android:id="@+id/plusTwoMarkSheetTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:fontFamily="@font/regular"
-                            android:text="@string/twelfthMarkSheet"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="@dimen/_16ssp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/downloadTenthMarkSheet"/>
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/downloadPlusTwoMarkSheet"
-                            android:layout_width="@dimen/_20sdp"
-                            android:layout_height="@dimen/_20sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:adjustViewBounds="true"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/blue_download_icon"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/downloadTenthMarkSheet"/>
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </ScrollView>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/plusTwoMarkSheetTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:background="@drawable/orange_background_button"
+                                android:drawableEnd="@drawable/download_icon"
+                                android:paddingEnd="@dimen/_12sdp"
+                                android:paddingStart="@dimen/_12sdp"
+                                android:drawablePadding="@dimen/_10sdp"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:text="@string/twelfthMarkSheet"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_13ssp"
+                                app:cornerRadius="@dimen/_5sdp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -9,29 +9,42 @@ xmlns:tools="http://schemas.android.com/tools">
     android:background="@color/white"
     tools:context=".module.admission.activity.AdmissionDegreeScreen">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_3sdp"
+        android:background="@color/darkOrange"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/degreeTv"
+        app:layout_constraintTop_toTopOf="@id/degreeTv"/>
+
     <TextView
         android:id="@+id/degreeTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_5sdp"
-        android:fontFamily="@font/bold"
         android:text="@string/admissionDegrees"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_21ssp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textColor="@color/darkOrange"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintStart_toEndOf="@id/view"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <ImageView
-        android:id="@+id/degreeLogo"
-        android:layout_width="@dimen/_150sdp"
-        android:layout_height="@dimen/_90sdp"
-        android:layout_marginTop="@dimen/_13sdp"
-        android:background="@drawable/admission_degree"
-        android:contentDescription="@string/lock"
-        app:layout_constraintEnd_toEndOf="parent"
+    <TextView
+        android:id="@+id/degreeContentTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="@string/chooseDegree"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/degreeTv" />
+        app:layout_constraintTop_toBottomOf="@id/degreeTv"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -41,12 +54,12 @@ xmlns:tools="http://schemas.android.com/tools">
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginEnd="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_5sdp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/degreeLogo" />
-
+        app:layout_constraintTop_toBottomOf="@+id/degreeContentTv" />
 
     <LinearLayout
         android:id="@+id/rlError"
@@ -66,7 +79,7 @@ xmlns:tools="http://schemas.android.com/tools">
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/degreeLogo">
+        app:layout_constraintTop_toBottomOf="@id/degreeContentTv">
 
         <ImageView
             android:id="@+id/ivError"

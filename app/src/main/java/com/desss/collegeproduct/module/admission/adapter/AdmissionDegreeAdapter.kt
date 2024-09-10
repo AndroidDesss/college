@@ -36,9 +36,6 @@ class AdmissionDegreeAdapter(
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         degreeModel = degreeModelList[position]
-        val randomColor =
-            Color.parseColor(Constants.studentCategoriesBackGroundColor[Random.nextInt(Constants.studentCategoriesBackGroundColor.size)])
-        holder.binding.backGroundLayout.setBackgroundColor(randomColor)
         holder.binding.degreeNameTv.text = degreeModel!!.name
         holder.binding.backGroundLayout.setOnClickListener { v ->
             degreeModel = degreeModelList[position]

@@ -9,17 +9,28 @@ xmlns:tools="http://schemas.android.com/tools">
     android:background="@color/white"
     tools:context=".module.studentSubModule.syllabus.fragment.SyllabusFragmentScreen">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_3sdp"
+        android:background="@color/darkOrange"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/syllabusTv"
+        app:layout_constraintTop_toTopOf="@id/syllabusTv"/>
+
     <TextView
         android:id="@+id/syllabusTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_5sdp"
-        android:fontFamily="@font/bold"
+        android:fontFamily="@font/poppins_semi_bold"
         android:text="@string/syllabus"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_21ssp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/darkOrange"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintStart_toEndOf="@+id/view"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -71,7 +82,7 @@ xmlns:tools="http://schemas.android.com/tools">
             android:id="@+id/tvErrorText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/regular"
+            android:fontFamily="@font/poppins_semi_bold"
             android:gravity="center"
             android:padding="5dp"
             android:text="@string/noData"
