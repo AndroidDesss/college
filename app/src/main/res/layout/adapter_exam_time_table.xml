@@ -12,10 +12,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:fontFamily="@font/regular"
-            android:textColor="@color/lightGrey"
-            android:textSize="@dimen/_16ssp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textColor="@color/darkOrange"
+            android:textSize="@dimen/_12ssp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -25,9 +25,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
             app:cardCornerRadius="@dimen/_15sdp"
             app:cardElevation="3dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -40,33 +40,6 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/startView"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/downloadTimeTable"
-                    android:layout_width="@dimen/_18sdp"
-                    android:layout_height="@dimen/_18sdp"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_5sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/download_icon"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
                 <TextView
                     android:id="@+id/examNameTv"
                     android:layout_width="0dp"
@@ -74,11 +47,12 @@
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_15ssp"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:text="Unit 1"
+                    android:textColor="@color/darkOrange"
+                    android:textSize="@dimen/_14ssp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/startView"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
 
                 <TextView
@@ -86,14 +60,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/examStartDate"
-                    android:textColor="@color/lightGrey"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_14ssp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/startView"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/examNameTv"/>
 
                 <TextView
@@ -101,17 +73,31 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="end"
-                    android:textColor="@color/black"
+                    android:textColor="@color/lightBlack"
                     android:textSize="@dimen/_14ssp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/examStartDateTv"
                     app:layout_constraintTop_toBottomOf="@id/examNameTv"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/downloadTimeTable"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:adjustViewBounds="true"
+                    android:tint="@color/darkOrange"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/download_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/examStartDateValueTv"/>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

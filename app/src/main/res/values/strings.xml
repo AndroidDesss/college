@@ -39,7 +39,7 @@
     <string name="examStartDate">Exam Start Date:</string>
     <string name="payNow">Pay Now</string>
     <string name="download">Download</string>
-    <string name="feeStatus">Fee Status:</string>
+    <string name="feeStatus">Fee Status</string>
     <string name="forgotYourPassword">Forgot Password</string>
     <string name="forgotPasswordContent">Please enter your email to reset the password</string>
     <string name="forgotPasswordEt">Email or Phone</string>
@@ -115,7 +115,7 @@
     <string name="finish">Finish</string>
     <string name="reviewQuestions">Review Questions</string>
     <string name="selectedAns">Selected Ans:</string>
-    <string name="transportDetails">Transport Details</string>
+    <string name="transportDetails">Your Transport Details</string>
     <string name="driverName">Driver Name :</string>
     <string name="contactNumber">Contact Number :</string>
     <string name="route">Route :</string>
@@ -129,5 +129,17 @@
     <string name="notificationsInfo">Notifications Info</string>
     <string name="attendanceInfo">Your Attendance Details</string>
     <string name="chooseDegree">Choose Your Degree</string>
-    <string name="please_wait">Please wait...</string>
+    <string name="please_wait">Please wait ...</string>
+    <string name="yourReports">Your Reports</string>
+    <string name="your_exam_results_here">Your Exam Results Here</string>
+    <string name="your_exam_time_table_here">Your Exam TimeTable Here</string>
+    <string name="meetings">Meetings</string>
+    <string name="zoom">Zoom</string>
+    <string name="google_meet">Google Meet</string>
+    <string name="teams">Teams</string>
+    <string name="your_fees_payment_details">Your Fees Payment Details</string>
+    <string name="date">Date</string>
+    <string name="receipt_no">Receipt No</string>
+    <string name="transport">Transport</string>
+    <string name="course_structure">Course Structure</string>
 </resources>

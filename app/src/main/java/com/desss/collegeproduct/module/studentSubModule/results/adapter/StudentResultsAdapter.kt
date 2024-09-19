@@ -49,9 +49,6 @@ private val examResultsFragmentScreenViewModel: ExamResultsFragmentScreenViewMod
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentExamTimeTableModel = sortedExamTimeTable[position]
-        val randomColor =
-            Color.parseColor(Constants.studentCategoriesBackGroundColor[Random.nextInt(Constants.studentCategoriesBackGroundColor.size)])
-        holder.binding.startView.setBackgroundColor(randomColor)
 
         val getExamType = currentExamTimeTableModel.type
         if (getCurrentExamType.compareTo(getExamType) != 0) {

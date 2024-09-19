@@ -33,20 +33,21 @@ class FeePayAdapter(private val context: Context?, private val feePayModelList: 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         feePayModel = feePayModelList[position]
         holder.binding.semesterContentTv.text = "Semester " + feePayModel!!.semester
-        holder.binding.dateTv.text = "Date " + feePayModel!!.date
-        holder.binding.receiptNoTv.text = "Receipt No: #123456789"
+        holder.binding.dateValueTv.text =feePayModel!!.date
 
         if (feePayModel!!.status.equals("1") || feePayModel!!.status == "1") {
-            holder.binding.feeStatusValueTv.text = "Paid"
+            holder.binding.feesStatusValueTv.text = "Paid"
+            holder.binding.receiptValueTv.text = "#123456789"
             holder.binding.btnDownload.visibility = View.VISIBLE
             holder.binding.btnPayNow.visibility = View.GONE
         } else {
-            holder.binding.feeStatusValueTv.text = "Not Paid"
+            holder.binding.feesStatusValueTv.text = "Not Paid"
+            holder.binding.receiptValueTv.text = "--"
             holder.binding.btnDownload.visibility = View.GONE
             holder.binding.btnPayNow.visibility = View.VISIBLE
         }
 
-        holder.binding.btnDownload.setOnClickListener {
+        holder.binding.btnPayNow.setOnClickListener {
             CommonUtility.commonStartActivity(
                 context as Activity,
                 PaymentScreen::class.java,

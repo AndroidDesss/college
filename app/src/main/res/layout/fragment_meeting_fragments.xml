@@ -9,77 +9,168 @@
         android:background="@color/white"
         tools:context=".module.studentSubModule.meetings.MeetingFragments">
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_3sdp"
+            android:background="@color/darkOrange"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/joinMeetingTv"
+            app:layout_constraintTop_toTopOf="@id/joinMeetingTv"/>
+
         <TextView
             android:id="@+id/joinMeetingTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:fontFamily="@font/bold"
-            android:text="@string/joinMeeting"
-            android:textColor="@color/appBackgroundColor"
-            android:textSize="@dimen/_25ssp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="@string/meetings"
+            android:textColor="@color/darkOrange"
+            android:textSize="@dimen/_18ssp"
+            app:layout_constraintStart_toEndOf="@id/view"
             app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/joinMeetingContentTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="@string/joinMeeting"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/joinMeetingTv"/>
+
 
         <ImageView
             android:id="@+id/meetingLogo"
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="@dimen/_100sdp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
             android:background="@drawable/online_class"
             android:contentDescription="@string/lock"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/joinMeetingTv" />
+            app:layout_constraintTop_toBottomOf="@id/joinMeetingContentTv"
+            app:layout_constraintBottom_toTopOf="@id/meetingLayoutInfo"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnZoom"
+        <LinearLayout
+            android:id="@+id/meetingLayoutInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:background="@drawable/background_button"
-            android:fontFamily="@font/bold"
-            android:text="Zoom"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_15ssp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@id/teamMeetingInfo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/meetingLogo" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:baselineAligned="false">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnGoogleMeet"
+            <LinearLayout
+                android:id="@+id/meetingsLayoutInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@id/addressLayoutInfo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:id="@+id/zoomMeetingInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    tools:ignore="UselessParent">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnZoom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:background="@drawable/white_background_button"
+                        android:drawableStart="@drawable/zoom_logo_img"
+                        android:paddingEnd="@dimen/_12sdp"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:text="@string/zoom"
+                        android:textAllCaps="false"
+                        android:textColor="@color/lightBlack"
+                        android:textSize="@dimen/_13ssp"
+                        app:cornerRadius="@dimen/_5sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/googleMeetingInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    tools:ignore="UselessParent">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnGoogleMeet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:background="@drawable/white_background_button"
+                        android:drawableStart="@drawable/google_meet_logo"
+                        android:paddingEnd="@dimen/_12sdp"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:text="@string/google_meet"
+                        android:textAllCaps="false"
+                        android:textColor="@color/lightBlack"
+                        android:textSize="@dimen/_13ssp"
+                        app:cornerRadius="@dimen/_5sdp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/teamMeetingInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:background="@drawable/background_button"
-            android:fontFamily="@font/bold"
-            android:text="Google Meet"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_15ssp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnZoom" />
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnTeams"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:background="@drawable/background_button"
-            android:fontFamily="@font/bold"
-            android:text="Teams"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_15ssp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnGoogleMeet" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnTeams"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/white_background_button"
+                android:drawableStart="@drawable/teams_meet_logo"
+                android:paddingEnd="@dimen/_40sdp"
+                android:paddingStart="@dimen/_40sdp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:text="@string/teams"
+                android:textAllCaps="false"
+                android:textColor="@color/lightBlack"
+                android:textSize="@dimen/_13ssp"
+                app:cornerRadius="@dimen/_5sdp" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -36,7 +36,7 @@
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:fontFamily="@font/poppins_semi_bold"
                     android:textColor="@color/darkOrange"
-                    android:textSize="@dimen/_15ssp"
+                    android:textSize="@dimen/_14ssp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
@@ -50,7 +50,7 @@
                     android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/workingDays"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_12ssp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/monthTv"/>
 
@@ -64,7 +64,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="end"
                     android:textColor="@color/grey"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_12ssp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/workingDaysTv"
                     app:layout_constraintTop_toBottomOf="@+id/monthTv"/>
@@ -79,7 +79,7 @@
                     android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/daysPresent"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_12ssp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/workingDaysTv"/>
@@ -95,7 +95,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="end"
                     android:textColor="@color/grey"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_12ssp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/daysPresentTv"

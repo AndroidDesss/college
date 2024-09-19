@@ -18,7 +18,6 @@ import com.desss.collegeproduct.module.studentSubModule.examTimeTable.viewModel.
 import com.desss.collegeproduct.module.studentSubModule.results.adapter.StudentResultsAdapter
 import com.desss.collegeproduct.module.studentSubModule.results.viewModel.ExamResultsFragmentScreenViewModel
 
-
 class StudentResultsFragmentScreen : Fragment() {
 
     private lateinit var fragmentStudentResultsScreenBinding: FragmentStudentResultsScreenBinding

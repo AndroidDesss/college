@@ -12,9 +12,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
             app:cardCornerRadius="20dp"
             app:cardElevation="3dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -27,15 +27,6 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white">
 
-                <View
-                    android:id="@+id/startView"
-                    android:layout_width="@dimen/_15sdp"
-                    android:layout_height="0dp"
-                    android:background="@color/black"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
                 <TextView
                     android:id="@+id/syllabusTv"
                     android:layout_width="0dp"
@@ -44,13 +35,13 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:gravity="center_vertical"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_15ssp"
+                    android:textSize="@dimen/_14ssp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/downloadSyllabus"
-                    app:layout_constraintStart_toEndOf="@+id/startView"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
@@ -61,8 +52,9 @@
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:adjustViewBounds="true"
+                    android:tint="@color/darkOrange"
                     android:scaleType="fitXY"
-                    android:src="@drawable/blue_download_icon"
+                    android:src="@drawable/download_icon"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
