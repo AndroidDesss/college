@@ -46,6 +46,21 @@ xmlns:tools="http://schemas.android.com/tools">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/examTimeTableTv"/>
 
+    <ImageView
+        android:id="@+id/examTimeTableLogo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_250sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:scaleType="fitXY"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/titmetable_back_logo"
+        android:contentDescription="@string/lock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/examTimeTableContentTv"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
@@ -58,7 +73,7 @@ xmlns:tools="http://schemas.android.com/tools">
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/examTimeTableContentTv" />
+        app:layout_constraintTop_toBottomOf="@+id/examTimeTableLogo" />
 
     <LinearLayout
         android:id="@+id/rlError"
@@ -78,7 +93,7 @@ xmlns:tools="http://schemas.android.com/tools">
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/examTimeTableContentTv">
+        app:layout_constraintTop_toBottomOf="@id/examTimeTableLogo">
 
         <ImageView
             android:id="@+id/ivError"

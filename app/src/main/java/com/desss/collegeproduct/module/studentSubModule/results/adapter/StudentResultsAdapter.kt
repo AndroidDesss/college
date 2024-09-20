@@ -56,7 +56,7 @@ private val examResultsFragmentScreenViewModel: ExamResultsFragmentScreenViewMod
             holder.binding.examTypeTv.visibility = View.VISIBLE
             holder.binding.examTypeTv.text = currentExamTimeTableModel.type + " Exam"
         } else {
-            holder.binding.examTypeTv.visibility = View.VISIBLE
+            holder.binding.examTypeTv.visibility = View.GONE
         }
 
         holder.binding.examNameTv.text = currentExamTimeTableModel.name
