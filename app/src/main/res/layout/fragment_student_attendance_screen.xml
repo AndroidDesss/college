@@ -10,31 +10,42 @@ xmlns:tools="http://schemas.android.com/tools">
     android:background="@color/white"
     tools:context=".module.professorSubModule.studentAttendance.fragment.StudentAttendanceFragmentScreen">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_3sdp"
+        android:background="@color/darkOrange"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/studentAttendanceTv"
+        app:layout_constraintTop_toTopOf="@id/studentAttendanceTv"/>
+
     <TextView
         android:id="@+id/studentAttendanceTv"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:fontFamily="@font/bold"
+        android:fontFamily="@font/poppins_semi_bold"
         android:text="@string/studentAttendance"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_21ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/darkOrange"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintStart_toEndOf="@id/view"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <ImageView
-        android:id="@+id/studentAttendanceLogo"
-        android:layout_width="@dimen/_150sdp"
-        android:layout_height="@dimen/_90sdp"
-        android:layout_marginTop="@dimen/_13sdp"
-        android:background="@drawable/student_attendance_bg_theme"
-        android:contentDescription="@string/lock"
-        app:layout_constraintEnd_toEndOf="parent"
+    <TextView
+        android:id="@+id/studentAttendanceContentTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="@string/professorStudentAttendanceContent"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/studentAttendanceTv" />
+        app:layout_constraintTop_toBottomOf="@id/studentAttendanceTv"/>
 
     <ScrollView
         android:id="@+id/scrollview"
@@ -44,7 +55,7 @@ xmlns:tools="http://schemas.android.com/tools">
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studentAttendanceLogo">
+        app:layout_constraintTop_toBottomOf="@+id/studentAttendanceContentTv">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/parentLogin"
@@ -74,10 +85,10 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:fontFamily="@font/bold"
+                        android:fontFamily="@font/poppins_semi_bold"
                         android:text="@string/professorName"
-                        android:textColor="@color/lightGrey"
-                        android:textSize="@dimen/_14ssp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -88,10 +99,10 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
-                        android:fontFamily="@font/regular"
+                        android:fontFamily="@font/poppins_regular"
                         android:gravity="end"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_14ssp"
+                        android:textColor="@color/darkOrange"
+                        android:textSize="@dimen/_12ssp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/professorNameTv"
                         app:layout_constraintTop_toTopOf="parent"/>
@@ -103,10 +114,10 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
-                        android:fontFamily="@font/bold"
+                        android:fontFamily="@font/poppins_semi_bold"
                         android:text="@string/todayDate"
-                        android:textColor="@color/lightGrey"
-                        android:textSize="@dimen/_14ssp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/professorNameTv"/>
@@ -119,10 +130,10 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
-                        android:fontFamily="@font/regular"
+                        android:fontFamily="@font/poppins_regular"
                         android:gravity="end"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_14ssp"
+                        android:textSize="@dimen/_12ssp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/todayDateTv"
@@ -148,6 +159,7 @@ xmlns:tools="http://schemas.android.com/tools">
                     android:id="@+id/degreeLinear"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_3sdp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -155,18 +167,27 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:id="@+id/degreeTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/bold"
+                        android:fontFamily="@font/poppins_semi_bold"
                         android:text="@string/degreeDropDown"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
-                    <FrameLayout
-                        android:id="@+id/flDegree"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:background="@drawable/background_grey_border_rounded">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:id="@+id/degree_spinner_icon"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="2dp"
+                            android:src="@drawable/eye_open"
+                            tools:ignore="ContentDescription" />
 
                         <Spinner
                             android:id="@+id/degreeSpinner"
@@ -175,7 +196,14 @@ xmlns:tools="http://schemas.android.com/tools">
                             android:layout_height="42dp"
                             android:padding="6dp"
                             android:prompt="@string/select_prompt"/>
-                    </FrameLayout>
+                    </LinearLayout>
+                    <View
+                        android:id="@+id/degreeBottomLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black"
+                        android:layout_marginTop="-1dp"
+                        tools:ignore="ExtraText" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -183,23 +211,35 @@ xmlns:tools="http://schemas.android.com/tools">
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginStart="@dimen/_3sdp"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/departmentTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/bold"
+                        android:fontFamily="@font/poppins_semi_bold"
                         android:text="@string/departmentDropDown"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
-                    <FrameLayout
-                        android:id="@+id/flDepartment"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:background="@drawable/background_grey_border_rounded">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:id="@+id/department_spinner_icon"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="2dp"
+                            android:src="@drawable/eye_open"
+                            tools:ignore="ContentDescription" />
+
                         <Spinner
                             android:id="@+id/departmentSpinner"
                             style="@style/mySpinnerItemStyle"
@@ -207,7 +247,15 @@ xmlns:tools="http://schemas.android.com/tools">
                             android:layout_height="42dp"
                             android:padding="6dp"
                             android:prompt="@string/select_prompt"/>
-                    </FrameLayout>
+                    </LinearLayout>
+                    <View
+                        android:id="@+id/departmentBottomLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black"
+                        android:layout_marginTop="-1dp"
+                        tools:ignore="ExtraText" />
+
                 </LinearLayout>
             </LinearLayout>
 
@@ -229,24 +277,34 @@ xmlns:tools="http://schemas.android.com/tools">
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/_3sdp"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/semesterTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/bold"
+                        android:fontFamily="@font/poppins_semi_bold"
                         android:text="@string/semester"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
-                    <FrameLayout
-                        android:id="@+id/flSemester"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:background="@drawable/background_grey_border_rounded">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:id="@+id/semester_spinner_icon"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="2dp"
+                            android:src="@drawable/eye_open"
+                            tools:ignore="ContentDescription" />
 
                         <Spinner
                             android:id="@+id/semesterSpinner"
@@ -255,7 +313,14 @@ xmlns:tools="http://schemas.android.com/tools">
                             android:layout_height="42dp"
                             android:padding="6dp"
                             android:prompt="@string/select_prompt"/>
-                    </FrameLayout>
+                    </LinearLayout>
+                    <View
+                        android:id="@+id/semesterBottomLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black"
+                        android:layout_marginTop="-1dp"
+                        tools:ignore="ExtraText" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -263,23 +328,34 @@ xmlns:tools="http://schemas.android.com/tools">
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginStart="@dimen/_3sdp"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/sectionTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/bold"
+                        android:fontFamily="@font/poppins_semi_bold"
                         android:text="@string/section"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
-                    <FrameLayout
-                        android:id="@+id/flSection"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:background="@drawable/background_grey_border_rounded">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:id="@+id/section_spinner_icon"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="2dp"
+                            android:src="@drawable/eye_open"
+                            tools:ignore="ContentDescription" />
 
                         <Spinner
                             android:id="@+id/sectionSpinner"
@@ -288,23 +364,32 @@ xmlns:tools="http://schemas.android.com/tools">
                             android:layout_height="42dp"
                             android:padding="6dp"
                             android:prompt="@string/select_prompt"/>
-                    </FrameLayout>
+                    </LinearLayout>
+                    <View
+                        android:id="@+id/sectionBottomLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black"
+                        android:layout_marginTop="-1dp"
+                        tools:ignore="ExtraText" />
                 </LinearLayout>
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnView"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
-                android:background="@drawable/background_button"
-                android:fontFamily="@font/bold"
+                android:background="@drawable/orange_background_button"
+                android:fontFamily="@font/poppins_semi_bold"
                 android:text="@string/view"
                 android:textAllCaps="false"
+                android:paddingEnd="@dimen/_25sdp"
+                android:paddingStart="@dimen/_25sdp"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_15ssp"
+                android:textSize="@dimen/_14ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/semesterSectionLinearInfo" />
@@ -324,116 +409,156 @@ xmlns:tools="http://schemas.android.com/tools">
                 app:layout_constraintTop_toBottomOf="@+id/btnView">
 
                 <LinearLayout
-                    android:id="@+id/presentLinear"
+                    android:id="@+id/presentComboLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_5sdp"
                     android:layout_weight="1"
-                    android:background="@color/presentBackground"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/presentTv"
+                    <View
+                        android:id="@+id/presentIndicationLine"
+                        android:layout_width="6dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/presentViewBackground" />
+
+                    <LinearLayout
+                        android:id="@+id/presentLinear"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:fontFamily="@font/bold"
-                        android:gravity="start"
-                        android:text="@string/present"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_14ssp" />
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/presentTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:gravity="start"
+                            android:text="@string/present"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp" />
 
-                    <TextView
-                        android:id="@+id/presentValueTv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"
-                        android:fontFamily="@font/bold"
-                        android:gravity="center"
-                        android:text="@string/zero"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_22ssp" />
+                        <TextView
+                            android:id="@+id/presentValueTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:gravity="start"
+                            android:text="@string/zero"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_22ssp" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/absentLinear"
+                    android:id="@+id/absentComboLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_5sdp"
                     android:layout_weight="1"
-                    android:background="@color/notPresentBackground"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/absentTv"
+                    <View
+                        android:id="@+id/absentIndicationLine"
+                        android:layout_width="6dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/notPresentViewBackground" />
+
+                    <LinearLayout
+                        android:id="@+id/absentLinear"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:fontFamily="@font/bold"
-                        android:gravity="start"
-                        android:text="@string/notPresent"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_14ssp" />
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/absentTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:gravity="start"
+                            android:text="@string/notPresent"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp" />
 
-                    <TextView
-                        android:id="@+id/absentValueTv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"
-                        android:fontFamily="@font/bold"
-                        android:gravity="center"
-                        android:text="@string/zero"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_22ssp"
-                        android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/absentValueTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:gravity="start"
+                            android:text="@string/zero"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_22ssp" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/totalLinear"
+                    android:id="@+id/totalComboLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_5sdp"
                     android:layout_weight="1"
-                    android:background="@color/totalBackground"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/totalTv"
+                    <View
+                        android:id="@+id/totalIndicationLine"
+                        android:layout_width="6dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/totalViewBackground" />
+
+                    <LinearLayout
+                        android:id="@+id/totalLinear"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:fontFamily="@font/bold"
-                        android:gravity="start"
-                        android:text="@string/total"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_14ssp" />
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/totalTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:gravity="start"
+                            android:text="@string/total"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp" />
 
-                    <TextView
-                        android:id="@+id/totalValueTv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"
-                        android:fontFamily="@font/bold"
-                        android:gravity="center"
-                        android:text="@string/zero"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_22ssp"
-                        android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/totalValueTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:gravity="start"
+                            android:text="@string/zero"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_22ssp" />
+                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>

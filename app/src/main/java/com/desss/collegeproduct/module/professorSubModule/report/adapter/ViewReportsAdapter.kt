@@ -11,10 +11,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.desss.collegeproduct.R
-import com.desss.collegeproduct.commonfunctions.Constants
 import com.desss.collegeproduct.databinding.AdapterViewReportBinding
 import com.desss.collegeproduct.module.professorSubModule.report.model.ViewReportsModel
-import kotlin.random.Random
 
 
 class ViewReportsAdapter(
@@ -37,9 +35,6 @@ class ViewReportsAdapter(
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         viewReportModel = viewReportList[position]
-        val randomColor =
-            Color.parseColor(Constants.studentCategoriesBackGroundColor[Random.nextInt(Constants.studentCategoriesBackGroundColor.size)])
-        holder.binding.startView.setBackgroundColor(randomColor)
         holder.binding.studentNameTv.text = viewReportModel!!.name
         holder.binding.studentRegNoTv.text = viewReportModel!!.reg_no
         holder.binding.dateValueTv.text = viewReportModel!!.date

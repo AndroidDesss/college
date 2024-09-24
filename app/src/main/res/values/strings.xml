@@ -129,6 +129,7 @@
     <string name="notificationsInfo">Notifications Info</string>
     <string name="attendanceInfo">Your Attendance Details</string>
     <string name="professorDepartmentContent">Department Schedule Details Here</string>
+    <string name="professorStudentAttendanceContent">Attendance Details Here</string>
     <string name="chooseDegree">Choose Your Degree</string>
     <string name="chooseCourses">Choose Your Course</string>
     <string name="please_wait">Please wait ...</string>
@@ -146,4 +147,5 @@
     <string name="transport">Transport</string>
     <string name="course_structure">Course Structure</string>
     <string name="application_content">Please fill out the application form carefully..!</string>
+    <string name="professor_attendance_recap">Professor Attendance Recap</string>
 </resources>

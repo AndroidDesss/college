@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+    <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="appBackgroundColor">#0a4445</color>
     <color name="textViewColor">#ffd601</color>
@@ -27,6 +27,10 @@
     <color name="darkBlue">#005A93</color>
     <color name="grey">#808080</color>
     <color name="darkYellow">#ffb348</color>
+    <color name="presentViewBackground">#20c997</color>
+    <color name="notPresentViewBackground">#e83e8c</color>
+    <color name="totalViewBackground">#17a2b8</color>
+
 
 
 

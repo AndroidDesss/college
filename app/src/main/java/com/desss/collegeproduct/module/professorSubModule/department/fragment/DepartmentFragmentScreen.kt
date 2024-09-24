@@ -87,8 +87,6 @@ class DepartmentFragmentScreen : Fragment() {
         departmentAdapter = DepartmentAdapter(context, departmentModel)
         fragmentDepartmentScreenBinding.recyclerView.adapter = departmentAdapter
         departmentAdapter!!.notifyDataSetChanged()
-        fragmentDepartmentScreenBinding.professorNameTv.text =
-            "Prof." + SharedPref.getFirstName(context) + " " + SharedPref.getLastName(context)
         CommonUtility.cancelProgressDialog(context)
     }
 

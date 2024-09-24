@@ -26,18 +26,29 @@
                 android:orientation="vertical"
                 android:padding="@dimen/_10sdp">
 
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_3sdp"
+                    android:background="@color/darkOrange"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/screenNameTv"
+                    app:layout_constraintTop_toTopOf="@id/screenNameTv"/>
+
                 <TextView
                     android:id="@+id/screenNameTv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_3sdp"
-                    android:fontFamily="@font/bold"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/studentsList"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_16ssp"
+                    android:textColor="@color/darkOrange"
+                    android:textSize="@dimen/_18ssp"
+                    app:layout_constraintStart_toEndOf="@id/view"
                     app:layout_constraintEnd_toStartOf="@id/btnClose"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -58,12 +69,15 @@
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:background="@drawable/rounded_edittext_background"
-                    android:fontFamily="@font/regular"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:hint="@string/search"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/lightGrey"
                     android:padding="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnClose"/>
+                    app:layout_constraintTop_toBottomOf="@id/screenNameTv"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
@@ -87,9 +101,12 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
-                    android:background="@drawable/background_button"
-                    android:fontFamily="@font/bold"
+                    android:background="@drawable/orange_background_button"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/update"
+                    android:textSize="@dimen/_14ssp"
+                    android:paddingEnd="@dimen/_25sdp"
+                    android:paddingStart="@dimen/_25sdp"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textStyle="bold"
