@@ -36,9 +36,6 @@ class AdmissionCourseAdapter(
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         courseModel = courseModelList[position]
-        val randomColor =
-            Color.parseColor(Constants.studentCategoriesBackGroundColor[Random.nextInt(Constants.studentCategoriesBackGroundColor.size)])
-        holder.binding.backGroundLayout.setBackgroundColor(randomColor)
         holder.binding.courseNameTv.text = courseModel!!.department
         holder.binding.yearValueTv.text = courseModel!!.year
         holder.binding.feeValueTv.text = courseModel!!.price

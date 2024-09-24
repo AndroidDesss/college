@@ -50,7 +50,7 @@ object Constants {
         R.drawable.student_transport
     )
 
-    val professorCategoriesBackGroundColor = arrayOf("#8b88d0", "#79b1fb", "#fbb97c", "#df90c9", "#f7937e", "#e5a9ac","#8b88d0")
+    val professorCategoriesBackGroundColor = arrayOf("#8b88d0", "#79b1fb", "#fbb97c", "#df90c9", "#f7937e", "#e5a9ac")
 
     val professorCategoriesArray = arrayOf(
         "Student Attendance",
@@ -59,7 +59,6 @@ object Constants {
         "Schedule",
         "Report",
         "Notes",
-        "Transport"
     )
 
     val professorCategoriesImage = arrayOf(

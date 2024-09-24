@@ -16,7 +16,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             app:cardCornerRadius="@dimen/_15sdp"
-            app:cardElevation="3dp"
+            app:cardElevation="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,14 +27,6 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white">
 
-                <View
-                    android:id="@+id/startView"
-                    android:layout_width="@dimen/_15sdp"
-                    android:layout_height="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
                 <TextView
                     android:id="@+id/departmentTv"
                     android:layout_width="0dp"
@@ -42,11 +34,11 @@
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_15ssp"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:textColor="@color/darkOrange"
+                    android:textSize="@dimen/_14ssp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/startView"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
 
 
@@ -55,13 +47,13 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
-                    android:textColor="@color/lightGrey"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_14ssp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/startView"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/departmentTv"/>
 
                 <TextView
@@ -69,15 +61,15 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
-                    android:textColor="@color/lightGrey"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_14ssp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/startView"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/yearSectionValueTv"/>
 
 

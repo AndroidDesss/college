@@ -9,29 +9,29 @@ xmlns:tools="http://schemas.android.com/tools">
     android:background="@color/white"
     tools:context=".module.admission.activity.AdmissionFormScreen">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_3sdp"
+        android:background="@color/darkOrange"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/applicationTv"
+        app:layout_constraintTop_toTopOf="@id/applicationTv"/>
+
     <TextView
         android:id="@+id/applicationTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_5sdp"
-        android:fontFamily="@font/bold"
         android:text="@string/admissionApplication"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_21ssp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textColor="@color/darkOrange"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintStart_toEndOf="@id/view"
         app:layout_constraintTop_toTopOf="parent"/>
-
-    <ImageView
-        android:id="@+id/applicationLogo"
-        android:layout_width="@dimen/_150sdp"
-        android:layout_height="@dimen/_90sdp"
-        android:layout_marginTop="@dimen/_13sdp"
-        android:background="@drawable/admission_application_form"
-        android:contentDescription="@string/lock"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/applicationTv" />
 
     <ScrollView
         android:id="@+id/scrollview"
@@ -40,13 +40,28 @@ xmlns:tools="http://schemas.android.com/tools">
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/applicationLogo">
+        app:layout_constraintTop_toBottomOf="@+id/applicationTv">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/parentLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/applicationContentTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_30sdp"
+                android:text="@string/application_content"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:textColor="@color/lightBlack"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tinFirstName"
@@ -60,13 +75,13 @@ xmlns:tools="http://schemas.android.com/tools">
                 app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/applicationContentTv">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etFirstName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/regular"
+                    android:fontFamily="@font/poppins_regular"
                     android:maxLines="1"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14ssp" />
@@ -90,7 +105,7 @@ xmlns:tools="http://schemas.android.com/tools">
                     android:id="@+id/etLastName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/regular"
+                    android:fontFamily="@font/poppins_regular"
                     android:maxLines="1"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14ssp" />
@@ -114,7 +129,7 @@ xmlns:tools="http://schemas.android.com/tools">
                     android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/regular"
+                    android:fontFamily="@font/poppins_regular"
                     android:maxLines="1"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14ssp" />
@@ -138,7 +153,7 @@ xmlns:tools="http://schemas.android.com/tools">
                     android:id="@+id/etPhoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/regular"
+                    android:fontFamily="@font/poppins_regular"
                     android:inputType="number"
                     android:maxLength="10"
                     android:textColor="@color/black"
@@ -163,7 +178,7 @@ xmlns:tools="http://schemas.android.com/tools">
                     android:id="@+id/etAlterPhoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/regular"
+                    android:fontFamily="@font/poppins_regular"
                     android:inputType="number"
                     android:maxLength="10"
                     android:textColor="@color/black"
@@ -172,16 +187,19 @@ xmlns:tools="http://schemas.android.com/tools">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnSubmit"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_30sdp"
                 android:layout_marginTop="@dimen/_30sdp"
-                android:background="@drawable/background_button"
-                android:backgroundTint="@color/violet"
-                android:fontFamily="@font/bold"
+                android:background="@drawable/orange_background_button"
+                android:fontFamily="@font/poppins_semi_bold"
                 android:text="@string/submit"
                 android:textAllCaps="false"
-                android:textColor="@color/textViewColor"
+                android:drawablePadding="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                android:paddingStart="@dimen/_12sdp"
+                android:drawableEnd="@drawable/login_btn_icon"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_15ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

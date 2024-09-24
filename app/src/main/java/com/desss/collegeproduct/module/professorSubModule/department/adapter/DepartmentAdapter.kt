@@ -2,16 +2,13 @@ package com.desss.collegeproduct.module.professorSubModule.department.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.desss.collegeproduct.R
-import com.desss.collegeproduct.commonfunctions.Constants
 import com.desss.collegeproduct.databinding.AdapterDepartmentBinding
 import com.desss.collegeproduct.module.professorSubModule.department.model.DepartmentModel
-import kotlin.random.Random
 
 class DepartmentAdapter(
     private val context: Context?,
@@ -32,9 +29,6 @@ class DepartmentAdapter(
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         departmentModel = departmentList[position]
-        val randomColor =
-            Color.parseColor(Constants.studentCategoriesBackGroundColor[Random.nextInt(Constants.studentCategoriesBackGroundColor.size)])
-        holder.binding.startView.setBackgroundColor(randomColor)
         holder.binding.departmentTv.text = departmentModel!!.departement
         holder.binding.yearSectionValueTv.text =
             "Semester " + departmentModel!!.semester + "- Section " + departmentModel!!.section

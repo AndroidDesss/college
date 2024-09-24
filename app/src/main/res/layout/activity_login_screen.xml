@@ -80,7 +80,7 @@
                         android:paddingEnd="@dimen/_5sdp"
                         android:fontFamily="@font/poppins_regular"
                         android:maxLines="1"
-                        android:text="yuvaraj.p@desss.com"
+                        android:text="sathya@desss.com"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14ssp" />
                 </com.google.android.material.textfield.TextInputLayout>

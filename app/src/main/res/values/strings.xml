@@ -102,7 +102,7 @@
     <string name="professorList">Professor List</string>
     <string name="admissionDegrees">Degrees</string>
     <string name="admissionCourses">Courses</string>
-    <string name="admissionApplication">Application</string>
+    <string name="admissionApplication">Application Form</string>
     <string name="year">Year:</string>
     <string name="fee">Fee:</string>
     <string name="email">Email</string>
@@ -128,11 +128,14 @@
     <string name="welcome_text1">Login to Continue</string>
     <string name="notificationsInfo">Notifications Info</string>
     <string name="attendanceInfo">Your Attendance Details</string>
+    <string name="professorDepartmentContent">Department Schedule Details Here</string>
     <string name="chooseDegree">Choose Your Degree</string>
+    <string name="chooseCourses">Choose Your Course</string>
     <string name="please_wait">Please wait ...</string>
     <string name="yourReports">Your Reports</string>
     <string name="your_exam_results_here">Your Exam Results Here</string>
     <string name="your_exam_time_table_here">Your Exam TimeTable Here</string>
+    <string name="your_notes_here">Your Notes Here</string>
     <string name="meetings">Meetings</string>
     <string name="zoom">Zoom</string>
     <string name="google_meet">Google Meet</string>
@@ -142,4 +145,5 @@
     <string name="receipt_no">Receipt No</string>
     <string name="transport">Transport</string>
     <string name="course_structure">Course Structure</string>
+    <string name="application_content">Please fill out the application form carefully..!</string>
 </resources>
