@@ -24,7 +24,6 @@ import com.desss.collegeproduct.module.professorSubModule.report.model.StudentLi
 import com.desss.collegeproduct.module.professorSubModule.report.viewmodel.ReportFragmentScreenViewModel
 import java.util.Locale
 
-
 class ReportFragmentScreen : Fragment() {
 
     private lateinit var fragmentReportScreenBinding: FragmentReportScreenBinding

@@ -2,15 +2,12 @@ package com.desss.collegeproduct.module.professorSubModule.professorAttendance.a
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.desss.collegeproduct.R
-import com.desss.collegeproduct.commonfunctions.Constants
 import com.desss.collegeproduct.databinding.AdapterProfessorAttendanceCountBinding
-import kotlin.random.Random
 
 
 class ProfessorNameListAdapter(private val context: Context?, private val nameList: List<String>) :
@@ -33,9 +30,6 @@ class ProfessorNameListAdapter(private val context: Context?, private val nameLi
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         nameListModel = nameList[position]
         val subMonthYearTime = nameListModel!!.split("&&")
-        val randomColor =
-            Color.parseColor(Constants.studentCategoriesBackGroundColor[Random.nextInt(Constants.studentCategoriesBackGroundColor.size)])
-        holder.binding.startView.setBackgroundColor(randomColor)
         holder.binding.dateYearTv.text = subMonthYearTime[0]
         holder.binding.timeTv.text = subMonthYearTime[1]
     }

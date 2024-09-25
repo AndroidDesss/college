@@ -111,8 +111,6 @@ class ProfessorAttendanceFragmentScreen : Fragment() {
 
     private fun callApi() {
         CommonUtility.showProgressDialog(context)
-        fragmentProfessorAttendanceScreenBinding.professorNameTv.text =
-            CommonUtility.getCurrentDate(context)
         professorAttendanceFragmentScreenViewModel.callCheckProfessorAttendanceApi(
             requireActivity(),
             "check_today_marked_or_leave",
@@ -122,8 +120,6 @@ class ProfessorAttendanceFragmentScreen : Fragment() {
 
     private fun callProfessorCountApi(month: String, year: String) {
         CommonUtility.showProgressDialog(context)
-        fragmentProfessorAttendanceScreenBinding.professorNameTv.text =
-            CommonUtility.getCurrentDate(context)
         professorAttendanceFragmentScreenViewModel.callProfessorCountApi(
             requireActivity(),
             "professor_counts",

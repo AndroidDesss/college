@@ -9,18 +9,42 @@
         android:background="@color/white"
         tools:context=".module.professorSubModule.schedule.fragment.ScheduleFragmentScreen">
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_3sdp"
+            android:background="@color/darkOrange"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/scheduleTv"
+            app:layout_constraintTop_toTopOf="@id/scheduleTv"/>
+
         <TextView
             android:id="@+id/scheduleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:fontFamily="@font/bold"
+            android:fontFamily="@font/poppins_semi_bold"
             android:text="@string/schedule"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_21ssp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/darkOrange"
+            android:textSize="@dimen/_18ssp"
+            app:layout_constraintStart_toEndOf="@id/view"
             app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/reportContentTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="@string/schedule_details_here"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scheduleTv"/>
 
         <CalendarView
             android:id="@+id/simpleCalendarView"
@@ -30,17 +54,19 @@
             android:layout_marginEnd="@dimen/_10sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/scheduleTv"/>
+            app:layout_constraintTop_toBottomOf="@id/reportContentTv"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnAdd"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:background="@drawable/background_button"
+            android:background="@drawable/orange_background_button"
             android:fontFamily="@font/bold"
             android:text="@string/add"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="@dimen/_15ssp"

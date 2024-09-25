@@ -10,31 +10,42 @@ xmlns:tools="http://schemas.android.com/tools">
     android:background="@color/white"
     tools:context=".module.professorSubModule.notes.fragment.ProfessorNotesFragmentScreen">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_3sdp"
+        android:background="@color/darkOrange"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/notesTv"
+        app:layout_constraintTop_toTopOf="@id/notesTv"/>
+
     <TextView
-        android:id="@+id/reportTv"
-        android:layout_width="0dp"
+        android:id="@+id/notesTv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:fontFamily="@font/bold"
+        android:fontFamily="@font/poppins_semi_bold"
         android:text="@string/notes"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_21ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/darkOrange"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintStart_toEndOf="@id/view"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <ImageView
-        android:id="@+id/notesLogo"
-        android:layout_width="@dimen/_150sdp"
-        android:layout_height="@dimen/_90sdp"
-        android:layout_marginTop="@dimen/_13sdp"
-        android:background="@drawable/notes_bg_theme"
-        android:contentDescription="@string/lock"
-        app:layout_constraintEnd_toEndOf="parent"
+    <TextView
+        android:id="@+id/notesContentTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="@string/notes_upload_here"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/reportTv" />
+        app:layout_constraintTop_toBottomOf="@id/notesTv"/>
 
     <ScrollView
         android:id="@+id/scrollview"
@@ -44,12 +55,13 @@ xmlns:tools="http://schemas.android.com/tools">
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notesLogo">
+        app:layout_constraintTop_toBottomOf="@+id/notesContentTv">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/parentLogin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            tools:ignore="ScrollViewSize">
 
             <LinearLayout
                 android:id="@+id/degreeDepartmentLinearInfo"
@@ -68,6 +80,7 @@ xmlns:tools="http://schemas.android.com/tools">
                     android:id="@+id/degreeLinear"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_3sdp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -75,18 +88,27 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:id="@+id/degreeTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/bold"
+                        android:fontFamily="@font/poppins_semi_bold"
                         android:text="@string/degreeDropDown"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
-                    <FrameLayout
-                        android:id="@+id/flDegree"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:background="@drawable/background_grey_border_rounded">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:id="@+id/degree_spinner_icon"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="2dp"
+                            android:src="@drawable/degree_spinner_icon"
+                            tools:ignore="ContentDescription" />
 
                         <Spinner
                             android:id="@+id/degreeSpinner"
@@ -95,7 +117,14 @@ xmlns:tools="http://schemas.android.com/tools">
                             android:layout_height="42dp"
                             android:padding="6dp"
                             android:prompt="@string/select_prompt"/>
-                    </FrameLayout>
+                    </LinearLayout>
+                    <View
+                        android:id="@+id/degreeBottomLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black"
+                        android:layout_marginTop="-1dp"
+                        tools:ignore="ExtraText" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -103,23 +132,35 @@ xmlns:tools="http://schemas.android.com/tools">
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginStart="@dimen/_3sdp"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/departmentTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/bold"
+                        android:fontFamily="@font/poppins_semi_bold"
                         android:text="@string/departmentDropDown"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
-                    <FrameLayout
-                        android:id="@+id/flDepartment"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:background="@drawable/background_grey_border_rounded">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:id="@+id/department_spinner_icon"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="2dp"
+                            android:src="@drawable/department_spinner_icon"
+                            tools:ignore="ContentDescription" />
+
                         <Spinner
                             android:id="@+id/departmentSpinner"
                             style="@style/mySpinnerItemStyle"
@@ -127,7 +168,15 @@ xmlns:tools="http://schemas.android.com/tools">
                             android:layout_height="42dp"
                             android:padding="6dp"
                             android:prompt="@string/select_prompt"/>
-                    </FrameLayout>
+                    </LinearLayout>
+                    <View
+                        android:id="@+id/departmentBottomLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black"
+                        android:layout_marginTop="-1dp"
+                        tools:ignore="ExtraText" />
+
                 </LinearLayout>
             </LinearLayout>
 
@@ -149,24 +198,34 @@ xmlns:tools="http://schemas.android.com/tools">
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/_3sdp"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/semesterTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/bold"
+                        android:fontFamily="@font/poppins_semi_bold"
                         android:text="@string/semester"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
-                    <FrameLayout
-                        android:id="@+id/flSemester"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:background="@drawable/background_grey_border_rounded">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:id="@+id/semester_spinner_icon"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="2dp"
+                            android:src="@drawable/semester_spinner_icon"
+                            tools:ignore="ContentDescription" />
 
                         <Spinner
                             android:id="@+id/semesterSpinner"
@@ -175,33 +234,49 @@ xmlns:tools="http://schemas.android.com/tools">
                             android:layout_height="42dp"
                             android:padding="6dp"
                             android:prompt="@string/select_prompt"/>
-                    </FrameLayout>
+                    </LinearLayout>
+                    <View
+                        android:id="@+id/semesterBottomLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black"
+                        android:layout_marginTop="-1dp"
+                        tools:ignore="ExtraText" />
                 </LinearLayout>
-
-
 
                 <LinearLayout
                     android:id="@+id/sectionLinear"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginStart="@dimen/_3sdp"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/sectionTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/bold"
+                        android:fontFamily="@font/poppins_semi_bold"
                         android:text="@string/section"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
-                    <FrameLayout
-                        android:id="@+id/flSection"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:background="@drawable/background_grey_border_rounded">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:id="@+id/section_spinner_icon"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="2dp"
+                            android:src="@drawable/section_spinner_icon"
+                            tools:ignore="ContentDescription" />
 
                         <Spinner
                             android:id="@+id/sectionSpinner"
@@ -210,129 +285,191 @@ xmlns:tools="http://schemas.android.com/tools">
                             android:layout_height="42dp"
                             android:padding="6dp"
                             android:prompt="@string/select_prompt"/>
-                    </FrameLayout>
+                    </LinearLayout>
+                    <View
+                        android:id="@+id/sectionBottomLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black"
+                        android:layout_marginTop="-1dp"
+                        tools:ignore="ExtraText" />
                 </LinearLayout>
             </LinearLayout>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnChooseFile"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/infoCardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:background="@drawable/background_button"
-                android:backgroundTint="@color/lightBlue"
-                android:fontFamily="@font/bold"
-                android:text="@string/chooseFile"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_15ssp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/semesterSectionLinearInfo" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tinFileNameId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_5sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:gravity="center"
-                android:hint="@string/fileName"
-                app:boxBackgroundColor="@color/white"
-                app:boxBackgroundMode="outline"
-                app:hintTextColor="@color/black"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_20sdp"
+                app:cardElevation="@dimen/_5sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnChooseFile">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/semesterSectionLinearInfo">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etFileName"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/regular"
-                    android:maxLines="1"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14ssp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/fileInfoCardView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:background="@color/white"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tinFileNameId">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/dotted_line"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/fileIcon"
-                    android:layout_width="@dimen/_22sdp"
-                    android:layout_height="@dimen/_22sdp"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/file_icon"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                        <ImageView
+                            android:id="@+id/upload_img"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:src="@drawable/notes_upload_icon"
+                            android:scaleType="fitXY"
+                            tools:ignore="ContentDescription"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
 
-                <TextView
-                    android:id="@+id/fileNameTv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_15ssp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/removeIcon"
-                    app:layout_constraintStart_toEndOf="@+id/fileIcon"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                        <TextView
+                            android:id="@+id/btnChooseFile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semi_bold"
+                            android:text="@string/choose_file_pdf_here"
+                            android:gravity="center"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/upload_img"/>
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/removeIcon"
-                    android:layout_width="@dimen/_22sdp"
-                    android:layout_height="@dimen/_22sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/remove_icon"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tinFileNameId"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:gravity="center"
+                            android:hint="@string/fileName"
+                            app:boxBackgroundColor="@color/white"
+                            app:boxBackgroundMode="outline"
+                            app:hintTextColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/btnChooseFile">
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnUploadFile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:background="@drawable/background_button"
-                android:fontFamily="@font/bold"
-                android:text="@string/upload"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_15ssp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fileInfoCardView" />
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etFileName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_regular"
+                                android:maxLines="1"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14ssp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/fileInfoCardView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:background="@color/white"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tinFileNameId">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:id="@+id/fileIcon"
+                                android:layout_width="@dimen/_22sdp"
+                                android:layout_height="@dimen/_22sdp"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:adjustViewBounds="true"
+                                android:scaleType="fitXY"
+                                android:tint="@color/darkOrange"
+                                android:src="@drawable/file_icon"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
+
+                            <TextView
+                                android:id="@+id/fileNameTv"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:fontFamily="@font/regular"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_15ssp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/removeIcon"
+                                app:layout_constraintStart_toEndOf="@+id/fileIcon"
+                                app:layout_constraintTop_toTopOf="parent"/>
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:id="@+id/removeIcon"
+                                android:layout_width="@dimen/_22sdp"
+                                android:layout_height="@dimen/_22sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:adjustViewBounds="true"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/remove_icon"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnUploadFile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:background="@drawable/background_button"
+                            android:fontFamily="@font/bold"
+                            android:text="@string/upload"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15ssp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/fileInfoCardView" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

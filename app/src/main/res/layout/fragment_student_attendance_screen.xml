@@ -186,7 +186,7 @@ xmlns:tools="http://schemas.android.com/tools">
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginEnd="2dp"
-                            android:src="@drawable/eye_open"
+                            android:src="@drawable/degree_spinner_icon"
                             tools:ignore="ContentDescription" />
 
                         <Spinner
@@ -237,7 +237,7 @@ xmlns:tools="http://schemas.android.com/tools">
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginEnd="2dp"
-                            android:src="@drawable/eye_open"
+                            android:src="@drawable/department_spinner_icon"
                             tools:ignore="ContentDescription" />
 
                         <Spinner
@@ -303,7 +303,7 @@ xmlns:tools="http://schemas.android.com/tools">
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginEnd="2dp"
-                            android:src="@drawable/eye_open"
+                            android:src="@drawable/semester_spinner_icon"
                             tools:ignore="ContentDescription" />
 
                         <Spinner
@@ -354,7 +354,7 @@ xmlns:tools="http://schemas.android.com/tools">
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginEnd="2dp"
-                            android:src="@drawable/eye_open"
+                            android:src="@drawable/section_spinner_icon"
                             tools:ignore="ContentDescription" />
 
                         <Spinner
@@ -421,7 +421,7 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:id="@+id/presentIndicationLine"
                         android:layout_width="6dp"
                         android:layout_height="match_parent"
-                        android:background="@color/presentViewBackground" />
+                        android:background="@drawable/present_gradient_background" />
 
                     <LinearLayout
                         android:id="@+id/presentLinear"
@@ -472,7 +472,7 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:id="@+id/absentIndicationLine"
                         android:layout_width="6dp"
                         android:layout_height="match_parent"
-                        android:background="@color/notPresentViewBackground" />
+                        android:background="@drawable/absent_gradient_background" />
 
                     <LinearLayout
                         android:id="@+id/absentLinear"
@@ -523,7 +523,7 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:id="@+id/totalIndicationLine"
                         android:layout_width="6dp"
                         android:layout_height="match_parent"
-                        android:background="@color/totalViewBackground" />
+                        android:background="@drawable/total_gradient_background" />
 
                     <LinearLayout
                         android:id="@+id/totalLinear"

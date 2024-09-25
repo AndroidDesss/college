@@ -64,6 +64,7 @@
     <string name="view">View</string>
     <string name="viewReports">View Reports</string>
     <string name="select_prompt">Select</string>
+    <string name="select_month_prompt">Select Month</string>
     <string name="update">Update</string>
     <string name="upload">Upload</string>
     <string name="chooseFile">Choose File</string>
@@ -148,4 +149,9 @@
     <string name="course_structure">Course Structure</string>
     <string name="application_content">Please fill out the application form carefully..!</string>
     <string name="professor_attendance_recap">Professor Attendance Recap</string>
+    <string name="write_student_reports_here">Write Student Reports Here</string>
+    <string name="write_a_report">Write a Report...</string>
+    <string name="notes_upload_here">Notes Upload Here</string>
+    <string name="choose_file_pdf_here">Choose File PDF Here \n \n or  \n \n browse file from \n device</string>
+    <string name="schedule_details_here">Schedule Details Here</string>
 </resources>
