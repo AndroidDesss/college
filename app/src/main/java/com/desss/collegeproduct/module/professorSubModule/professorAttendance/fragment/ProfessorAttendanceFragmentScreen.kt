@@ -94,7 +94,7 @@ class ProfessorAttendanceFragmentScreen : Fragment() {
                         val month = parent.getItemAtPosition(position).toString()
                         val subMonthYear = month.split(" ")
                         callProfessorCountApi(subMonthYear[0], subMonthYear[1])
-                        observeViewModel(professorAttendanceFragmentScreenViewModel, 2)
+                        observeViewModel(professorAttendanceFragmentScreenViewModel, 4)
                     } else {
                         fragmentProfessorAttendanceScreenBinding.presentValueTv.text = "0"
                         fragmentProfessorAttendanceScreenBinding.absentValueTv.text = "0"
@@ -202,7 +202,8 @@ class ProfessorAttendanceFragmentScreen : Fragment() {
                         CommonUtility.cancelProgressDialog(activity)
                     }
                 })
-        } else {
+        }
+        else if (position == 4) {
             viewModel.getProfessorCountData()
                 ?.observe(requireActivity(), Observer { professorAttendanceCountData ->
                     if (professorAttendanceCountData != null) {
