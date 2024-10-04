@@ -58,7 +58,7 @@ class ScheduleFragmentScreen : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         fragmentScheduleScreenBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_schedule_screen, container, false)
         selectedDate = CommonUtility.getCurrentDate(context)

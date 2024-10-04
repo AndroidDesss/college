@@ -10,20 +10,42 @@
         android:background="@color/white"
         tools:context=".module.managementSubModule.professorDetail.fragment.ProfessorDetailFragmentScreen">
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_3sdp"
+            android:background="@color/darkOrange"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/professorTitleTv"
+            app:layout_constraintTop_toTopOf="@id/professorTitleTv"/>
+
         <TextView
             android:id="@+id/professorTitleTv"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:fontFamily="@font/bold"
-            android:text="@string/professorList"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="@string/professorDetails"
+            android:textColor="@color/darkOrange"
+            android:textSize="@dimen/_18ssp"
+            app:layout_constraintStart_toEndOf="@id/view"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/professorDetailsContentTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="@string/professor_details_here"
             android:textColor="@color/black"
-            android:textSize="@dimen/_21ssp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="@dimen/_16ssp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/professorTitleTv"/>
 
         <EditText
             android:id="@+id/etSearch"
@@ -33,12 +55,13 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:background="@drawable/rounded_edittext_background"
-            android:fontFamily="@font/regular"
+            android:fontFamily="@font/poppins_regular"
             android:hint="@string/search"
+            android:textSize="@dimen/_12ssp"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/professorTitleTv"/>
+            app:layout_constraintTop_toBottomOf="@id/professorDetailsContentTv"/>
 
 
         <androidx.recyclerview.widget.RecyclerView

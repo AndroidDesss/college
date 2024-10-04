@@ -10,20 +10,44 @@
         android:background="@color/white"
         tools:context=".module.managementSubModule.studentDetail.fragment.StudentDetailFragmentScreen">
 
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_3sdp"
+            android:background="@color/darkOrange"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/studentTitleTv"
+            app:layout_constraintTop_toTopOf="@id/studentTitleTv"/>
+
         <TextView
-            android:id="@+id/feeDetailsTv"
-            android:layout_width="0dp"
+            android:id="@+id/studentTitleTv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:fontFamily="@font/bold"
+            android:fontFamily="@font/poppins_semi_bold"
             android:text="@string/studentDetails"
+            android:textColor="@color/darkOrange"
+            android:textSize="@dimen/_18ssp"
+            app:layout_constraintStart_toEndOf="@id/view"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/studentDetailsContentTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="@string/student_details_here"
             android:textColor="@color/black"
-            android:textSize="@dimen/_21ssp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="@dimen/_16ssp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/studentTitleTv"/>
+
 
         <LinearLayout
             android:id="@+id/degreeDepartmentLinearInfo"
@@ -36,12 +60,13 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/feeDetailsTv">
+            app:layout_constraintTop_toBottomOf="@+id/studentDetailsContentTv">
 
             <LinearLayout
                 android:id="@+id/degreeLinear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_3sdp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -49,18 +74,27 @@
                     android:id="@+id/degreeTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/bold"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/degreeDropDown"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_12ssp" />
 
-                <FrameLayout
-                    android:id="@+id/flDegree"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:background="@drawable/background_grey_border_rounded">
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <ImageView
+                        android:id="@+id/degree_spinner_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/degree_spinner_icon"
+                        tools:ignore="ContentDescription" />
 
                     <Spinner
                         android:id="@+id/degreeSpinner"
@@ -69,7 +103,14 @@
                         android:layout_height="42dp"
                         android:padding="6dp"
                         android:prompt="@string/select_prompt"/>
-                </FrameLayout>
+                </LinearLayout>
+                <View
+                    android:id="@+id/degreeBottomLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    android:layout_marginTop="-1dp"
+                    tools:ignore="ExtraText" />
             </LinearLayout>
 
             <LinearLayout
@@ -77,23 +118,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginStart="@dimen/_3sdp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/departmentTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/bold"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/departmentDropDown"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_12ssp" />
 
-                <FrameLayout
-                    android:id="@+id/flDepartment"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@drawable/background_grey_border_rounded">
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <ImageView
+                        android:id="@+id/department_spinner_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/department_spinner_icon"
+                        tools:ignore="ContentDescription" />
+
                     <Spinner
                         android:id="@+id/departmentSpinner"
                         style="@style/mySpinnerItemStyle"
@@ -101,7 +154,15 @@
                         android:layout_height="42dp"
                         android:padding="6dp"
                         android:prompt="@string/select_prompt"/>
-                </FrameLayout>
+                </LinearLayout>
+                <View
+                    android:id="@+id/departmentBottomLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    android:layout_marginTop="-1dp"
+                    tools:ignore="ExtraText" />
+
             </LinearLayout>
         </LinearLayout>
 
@@ -123,24 +184,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginEnd="@dimen/_3sdp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/semesterTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/bold"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/semester"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_12ssp" />
 
-                <FrameLayout
-                    android:id="@+id/flSemester"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:background="@drawable/background_grey_border_rounded">
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <ImageView
+                        android:id="@+id/semester_spinner_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/semester_spinner_icon"
+                        tools:ignore="ContentDescription" />
 
                     <Spinner
                         android:id="@+id/semesterSpinner"
@@ -149,33 +220,49 @@
                         android:layout_height="42dp"
                         android:padding="6dp"
                         android:prompt="@string/select_prompt"/>
-                </FrameLayout>
+                </LinearLayout>
+                <View
+                    android:id="@+id/semesterBottomLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    android:layout_marginTop="-1dp"
+                    tools:ignore="ExtraText" />
             </LinearLayout>
-
-
 
             <LinearLayout
                 android:id="@+id/sectionLinear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginStart="@dimen/_3sdp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/sectionTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/bold"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/section"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_12ssp" />
 
-                <FrameLayout
-                    android:id="@+id/flSection"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@drawable/background_grey_border_rounded">
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <ImageView
+                        android:id="@+id/section_spinner_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/section_spinner_icon"
+                        tools:ignore="ContentDescription" />
 
                     <Spinner
                         android:id="@+id/sectionSpinner"
@@ -184,7 +271,14 @@
                         android:layout_height="42dp"
                         android:padding="6dp"
                         android:prompt="@string/select_prompt"/>
-                </FrameLayout>
+                </LinearLayout>
+                <View
+                    android:id="@+id/sectionBottomLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    android:layout_marginTop="-1dp"
+                    tools:ignore="ExtraText" />
             </LinearLayout>
         </LinearLayout>
 
@@ -193,12 +287,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_7sdp"
-            android:background="@drawable/background_button"
-            android:fontFamily="@font/bold"
+            android:background="@drawable/orange_background_button"
+            android:fontFamily="@font/poppins_semi_bold"
             android:text="@string/view"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_12ssp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/semesterSectionLinearInfo" />
@@ -211,8 +305,9 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:background="@drawable/rounded_edittext_background"
-            android:fontFamily="@font/regular"
+            android:fontFamily="@font/poppins_regular"
             android:hint="@string/search"
+            android:textSize="@dimen/_12ssp"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

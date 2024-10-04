@@ -50,7 +50,7 @@ class StudentSubModuleDetailFragmentScreen : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         fragmentStudentSubModuleDetailFragmentScreen =
             DataBindingUtil.inflate(inflater, R.layout.fragment_student_sub_module_detail_screen, container, false)
         getBundleData()
@@ -282,8 +282,6 @@ class StudentSubModuleDetailFragmentScreen : Fragment() {
             val profileList: List<ProfileModel> = profileData.data
             val userProfile: ProfileModel? = profileList.firstOrNull()
             userProfile?.let {
-                popupBinding.nameValueTv.text = it.first_name + " " + it.last_name
-                popupBinding.emailPhoneValueTv.text = it.email
                 popupBinding.firstNameValueTv.text = it.first_name
                 popupBinding.lastNameValueTv.text = it.last_name
                 popupBinding.birthDateValueTv.text = it.dob
@@ -309,7 +307,7 @@ class StudentSubModuleDetailFragmentScreen : Fragment() {
             true
         )
         popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0)
-        popupWindow.setFocusable(true)
+        popupWindow.isFocusable = true
         popupWindow.update()
         popupBinding.btnClose.setOnClickListener {
             popupWindow.dismiss()

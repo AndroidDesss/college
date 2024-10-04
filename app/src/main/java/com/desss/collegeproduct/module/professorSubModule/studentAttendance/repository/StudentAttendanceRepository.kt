@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.desss.collegeproduct.commonfunctions.CommonResponseModel
 import com.desss.collegeproduct.commonfunctions.CommonUtility
+import com.desss.collegeproduct.module.professorSubModule.professorAttendance.model.CheckProfessorAttendanceModel
 import com.desss.collegeproduct.module.professorSubModule.report.model.ProfessorStudentReportModel
 import com.desss.collegeproduct.module.professorSubModule.report.model.StudentListBasedModel
 import com.desss.collegeproduct.module.professorSubModule.studentAttendance.model.AddStudentAttendanceModel
@@ -111,13 +112,14 @@ object StudentAttendanceRepository {
         activity: Activity,
         action: String,
         professorUserId: String,
-        studentId: String
+        totalStudentId: String,
+        selectedStudentId: String
     ): LiveData<CommonResponseModel<AddStudentAttendanceModel>> {
         val data: MutableLiveData<CommonResponseModel<AddStudentAttendanceModel>> =
             MutableLiveData<CommonResponseModel<AddStudentAttendanceModel>>()
         val apiService = ApiClient.client?.create(ApiServices::class.java)
         val call: Call<CommonResponseModel<AddStudentAttendanceModel>?>? =
-            apiService?.getStudentAttendanceList(action, professorUserId, studentId)
+            apiService?.getStudentAttendanceList(action, professorUserId, totalStudentId,selectedStudentId)
         call?.enqueue(object : Callback<CommonResponseModel<AddStudentAttendanceModel>?> {
             override fun onResponse(
                 call: Call<CommonResponseModel<AddStudentAttendanceModel>?>,
@@ -128,6 +130,34 @@ object StudentAttendanceRepository {
 
             override fun onFailure(
                 call: Call<CommonResponseModel<AddStudentAttendanceModel>?>,
+                t: Throwable
+            ) {
+                CommonUtility.cancelProgressDialog(activity)
+            }
+        })
+        return data
+    }
+
+    fun getLeaveCheckApi(
+        activity: Activity,
+        action: String,
+        userId: String
+    ): LiveData<CommonResponseModel<CheckProfessorAttendanceModel>> {
+        val data: MutableLiveData<CommonResponseModel<CheckProfessorAttendanceModel>> =
+            MutableLiveData<CommonResponseModel<CheckProfessorAttendanceModel>>()
+        val apiService = ApiClient.client?.create(ApiServices::class.java)
+        val call: Call<CommonResponseModel<CheckProfessorAttendanceModel>?>? =
+            apiService?.getProfessorAttendance(action, userId)
+        call?.enqueue(object : Callback<CommonResponseModel<CheckProfessorAttendanceModel>?> {
+            override fun onResponse(
+                call: Call<CommonResponseModel<CheckProfessorAttendanceModel>?>,
+                response: Response<CommonResponseModel<CheckProfessorAttendanceModel>?>
+            ) {
+                data.value = response.body()
+            }
+
+            override fun onFailure(
+                call: Call<CommonResponseModel<CheckProfessorAttendanceModel>?>,
                 t: Throwable
             ) {
                 CommonUtility.cancelProgressDialog(activity)

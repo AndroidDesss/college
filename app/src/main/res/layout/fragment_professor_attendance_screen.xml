@@ -82,6 +82,39 @@ xmlns:tools="http://schemas.android.com/tools">
                     android:layout_height="wrap_content"
                     android:background="@color/white">
 
+                    <TextView
+                        android:id="@+id/markProfessorAttendanceTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:text="@string/mark_attendance"
+                        android:textColor="@color/black"
+                        android:visibility="gone"
+                        android:textSize="@dimen/_16ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/btnPresent"
+                        app:layout_constraintBottom_toBottomOf="@+id/btnPresent"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnPresent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:background="@drawable/orange_background_button"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:text="@string/present"
+                        android:visibility="gone"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintStart_toEndOf="@+id/markProfessorAttendanceTv"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                     <LinearLayout
                         android:id="@+id/monthSpinnerLayout"
                         android:layout_width="match_parent"
@@ -94,7 +127,7 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginEnd="@dimen/_15sdp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btnPresent"
                         tools:ignore="UseCompoundDrawables">
 
                         <ImageView
@@ -123,26 +156,8 @@ xmlns:tools="http://schemas.android.com/tools">
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/btnPresent"
-                        app:layout_constraintTop_toBottomOf="@id/monthSpinnerLayout"/>
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnPresent"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_marginEnd="@dimen/_5sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:background="@drawable/orange_background_button"
-                        android:fontFamily="@font/poppins_semi_bold"
-                        android:text="@string/present"
-                        android:visibility="gone"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_10ssp"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toBottomOf="@id/monthSpinnerLayout"/>
 
                     <LinearLayout
                         android:id="@+id/presentComboLayout"

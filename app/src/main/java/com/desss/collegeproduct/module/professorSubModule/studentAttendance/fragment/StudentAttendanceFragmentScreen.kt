@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,6 +23,7 @@ import com.desss.collegeproduct.commonfunctions.SharedPref
 import com.desss.collegeproduct.databinding.FragmentStudentAttendanceScreenBinding
 import com.desss.collegeproduct.databinding.ShowAttendanceListPopUpBinding
 import com.desss.collegeproduct.databinding.ShowStudentsListPopupBinding
+import com.desss.collegeproduct.module.professorSubModule.professorAttendance.model.CheckProfessorAttendanceModel
 import com.desss.collegeproduct.module.professorSubModule.report.model.ProfessorStudentReportModel
 import com.desss.collegeproduct.module.professorSubModule.report.model.StudentListBasedModel
 import com.desss.collegeproduct.module.professorSubModule.studentAttendance.adapter.AttendanceStudentsListAdapter
@@ -130,12 +132,27 @@ class StudentAttendanceFragmentScreen : Fragment() {
 
                 R.id.sectionSpinner -> {
                     selectedSection = parent.getItemAtPosition(position).toString()
+                    when {
+                        selectedSection != "Select" -> {
+                            checkLeaveApi()
+                            observeViewModel(studentAttendanceFragmentScreenViewModel, 3)
+                        }
+                    }
                 }
             }
         }
 
         override fun onNothingSelected(parent: AdapterView<*>?) {
         }
+    }
+
+    private fun checkLeaveApi() {
+        CommonUtility.showProgressDialog(context)
+        studentAttendanceFragmentScreenViewModel.callCheckLeaveApi(
+            requireActivity(),
+            "check_today_marked_or_leave",
+            SharedPref.getId(context).toString()
+        )
     }
 
     private fun initViewModel() {
@@ -187,6 +204,40 @@ class StudentAttendanceFragmentScreen : Fragment() {
                         fragmentStudentAttendanceScreenBinding.totalValueTv.text = "0"
                     }
                 })
+        }
+        else if (position == 3) {
+            viewModel.getCheckLeaveData()
+                ?.observe(requireActivity(), Observer { leaveData ->
+                    if (leaveData != null) {
+                        if (leaveData.status == 403 && leaveData.data.isNotEmpty()) {
+                            CommonUtility.cancelProgressDialog(activity)
+                        } else {
+                            handleLeaveData(leaveData)
+                        }
+                    } else {
+                        CommonUtility.cancelProgressDialog(activity)
+                    }
+                })
+        }
+    }
+
+    private fun handleLeaveData(leaveData: CommonResponseModel<CheckProfessorAttendanceModel>?) {
+        val professorAttendanceDataList: List<CheckProfessorAttendanceModel> =
+            leaveData!!.data
+        val userProfile: CheckProfessorAttendanceModel? = professorAttendanceDataList.firstOrNull()
+        userProfile?.let {
+            if (it.msg == "You go ahead") {
+                fragmentStudentAttendanceScreenBinding.btnView.visibility = View.VISIBLE
+                fragmentStudentAttendanceScreenBinding.attendanceRecapLinearInfo.visibility = View.VISIBLE
+                fragmentStudentAttendanceScreenBinding.leaveContentTv.visibility = View.GONE
+                callStudentCountListApi()
+                observeViewModel(studentAttendanceFragmentScreenViewModel, 2)
+            } else {
+                CommonUtility.cancelProgressDialog(activity)
+                fragmentStudentAttendanceScreenBinding.btnView.visibility = View.GONE
+                fragmentStudentAttendanceScreenBinding.attendanceRecapLinearInfo.visibility = View.GONE
+                fragmentStudentAttendanceScreenBinding.leaveContentTv.visibility = View.VISIBLE
+            }
         }
     }
 
@@ -353,7 +404,7 @@ class StudentAttendanceFragmentScreen : Fragment() {
 
             override fun afterTextChanged(editable: Editable?) {
                 if (attendanceStudentsListAdapter != null) {
-                    val searchText = popupBinding.etSearch.text.toString().toLowerCase(
+                    val searchText = popupBinding.etSearch.text.toString().lowercase(
                         Locale.getDefault()
                     )
                     attendanceStudentsListAdapter!!.filter(searchText)
@@ -374,10 +425,15 @@ class StudentAttendanceFragmentScreen : Fragment() {
 
         popupBinding.updateButton.setOnClickListener {
             if (attendanceStudentsListAdapter?.totalStudentCountPresentList()!!.isNotEmpty()) {
-                val commaSeparatedStudentIds =
+                val commaSeparatedTotalStudentIds =
                     attendanceStudentsListAdapter?.totalStudentCountPresentList()!!
-                        .joinToString(", ")
-                callMarkAttendanceApi(commaSeparatedStudentIds)
+                        .joinToString(",")
+                val commaSeparatedPresentAbsentStudentIds =
+                    attendanceStudentsListAdapter?.studentCountPresentAbsentList()!!
+                        .joinToString(",")
+                Log.d("commaSeparatedTotalStudentIds",commaSeparatedTotalStudentIds)
+                Log.d("commaSeparatedPresentAbsentStudentIds",commaSeparatedPresentAbsentStudentIds)
+                callMarkAttendanceApi(commaSeparatedTotalStudentIds,commaSeparatedPresentAbsentStudentIds)
                 observeStudentAttendanceViewModel(
                     studentAttendanceFragmentScreenViewModel,
                     popupWindow
@@ -402,6 +458,8 @@ class StudentAttendanceFragmentScreen : Fragment() {
     private fun observeStudentViewModel(
         viewModel: StudentAttendanceFragmentScreenViewModel,
         popupRecyclerView: RecyclerView
+
+
     ) {
         viewModel.getStudentListData()?.observe(requireActivity(), Observer { studentList ->
             if (studentList != null) {
@@ -416,11 +474,11 @@ class StudentAttendanceFragmentScreen : Fragment() {
         })
     }
 
-    private fun callMarkAttendanceApi(selectedStudentsId: String) {
+    private fun callMarkAttendanceApi(totalStudentsId: String,selectedPresentAbsentStudentsId: String) {
         CommonUtility.showProgressDialog(context)
         studentAttendanceFragmentScreenViewModel.callMarkStudentAttendanceApi(
             requireActivity(), "professor_mark_attendence_student",
-            SharedPref.getId(context)!!, selectedStudentsId
+            SharedPref.getId(context)!!, totalStudentsId,selectedPresentAbsentStudentsId
         )
     }
 

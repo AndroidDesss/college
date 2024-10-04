@@ -27,14 +27,6 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white">
 
-                <View
-                    android:id="@+id/startView"
-                    android:layout_width="@dimen/_15sdp"
-                    android:layout_height="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
                 <TextView
                     android:id="@+id/classNameTv"
                     android:layout_width="0dp"
@@ -42,11 +34,12 @@
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
+                    android:text="nsianciaosncaios"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_15ssp"
+                    android:textSize="@dimen/_14ssp"
                     app:layout_constraintEnd_toStartOf="@+id/scheduleEditIcon"
-                    app:layout_constraintStart_toEndOf="@+id/startView"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
@@ -58,10 +51,11 @@
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:adjustViewBounds="true"
+                    app:tint="@color/black"
                     android:scaleType="fitXY"
                     android:src="@drawable/clock_icon"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/startView"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/classNameTv"/>
 
                 <TextView
@@ -72,9 +66,10 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
+                    android:fontFamily="@font/poppins_regular"
                     android:textColor="@color/lightGrey"
-                    android:textSize="@dimen/_10ssp"
+                    android:text="jsa cas cusacsaucasuc "
+                    android:textSize="@dimen/_12ssp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/scheduleEditIcon"
                     app:layout_constraintStart_toEndOf="@+id/clockIcon"
@@ -88,6 +83,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
+                    app:tint="@color/darkOrange"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
                     android:src="@drawable/schedule_edit"

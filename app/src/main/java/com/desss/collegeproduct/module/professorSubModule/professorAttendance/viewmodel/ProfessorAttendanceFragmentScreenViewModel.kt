@@ -24,6 +24,9 @@ class ProfessorAttendanceFragmentScreenViewModel(application: Application, val a
     private var markProfessorAttendanceDataObservable: LiveData<CommonResponseModel<CheckProfessorAttendanceModel>>? =
         null
 
+    private var checkAttendanceAlreadyDataObservable: LiveData<CommonResponseModel<CheckProfessorAttendanceModel>>? =
+        null
+
     fun callCheckProfessorAttendanceApi(activity: Activity, action: String, userId: String) {
         checkAttendanceDataObservable =
             ProfessorAttendanceRepository.getProfessorAttendanceApi(activity, action, userId)
@@ -60,5 +63,14 @@ class ProfessorAttendanceFragmentScreenViewModel(application: Application, val a
 
     fun getMarkProfessorAttendanceData(): LiveData<CommonResponseModel<CheckProfessorAttendanceModel>>? {
         return markProfessorAttendanceDataObservable
+    }
+
+    fun callCheckProfessorAttendanceAlreadyMarkedApi(activity: Activity, action: String, userId: String) {
+        checkAttendanceAlreadyDataObservable =
+            ProfessorAttendanceRepository.getProfessorAttendanceApi(activity, action, userId)
+    }
+
+    fun getCheckProfessorAttendanceAlreadyMarkedData(): LiveData<CommonResponseModel<CheckProfessorAttendanceModel>>? {
+        return checkAttendanceAlreadyDataObservable
     }
 }

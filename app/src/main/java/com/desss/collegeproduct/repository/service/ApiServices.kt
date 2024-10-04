@@ -234,7 +234,8 @@ interface ApiServices {
     fun getStudentAttendanceList(
         @Query("action") action: String?,
         @Query("professor_ids") professorId: String?,
-        @Query("user_ids") userId: String?
+        @Query("user_ids") totalStudentId: String?,
+        @Query("statuses") selectedStudentId: String?
     ): Call<CommonResponseModel<AddStudentAttendanceModel>?>?
 
 

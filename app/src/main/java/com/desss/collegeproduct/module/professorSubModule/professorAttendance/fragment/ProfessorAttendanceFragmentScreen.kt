@@ -155,7 +155,8 @@ class ProfessorAttendanceFragmentScreen : Fragment() {
     private fun observeViewModel(
         viewModel: ProfessorAttendanceFragmentScreenViewModel,
         position: Int
-    ) {
+    )
+    {
         if (position == 1) {
             viewModel.getCheckProfessorAttendanceData()
                 ?.observe(requireActivity(), Observer { professorAttendanceData ->
@@ -164,13 +165,27 @@ class ProfessorAttendanceFragmentScreen : Fragment() {
                             CommonUtility.cancelProgressDialog(activity)
                         } else {
                             handleProfessorAttendanceData(professorAttendanceData)
-                            CommonUtility.cancelProgressDialog(activity)
                         }
                     } else {
                         CommonUtility.cancelProgressDialog(activity)
                     }
                 })
-        } else if (position == 3) {
+        }
+        else if (position == 2) {
+            viewModel.getCheckProfessorAttendanceAlreadyMarkedData()
+                ?.observe(requireActivity(), Observer { professorAttendanceData ->
+                    if (professorAttendanceData != null) {
+                        if (professorAttendanceData.status == 403 && professorAttendanceData.data.isNotEmpty()) {
+                            CommonUtility.cancelProgressDialog(activity)
+                        } else {
+                            handleProfessorAttendanceAlreadyMarkedData(professorAttendanceData)
+                        }
+                    } else {
+                        CommonUtility.cancelProgressDialog(activity)
+                    }
+                })
+        }
+        else if (position == 3) {
             viewModel.getMarkProfessorAttendanceData()
                 ?.observe(requireActivity(), Observer { markProfessorAttendance ->
                     if (markProfessorAttendance != null) {
@@ -179,8 +194,8 @@ class ProfessorAttendanceFragmentScreen : Fragment() {
                         } else {
                             CommonUtility.cancelProgressDialog(activity)
                             CommonUtility.toastString("Attendance Marked Successfully..!", activity)
-                            fragmentProfessorAttendanceScreenBinding.btnPresent.visibility =
-                                View.GONE
+                            fragmentProfessorAttendanceScreenBinding.btnPresent.visibility = View.GONE
+                            fragmentProfessorAttendanceScreenBinding.markProfessorAttendanceTv.visibility = View.GONE
 
                         }
                     } else {
@@ -236,11 +251,39 @@ class ProfessorAttendanceFragmentScreen : Fragment() {
         val userProfile: CheckProfessorAttendanceModel? = professorAttendanceDataList.firstOrNull()
         userProfile?.let {
             if (it.msg == "You go ahead") {
-                fragmentProfessorAttendanceScreenBinding.btnPresent.visibility = View.VISIBLE
+                callCheckAttendanceAlreadyMarkedApi()
+                observeViewModel(professorAttendanceFragmentScreenViewModel, 2)
             } else {
+                CommonUtility.cancelProgressDialog(activity)
                 fragmentProfessorAttendanceScreenBinding.btnPresent.visibility = View.GONE
+                fragmentProfessorAttendanceScreenBinding.markProfessorAttendanceTv.visibility = View.GONE
             }
         }
+    }
+
+    private fun handleProfessorAttendanceAlreadyMarkedData(professorAttendanceData: CommonResponseModel<CheckProfessorAttendanceModel>?) {
+        val professorAttendanceDataList: List<CheckProfessorAttendanceModel> =
+            professorAttendanceData!!.data
+        val userProfile: CheckProfessorAttendanceModel? = professorAttendanceDataList.firstOrNull()
+        userProfile?.let {
+            if (it.msg == "You go ahead") {
+                CommonUtility.cancelProgressDialog(activity)
+                fragmentProfessorAttendanceScreenBinding.btnPresent.visibility = View.VISIBLE
+                fragmentProfessorAttendanceScreenBinding.markProfessorAttendanceTv.visibility = View.VISIBLE
+            } else {
+                CommonUtility.cancelProgressDialog(activity)
+                fragmentProfessorAttendanceScreenBinding.btnPresent.visibility = View.GONE
+                fragmentProfessorAttendanceScreenBinding.markProfessorAttendanceTv.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun callCheckAttendanceAlreadyMarkedApi() {
+        professorAttendanceFragmentScreenViewModel.callCheckProfessorAttendanceAlreadyMarkedApi(
+            requireActivity(),
+            "check_today_professor_marked",
+            SharedPref.getId(context).toString()
+        )
     }
 
     @SuppressLint("NotifyDataSetChanged")

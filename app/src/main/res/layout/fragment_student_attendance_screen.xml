@@ -375,6 +375,22 @@ xmlns:tools="http://schemas.android.com/tools">
                 </LinearLayout>
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/leaveContentTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:text="@string/holiday"
+                android:visibility="gone"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/semesterSectionLinearInfo"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnView"
                 android:layout_width="wrap_content"
@@ -385,6 +401,7 @@ xmlns:tools="http://schemas.android.com/tools">
                 android:background="@drawable/orange_background_button"
                 android:fontFamily="@font/poppins_semi_bold"
                 android:text="@string/view"
+                android:visibility="gone"
                 android:textAllCaps="false"
                 android:paddingEnd="@dimen/_25sdp"
                 android:paddingStart="@dimen/_25sdp"
@@ -403,6 +420,7 @@ xmlns:tools="http://schemas.android.com/tools">
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:baselineAligned="false"
+                android:visibility="gone"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

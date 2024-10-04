@@ -6,6 +6,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.desss.collegeproduct.commonfunctions.CommonResponseModel
+import com.desss.collegeproduct.module.professorSubModule.professorAttendance.model.CheckProfessorAttendanceModel
 import com.desss.collegeproduct.module.professorSubModule.report.model.ProfessorStudentReportModel
 import com.desss.collegeproduct.module.professorSubModule.report.model.StudentListBasedModel
 import com.desss.collegeproduct.module.professorSubModule.studentAttendance.model.AddStudentAttendanceModel
@@ -25,6 +26,9 @@ class StudentAttendanceFragmentScreenViewModel(application: Application, val act
         null
 
     private var studentsAttendanceDataObservable: LiveData<CommonResponseModel<AddStudentAttendanceModel>>? =
+        null
+
+    private var checkLeaveDataObservable: LiveData<CommonResponseModel<CheckProfessorAttendanceModel>>? =
         null
 
     fun callDropDownValuesApi(activity: Activity, action: String, table: String, userId: String) {
@@ -84,18 +88,29 @@ class StudentAttendanceFragmentScreenViewModel(application: Application, val act
         activity: Activity,
         action: String,
         professorUserId: String,
-        studentId: String
+        totalStudentId: String,
+        selectedStudentId: String
     ) {
         studentsAttendanceDataObservable =
             StudentAttendanceRepository.getStudentAttendanceListValues(
                 activity,
                 action,
                 professorUserId,
-                studentId
+                totalStudentId,
+                selectedStudentId
             )
     }
 
     fun getMarkStudentAttendanceApiData(): LiveData<CommonResponseModel<AddStudentAttendanceModel>>? {
         return studentsAttendanceDataObservable
+    }
+
+    fun callCheckLeaveApi(activity: Activity, action: String, userId: String) {
+        checkLeaveDataObservable =
+            StudentAttendanceRepository.getLeaveCheckApi(activity, action, userId)
+    }
+
+    fun getCheckLeaveData(): LiveData<CommonResponseModel<CheckProfessorAttendanceModel>>? {
+        return checkLeaveDataObservable
     }
 }

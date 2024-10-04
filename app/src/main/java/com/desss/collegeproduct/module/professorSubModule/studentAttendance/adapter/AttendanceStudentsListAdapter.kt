@@ -19,11 +19,14 @@ class AttendanceStudentsListAdapter(
 
     private val totalStudentsList: ArrayList<String> = ArrayList()
 
+    private val totalStudentsPresentAbsentList: ArrayList<String> = ArrayList()
+
     private var dataList: List<StudentListBasedModel> = studentList.toList()
 
     init {
         for (item in studentList) {
             totalStudentsList.add(item.id)
+            totalStudentsPresentAbsentList.add("1")
         }
     }
 
@@ -45,10 +48,17 @@ class AttendanceStudentsListAdapter(
             studentModel!!.first_name + " " + studentModel!!.last_name
         holder.binding.switchButton.setOnCheckedChangeListener { buttonView, isChecked ->
             studentModel = studentList[position]
-            if (totalStudentsList.contains(studentModel!!.id)) {
-                totalStudentsList.remove(studentModel!!.id)
+//            if (totalStudentsList.contains(studentModel!!.id)) {
+//                totalStudentsList.remove(studentModel!!.id)
+//            } else {
+//                totalStudentsList.add(studentModel!!.id)
+//            }
+            if (isChecked) {
+                if (!totalStudentsList.contains(studentModel!!.id)) {
+                    totalStudentsPresentAbsentList[totalStudentsList.indexOf(studentModel!!.id)] = "1" // Mark as present
+                }
             } else {
-                totalStudentsList.add(studentModel!!.id)
+                totalStudentsPresentAbsentList[totalStudentsList.indexOf(studentModel!!.id)] = "0" // Mark as absent
             }
         }
     }
@@ -68,6 +78,10 @@ class AttendanceStudentsListAdapter(
 
     fun totalStudentCountPresentList(): List<String> {
         return totalStudentsList
+    }
+
+    fun studentCountPresentAbsentList(): List<String> {
+        return totalStudentsPresentAbsentList
     }
 
     @SuppressLint("NotifyDataSetChanged")
