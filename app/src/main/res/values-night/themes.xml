@@ -14,7 +14,7 @@
     </style>
 
     <style name="alertFont">
-        <item name="fontFamily">@font/regular</item>
+        <item name="fontFamily">@font/poppins_regular</item>
     </style>
 
     <style name="mySpinnerItemStyle" parent="ThemeOverlay.AppCompat.Dark">

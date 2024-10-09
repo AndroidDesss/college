@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:fontFamily="@font/poppins_bold"
+            android:fontFamily="@font/poppins_semi_bold"
             android:textColor="@color/darkOrange"
             android:textSize="@dimen/_14ssp"
             app:layout_constraintEnd_toEndOf="parent"

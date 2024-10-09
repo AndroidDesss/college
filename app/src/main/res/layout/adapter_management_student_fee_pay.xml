@@ -33,88 +33,106 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:maxLines="1"
-                    android:textColor="@color/black"
+                    android:textColor="@color/darkOrange"
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@id/feeStatusContentTv"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <View
-                    android:id="@+id/horizontalSeparateLine"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_1sdp"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:background="@android:color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/semesterContentTv"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/dateTv"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
-                    android:gravity="start"
-                    android:textColor="@color/lightGrey"
-                    android:textSize="@dimen/_12ssp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/receiptNoTv"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:maxLines="1"
+                    android:text="@string/date"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/horizontalSeparateLine"/>
+                    app:layout_constraintTop_toBottomOf="@id/semesterContentTv" />
 
                 <TextView
-                    android:id="@+id/receiptNoTv"
+                    android:id="@+id/dateValueTv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
                     android:gravity="end"
+                    android:fontFamily="@font/poppins_regular"
                     android:textColor="@color/lightGrey"
-                    android:textSize="@dimen/_12ssp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textSize="@dimen/_14ssp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/dateTv"
-                    app:layout_constraintTop_toBottomOf="@+id/horizontalSeparateLine"/>
-
+                    app:layout_constraintStart_toEndOf="@+id/dateTv"
+                    app:layout_constraintTop_toBottomOf="@+id/semesterContentTv"/>
 
                 <TextView
-                    android:id="@+id/feeStatusContentTv"
+                    android:id="@+id/receiptTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:maxLines="1"
+                    android:text="@string/receipt_no"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dateValueTv" />
+
+                <TextView
+                    android:id="@+id/receiptValueTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
+                    android:gravity="end"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/lightGrey"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/receiptTv"
+                    app:layout_constraintTop_toBottomOf="@+id/dateValueTv"/>
+
+                <TextView
+                    android:id="@+id/feesStatusTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:maxLines="1"
                     android:text="@string/feeStatus"
-                    android:textColor="@color/lightGrey"
-                    android:textSize="@dimen/_13ssp"
-                    app:layout_constraintEnd_toStartOf="@+id/feeStatusValueTv"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/receiptValueTv" />
 
                 <TextView
-                    android:id="@+id/feeStatusValueTv"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/feesStatusValueTv"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
-                    android:textColor="@color/darkGrey"
-                    android:textSize="@dimen/_13ssp"
+                    android:gravity="end"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/lightGrey"
+                    android:textSize="@dimen/_14ssp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toEndOf="@+id/feesStatusTv"
+                    app:layout_constraintTop_toBottomOf="@+id/receiptValueTv"/>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

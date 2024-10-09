@@ -115,7 +115,7 @@
     <string name="learningManagement">Learning Management</string>
     <string name="finish">Finish</string>
     <string name="reviewQuestions">Review Questions</string>
-    <string name="selectedAns">Selected Ans:</string>
+    <string name="selectedAns">Selected Answer:</string>
     <string name="transportDetails">Your Transport Details</string>
     <string name="driverName">Driver Name :</string>
     <string name="contactNumber">Contact Number :</string>
@@ -158,4 +158,6 @@
     <string name="student_details_here">Student Details Here</string>
     <string name="mark_attendance">Mark Attendance -</string>
     <string name="holiday">Holiday...!</string>
+    <string name="date_of_join">Date of Join</string>
+    <string name="attend_test">Attend Test</string>
 </resources>

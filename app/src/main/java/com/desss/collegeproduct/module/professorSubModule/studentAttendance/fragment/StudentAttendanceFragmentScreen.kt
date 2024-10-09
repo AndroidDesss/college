@@ -60,7 +60,7 @@ class StudentAttendanceFragmentScreen : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         fragmentStudentAttendanceScreenBinding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_student_attendance_screen,
@@ -97,13 +97,11 @@ class StudentAttendanceFragmentScreen : Fragment() {
                     showPopup(view)
                 }
             }
-
             R.id.presentLinear -> {
                 if (fragmentStudentAttendanceScreenBinding.presentValueTv.text.toString() != "0") {
                     showPopupStudentsList(view, "Present List", totalStudentsPresentList)
                 }
             }
-
             R.id.absentLinear -> {
                 if (fragmentStudentAttendanceScreenBinding.absentValueTv.text.toString() != "0") {
                     showPopupStudentsList(view, "Absent List", totalStudentsAbsentList)
@@ -212,10 +210,12 @@ class StudentAttendanceFragmentScreen : Fragment() {
                         if (leaveData.status == 403 && leaveData.data.isNotEmpty()) {
                             CommonUtility.cancelProgressDialog(activity)
                         } else {
+                            fragmentStudentAttendanceScreenBinding.leaveContentTv.visibility = View.GONE
                             handleLeaveData(leaveData)
                         }
                     } else {
                         CommonUtility.cancelProgressDialog(activity)
+                        fragmentStudentAttendanceScreenBinding.leaveContentTv.visibility = View.VISIBLE
                     }
                 })
         }
@@ -383,7 +383,6 @@ class StudentAttendanceFragmentScreen : Fragment() {
         popupBinding.btnClose.setOnClickListener {
             popupWindow.dismiss()
         }
-
         popupBinding.etSearch.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
                 charSequence: CharSequence?,
@@ -391,9 +390,7 @@ class StudentAttendanceFragmentScreen : Fragment() {
                 count: Int,
                 after: Int
             ) {
-
             }
-
             override fun onTextChanged(
                 charSequence: CharSequence?,
                 start: Int,
@@ -401,7 +398,6 @@ class StudentAttendanceFragmentScreen : Fragment() {
                 count: Int
             ) {
             }
-
             override fun afterTextChanged(editable: Editable?) {
                 if (attendanceStudentsListAdapter != null) {
                     val searchText = popupBinding.etSearch.text.toString().lowercase(
@@ -431,8 +427,6 @@ class StudentAttendanceFragmentScreen : Fragment() {
                 val commaSeparatedPresentAbsentStudentIds =
                     attendanceStudentsListAdapter?.studentCountPresentAbsentList()!!
                         .joinToString(",")
-                Log.d("commaSeparatedTotalStudentIds",commaSeparatedTotalStudentIds)
-                Log.d("commaSeparatedPresentAbsentStudentIds",commaSeparatedPresentAbsentStudentIds)
                 callMarkAttendanceApi(commaSeparatedTotalStudentIds,commaSeparatedPresentAbsentStudentIds)
                 observeStudentAttendanceViewModel(
                     studentAttendanceFragmentScreenViewModel,
@@ -457,15 +451,13 @@ class StudentAttendanceFragmentScreen : Fragment() {
 
     private fun observeStudentViewModel(
         viewModel: StudentAttendanceFragmentScreenViewModel,
-        popupRecyclerView: RecyclerView
-
-
-    ) {
+        popupRecyclerView: RecyclerView) {
         viewModel.getStudentListData()?.observe(requireActivity(), Observer { studentList ->
             if (studentList != null) {
-                if (studentList.status == 400 && studentList.data.isNotEmpty()) {
+                if (studentList.status == 400 && studentList.data.isNotEmpty())
+                {
                     CommonUtility.cancelProgressDialog(activity)
-                } else {
+                }else{
                     handleStudentListData(studentList, popupRecyclerView)
                 }
             } else {

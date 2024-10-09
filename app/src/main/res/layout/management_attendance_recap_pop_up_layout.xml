@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,7 +35,8 @@
                     android:layout_marginTop="@dimen/_3sdp"
                     android:background="@drawable/remove_icon"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/professorAttendanceTv"/>
 
                 <TextView
                     android:id="@+id/professorAttendanceTv"
@@ -43,51 +45,48 @@
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:fontFamily="@font/bold"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/professorAttendance"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_21ssp"
+                    android:textColor="@color/darkOrange"
+                    android:textSize="@dimen/_16ssp"
                     app:layout_constraintEnd_toStartOf="@id/btnClose"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/professorAttendanceLogo"
-                    android:layout_width="@dimen/_150sdp"
-                    android:layout_height="@dimen/_90sdp"
-                    android:layout_marginTop="@dimen/_13sdp"
-                    android:background="@drawable/professor_attendance_bg_theme"
-                    android:contentDescription="@string/lock"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/professorAttendanceTv" />
-
-                <TextView
-                    android:id="@+id/attendanceStatusTv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:background="@color/black"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:fontFamily="@font/bold"
-                    android:text="@string/attendanceStatus"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_18ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/professorAttendanceLogo" />
+                    app:layout_constraintTop_toBottomOf="@id/professorAttendanceTv"
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
-                <FrameLayout
-                    android:id="@+id/flMonth"
+                <LinearLayout
+                    android:id="@+id/monthSpinnerLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:background="@drawable/background_grey_border_rounded"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/attendanceStatusTv">
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <ImageView
+                        android:id="@+id/month_spinner_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/calander_black"
+                        tools:ignore="ContentDescription" />
 
                     <Spinner
                         android:id="@+id/monthSpinner"
@@ -95,188 +94,292 @@
                         android:layout_width="match_parent"
                         android:layout_height="42dp"
                         android:padding="6dp"
-                        android:prompt="@string/select_prompt"/>
-                </FrameLayout>
+                        android:prompt="@string/select_month_prompt"/>
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/attendanceRecapTv"
+                <View
+                    android:id="@+id/monthBottomLine"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    tools:ignore="ExtraText"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:fontFamily="@font/bold"
-                    android:text="@string/attendanceRecap"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_18ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/flMonth" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/monthSpinnerLayout"/>
 
                 <LinearLayout
-                    android:id="@+id/attendanceRecapLinearInfo"
-                    android:layout_width="fill_parent"
+                    android:id="@+id/presentAbsentLinear"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:baselineAligned="false"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/attendanceRecapTv">
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/monthBottomLine"
+                    android:baselineAligned="false">
 
-                    <LinearLayout
-                        android:id="@+id/presentLinear"
-                        android:layout_width="match_parent"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/presentComboLayout"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:layout_weight="1"
-                        android:background="@color/presentBackground"
-                        android:orientation="vertical">
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/attendanceRecapLinearInfo">
 
-                        <TextView
-                            android:id="@+id/presentTv"
+                        <View
+                            android:id="@+id/presentIndicationLine"
+                            android:layout_width="6dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/present_gradient_background"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <LinearLayout
+                            android:id="@+id/presentLinear"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_5sdp"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:fontFamily="@font/bold"
-                            android:gravity="start"
-                            android:text="@string/present"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_14ssp" />
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toEndOf="@id/presentIndicationLine"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent">
+                            <TextView
+                                android:id="@+id/presentTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_5sdp"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:gravity="start"
+                                android:text="@string/present"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp" />
 
-                        <TextView
-                            android:id="@+id/presentValueTv"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:fontFamily="@font/bold"
-                            android:gravity="center"
-                            android:text="@string/zero"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_22ssp" />
-                    </LinearLayout>
+                            <TextView
+                                android:id="@+id/presentValueTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_5sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:gravity="start"
+                                android:text="@string/zero"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_22ssp" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <LinearLayout
-                        android:id="@+id/absentLinear"
-                        android:layout_width="match_parent"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/absentComboLayout"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:layout_weight="1"
-                        android:background="@color/notPresentBackground"
-                        android:orientation="vertical">
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/presentComboLayout">
 
-                        <TextView
-                            android:id="@+id/absentTv"
+                        <View
+                            android:id="@+id/absentIndicationLine"
+                            android:layout_width="6dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/absent_gradient_background"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <LinearLayout
+                            android:id="@+id/absentLinear"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toEndOf="@id/absentIndicationLine"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent">
+                            <TextView
+                                android:id="@+id/absentTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_5sdp"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:gravity="start"
+                                android:text="@string/notPresent"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp" />
+
+                            <TextView
+                                android:id="@+id/absentValueTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_5sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:gravity="start"
+                                android:text="@string/zero"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_22ssp" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lateTotalLinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/presentAbsentLinear"
+                    android:baselineAligned="false">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/lateComboLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/attendanceRecapLinearInfo">
+
+                        <View
+                            android:id="@+id/lateIndicationLine"
+                            android:layout_width="6dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/late_gradient_background"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <LinearLayout
+                            android:id="@+id/lateLinear"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_5sdp"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:fontFamily="@font/bold"
-                            android:gravity="start"
-                            android:text="@string/notPresent"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_14ssp" />
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toEndOf="@id/lateIndicationLine"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent">
+                            <TextView
+                                android:id="@+id/lateTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_5sdp"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:gravity="start"
+                                android:text="@string/late"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp" />
 
-                        <TextView
-                            android:id="@+id/absentValueTv"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:fontFamily="@font/bold"
-                            android:gravity="center"
-                            android:text="@string/zero"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_22ssp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                            <TextView
+                                android:id="@+id/lateValueTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_5sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:gravity="start"
+                                android:text="@string/zero"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_22ssp" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <LinearLayout
-                        android:id="@+id/lateLinear"
-                        android:layout_width="match_parent"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/totalComboLayout"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:layout_weight="1"
-                        android:background="@color/lateBackground"
-                        android:orientation="vertical">
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/presentComboLayout">
 
-                        <TextView
-                            android:id="@+id/lateTv"
+                        <View
+                            android:id="@+id/totalIndicationLine"
+                            android:layout_width="6dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/total_gradient_background"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <LinearLayout
+                            android:id="@+id/totalLinear"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_marginStart="@dimen/_5sdp"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:fontFamily="@font/bold"
-                            android:gravity="start"
-                            android:text="@string/late"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_14ssp" />
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toEndOf="@id/totalIndicationLine"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent">
+                            <TextView
+                                android:id="@+id/totalTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_5sdp"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:gravity="start"
+                                android:text="@string/total"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp" />
 
-                        <TextView
-                            android:id="@+id/lateValueTv"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:fontFamily="@font/bold"
-                            android:gravity="center"
-                            android:text="@string/zero"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_22ssp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/totalLinear"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginEnd="@dimen/_5sdp"
-                        android:layout_weight="1"
-                        android:background="@color/totalBackground"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/totalTv"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_5sdp"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:fontFamily="@font/bold"
-                            android:gravity="start"
-                            android:text="@string/total"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_14ssp" />
-
-                        <TextView
-                            android:id="@+id/totalValueTv"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:fontFamily="@font/bold"
-                            android:gravity="center"
-                            android:text="@string/zero"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_22ssp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                            <TextView
+                                android:id="@+id/totalValueTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_5sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:fontFamily="@font/poppins_semi_bold"
+                                android:gravity="start"
+                                android:text="@string/zero"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_22ssp" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </LinearLayout>
 

@@ -45,6 +45,7 @@ class ProfessorSubModuleDetailFragment : Fragment() {
 
     private var managementViewScheduleAdapter: ManagementViewScheduleAdapter? = null
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -70,12 +71,14 @@ class ProfessorSubModuleDetailFragment : Fragment() {
             ProfessorSubModuleDetailScreenViewModel(activity?.application!!, requireActivity())
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun initListener() {
         fragmentProfessorSubModuleDetailFragment.profileDetailCardView.setOnClickListener(onClickListener)
         fragmentProfessorSubModuleDetailFragment.attendanceRecapDetailCardView.setOnClickListener(onClickListener)
         fragmentProfessorSubModuleDetailFragment.scheduleDetailCardView.setOnClickListener(onClickListener)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private val onClickListener = View.OnClickListener { view ->
         when (view.id) {
             R.id.profileDetailCardView -> {
@@ -165,18 +168,13 @@ class ProfessorSubModuleDetailFragment : Fragment() {
             val profileList: List<ProfileModel> = profileData.data
             val userProfile: ProfileModel? = profileList.firstOrNull()
             userProfile?.let {
-                popupBinding.nameValueTv.text = it.first_name + " " + it.last_name
-                popupBinding.emailPhoneValueTv.text = it.email
                 popupBinding.firstNameValueTv.text = it.first_name
                 popupBinding.lastNameValueTv.text = it.last_name
                 popupBinding.joinDateValueTv.text = it.admission_date
                 popupBinding.birthDateValueTv.text = it.dob
-                popupBinding.professorUserIdValueTv.text = it.reg_no
-                popupBinding.detailsProfessorIdValueTv.text = it.id
                 popupBinding.birthDateValueTv.text = it.dob
                 popupBinding.emailIdValueTv.text = it.email
                 popupBinding.mobileNumberValueTv.text = it.phone
-                popupBinding.salaryValueTv.text = it.salary
                 popupBinding.addressValueTv.text = it.address
             }
         }

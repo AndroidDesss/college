@@ -9,17 +9,28 @@
         android:background="@color/white"
         tools:context=".module.studentSubModule.Lms.fragment.LmsExamPreviewFragment">
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_3sdp"
+            android:background="@color/darkOrange"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/reviewQuestionTv"
+            app:layout_constraintTop_toTopOf="@id/reviewQuestionTv"/>
+
         <TextView
             android:id="@+id/reviewQuestionTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:fontFamily="@font/bold"
+            android:fontFamily="@font/poppins_semi_bold"
             android:text="@string/reviewQuestions"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_21ssp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/darkOrange"
+            android:textSize="@dimen/_18ssp"
+            app:layout_constraintStart_toEndOf="@id/view"
             app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -44,12 +55,12 @@
             android:layout_marginEnd="@dimen/_8sdp"
             android:layout_marginBottom="@dimen/_8sdp"
             android:layout_weight="1"
-            android:background="@drawable/background_button"
-            android:fontFamily="@font/bold"
+            android:background="@drawable/orange_background_button"
+            android:fontFamily="@font/poppins_semi_bold"
             android:text="@string/submit"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_14ssp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>

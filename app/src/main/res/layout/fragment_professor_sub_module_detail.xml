@@ -10,31 +10,30 @@ xmlns:tools="http://schemas.android.com/tools">
     android:background="@color/white"
     tools:context=".module.managementSubModule.professorDetail.fragment.ProfessorSubModuleDetailFragment">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_3sdp"
+        android:background="@color/darkOrange"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/professorDetailTv"
+        app:layout_constraintTop_toTopOf="@id/professorDetailTv"/>
+
     <TextView
-        android:id="@+id/studentDetailTv"
-        android:layout_width="0dp"
+        android:id="@+id/professorDetailTv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:fontFamily="@font/bold"
+        android:fontFamily="@font/poppins_semi_bold"
         android:text="@string/professorDetails"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_21ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/darkOrange"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintStart_toEndOf="@id/view"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <ImageView
-        android:id="@+id/studentDetailLogo"
-        android:layout_width="@dimen/_150sdp"
-        android:layout_height="@dimen/_90sdp"
-        android:layout_marginTop="@dimen/_13sdp"
-        android:background="@drawable/management_professor_details_logo"
-        android:contentDescription="@string/lock"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/studentDetailTv" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/profileDetailCardView"
@@ -47,13 +46,13 @@ xmlns:tools="http://schemas.android.com/tools">
         app:cardElevation="3dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studentDetailLogo">
+        app:layout_constraintTop_toBottomOf="@+id/professorDetailTv">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@color/appBackgroundColor">
+            android:background="@drawable/present_gradient_background">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/profileDetailsIcon"
@@ -78,10 +77,10 @@ xmlns:tools="http://schemas.android.com/tools">
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:fontFamily="@font/regular"
+                android:fontFamily="@font/poppins_semi_bold"
                 android:text="@string/profileDetails"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/_12ssp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -108,7 +107,7 @@ xmlns:tools="http://schemas.android.com/tools">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@color/lightSandalBackGroundColor">
+            android:background="@drawable/absent_gradient_background">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/attendanceRecapDetailsIcon"
@@ -133,10 +132,10 @@ xmlns:tools="http://schemas.android.com/tools">
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:fontFamily="@font/regular"
+                android:fontFamily="@font/poppins_semi_bold"
                 android:text="@string/attendanceRecap"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/_12ssp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -163,7 +162,7 @@ xmlns:tools="http://schemas.android.com/tools">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@color/purpleBackGroundColor">
+            android:background="@drawable/late_gradient_background">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/scheduleDetailsIcon"
@@ -188,10 +187,10 @@ xmlns:tools="http://schemas.android.com/tools">
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:fontFamily="@font/regular"
+                android:fontFamily="@font/poppins_semi_bold"
                 android:text="@string/schedule"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/_12ssp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

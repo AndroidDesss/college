@@ -37,7 +37,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:maxLines="1"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_14ssp"

@@ -113,7 +113,7 @@ class LMSExamFragmentScreen : Fragment() {
                         val radioButton = RadioButton(requireContext())
                         radioButton.text = option
                         radioButton.setTextColor(resources.getColor(R.color.black))
-                        val typeface = ResourcesCompat.getFont(requireContext(), R.font.regular)
+                        val typeface = ResourcesCompat.getFont(requireContext(), R.font.poppins_regular)
                         radioButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f)
                         radioButton.typeface = typeface
 
@@ -229,7 +229,7 @@ class LMSExamFragmentScreen : Fragment() {
                     val radioButton = RadioButton(requireContext())
                     radioButton.text = option
                     radioButton.setTextColor(resources.getColor(R.color.black))
-                    val typeface = ResourcesCompat.getFont(requireContext(), R.font.regular)
+                    val typeface = ResourcesCompat.getFont(requireContext(), R.font.poppins_regular)
                     radioButton.typeface = typeface
                     radioButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f)
                     fragmentLMSExamScreenBinding.optionsRadioGroup.addView(radioButton)

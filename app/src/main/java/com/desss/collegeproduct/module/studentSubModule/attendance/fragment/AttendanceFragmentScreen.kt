@@ -27,7 +27,7 @@ class AttendanceFragmentScreen : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         fragmentAttendanceScreenBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_attendance_screen, container, false)
         initViewModel()

@@ -10,31 +10,30 @@
         android:background="@color/white"
         tools:context=".module.managementSubModule.studentDetail.fragment.StudentSubModuleDetailFragmentScreen">
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_3sdp"
+            android:background="@color/darkOrange"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/studentDetailTv"
+            app:layout_constraintTop_toTopOf="@id/studentDetailTv"/>
+
         <TextView
             android:id="@+id/studentDetailTv"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:fontFamily="@font/bold"
+            android:fontFamily="@font/poppins_semi_bold"
             android:text="@string/studentDetails"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_21ssp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textColor="@color/darkOrange"
+            android:textSize="@dimen/_18ssp"
+            app:layout_constraintStart_toEndOf="@id/view"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-        <ImageView
-            android:id="@+id/studentDetailLogo"
-            android:layout_width="@dimen/_150sdp"
-            android:layout_height="@dimen/_90sdp"
-            android:layout_marginTop="@dimen/_13sdp"
-            android:background="@drawable/management_students"
-            android:contentDescription="@string/lock"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/studentDetailTv" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/profileDetailCardView"
@@ -47,13 +46,13 @@
             app:cardElevation="3dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/studentDetailLogo">
+            app:layout_constraintTop_toBottomOf="@+id/studentDetailTv">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@color/appBackgroundColor">
+                android:background="@drawable/present_gradient_background">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/profileDetailsIcon"
@@ -78,10 +77,10 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/profileDetails"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -108,7 +107,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@color/lightSandalBackGroundColor">
+                android:background="@drawable/absent_gradient_background">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/feeDetailsIcon"
@@ -133,10 +132,10 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/feeDetail"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -163,7 +162,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@color/purpleBackGroundColor">
+                android:background="@drawable/late_gradient_background">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/reportDetailsIcon"
@@ -188,10 +187,10 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/reportDetails"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -218,7 +217,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@color/notPresentBackground">
+                android:background="@drawable/total_gradient_background">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/attendanceDetailIcon"
@@ -243,10 +242,10 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
-                    android:fontFamily="@font/regular"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:text="@string/attendanceDetails"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

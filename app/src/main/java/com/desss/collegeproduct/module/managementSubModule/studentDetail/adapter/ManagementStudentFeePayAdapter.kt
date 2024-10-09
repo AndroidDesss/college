@@ -30,13 +30,13 @@ class ManagementStudentFeePayAdapter(private val context: Context?, private val 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         feePayModel = feePayModelList[position]
         holder.binding.semesterContentTv.text = "Semester " + feePayModel!!.semester
-        holder.binding.dateTv.text = "Date " + feePayModel!!.date
-        holder.binding.receiptNoTv.text = "Receipt No: #123456789"
+        holder.binding.dateTv.text =feePayModel!!.date
+        holder.binding.receiptValueTv.text = "#123456789"
 
         if (feePayModel!!.status.equals("1") || feePayModel!!.status == "1") {
-            holder.binding.feeStatusValueTv.text = "Paid"
+            holder.binding.feesStatusValueTv.text = "Paid"
         } else {
-            holder.binding.feeStatusValueTv.text = "Not Paid"
+            holder.binding.feesStatusValueTv.text = "Not Paid"
         }
     }
 

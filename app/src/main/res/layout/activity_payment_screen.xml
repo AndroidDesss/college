@@ -9,24 +9,13 @@
         android:background="@color/white"
         tools:context=".paymentGateway.PaymentScreen">
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="@dimen/_90sdp"
-            android:layout_height="@dimen/_90sdp"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:background="@drawable/report_bg_theme"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <ScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logo">
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/parentLogin"
@@ -39,11 +28,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/_30sdp"
-                    android:fontFamily="@font/bold"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:gravity="center"
                     android:text="Development Under Progress"
-                    android:textColor="@color/appBackgroundColor"
-                    android:textSize="@dimen/_18ssp"
+                    android:textColor="@color/darkOrange"
+                    android:textSize="@dimen/_14ssp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_30sdp"
-                    android:fontFamily="@font/bold"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:gravity="center"
                     android:text="Total Fees To be Paid:"
                     android:textColor="@color/appBackgroundColor"
@@ -75,7 +64,7 @@
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:fontFamily="@font/bold"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:gravity="end"
                     android:text="1"
                     android:textColor="@color/appBackgroundColor"
@@ -93,8 +82,8 @@
                     android:layout_margin="@dimen/_30sdp"
                     android:layout_marginTop="@dimen/_50sdp"
                     android:layout_marginBottom="@dimen/_50sdp"
-                    android:background="@drawable/background_button"
-                    android:fontFamily="@font/bold"
+                    android:background="@drawable/orange_background_button"
+                    android:fontFamily="@font/poppins_semi_bold"
                     android:text="Pay Now"
                     android:textAllCaps="false"
                     android:textColor="@color/textViewColor"
