@@ -6,6 +6,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.desss.collegeproduct.commonfunctions.CommonResponseModel
+import com.desss.collegeproduct.module.studentSubModule.attendance.model.MonthlyHolidaysModel
 import com.desss.collegeproduct.module.studentSubModule.attendance.model.StudentAttendanceModel
 import com.desss.collegeproduct.module.studentSubModule.attendance.repository.AttendanceRepository
 
@@ -15,11 +16,22 @@ class AttendanceFragmentScreenViewModel(application: Application, val activity: 
     private var attendanceDataObservable: LiveData<CommonResponseModel<StudentAttendanceModel>>? =
         null
 
+    private var monthlyHolidayDataObservable: LiveData<CommonResponseModel<MonthlyHolidaysModel>>? =
+        null
+
     fun callAttendanceApi(activity: Activity, action: String, userId: String) {
         attendanceDataObservable = AttendanceRepository.getAttendance(activity, action, userId)
     }
 
     fun getAttendanceData(): LiveData<CommonResponseModel<StudentAttendanceModel>>? {
         return attendanceDataObservable
+    }
+
+    fun callMonthlyHolidaysApi(activity: Activity, action: String, table: String, month: String, year: String) {
+        monthlyHolidayDataObservable = AttendanceRepository.getMonthlyHolidays(activity, action, table, month, year)
+    }
+
+    fun getMonthlyHolidaysData(): LiveData<CommonResponseModel<MonthlyHolidaysModel>>? {
+        return monthlyHolidayDataObservable
     }
 }

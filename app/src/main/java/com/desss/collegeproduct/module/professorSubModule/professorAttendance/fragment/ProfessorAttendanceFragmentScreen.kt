@@ -1,6 +1,7 @@
 package com.desss.collegeproduct.module.professorSubModule.professorAttendance.fragment
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.PopupWindow
+import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.desss.collegeproduct.R
@@ -22,6 +24,7 @@ import com.desss.collegeproduct.module.professorSubModule.professorAttendance.ad
 import com.desss.collegeproduct.module.professorSubModule.professorAttendance.model.CheckProfessorAttendanceModel
 import com.desss.collegeproduct.module.professorSubModule.professorAttendance.model.ProfessorCountModel
 import com.desss.collegeproduct.module.professorSubModule.professorAttendance.viewmodel.ProfessorAttendanceFragmentScreenViewModel
+import java.time.YearMonth
 import java.util.Calendar
 import java.util.Locale
 
@@ -35,11 +38,16 @@ class ProfessorAttendanceFragmentScreen : Fragment() {
 
     private var professorNameListAdapter: ProfessorNameListAdapter? = null
 
+    private lateinit var selectedMonth: String
+
+    private lateinit var selectedYear: String
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         fragmentProfessorAttendanceScreenBinding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_professor_attendance_screen,
@@ -54,6 +62,7 @@ class ProfessorAttendanceFragmentScreen : Fragment() {
         return fragmentProfessorAttendanceScreenBinding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun initListener() {
         fragmentProfessorAttendanceScreenBinding.btnPresent.setOnClickListener(onClickListener)
         fragmentProfessorAttendanceScreenBinding.presentLinear.setOnClickListener(onClickListener)
@@ -71,6 +80,7 @@ class ProfessorAttendanceFragmentScreen : Fragment() {
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private val onClickListener = View.OnClickListener { view ->
         when (view.id) {
             R.id.btnPresent -> {
@@ -87,12 +97,15 @@ class ProfessorAttendanceFragmentScreen : Fragment() {
     }
 
     private val onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        @RequiresApi(Build.VERSION_CODES.O)
         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             when (parent?.id) {
                 R.id.monthSpinner -> {
                     if (parent.getItemAtPosition(position).toString() != "Select Month") {
                         val month = parent.getItemAtPosition(position).toString()
                         val subMonthYear = month.split(" ")
+                        selectedMonth = subMonthYear[0]
+                        selectedYear = subMonthYear[1]
                         callProfessorCountApi(subMonthYear[0], subMonthYear[1])
                         observeViewModel(professorAttendanceFragmentScreenViewModel, 4)
                     } else {
@@ -152,6 +165,7 @@ class ProfessorAttendanceFragmentScreen : Fragment() {
         fragmentProfessorAttendanceScreenBinding.monthSpinner.adapter = adapter
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun observeViewModel(
         viewModel: ProfessorAttendanceFragmentScreenViewModel,
         position: Int
@@ -214,7 +228,8 @@ class ProfessorAttendanceFragmentScreen : Fragment() {
                             fragmentProfessorAttendanceScreenBinding.totalValueTv.text = "0"
                             fragmentProfessorAttendanceScreenBinding.lateValueTv.text = "0"
                         } else {
-                            handleProfessorAttendanceCountData(professorAttendanceCountData)
+                            callMonthlyHolidayApi(selectedMonth,selectedYear,professorAttendanceCountData)
+//                            handleProfessorAttendanceCountData(professorAttendanceCountData)
                         }
                     } else {
                         CommonUtility.cancelProgressDialog(activity)
@@ -227,25 +242,7 @@ class ProfessorAttendanceFragmentScreen : Fragment() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun handleProfessorAttendanceCountData(professorCountsData: CommonResponseModel<ProfessorCountModel>?) {
-        CommonUtility.cancelProgressDialog(activity)
-        totalProfessorPresentList.clear()
-        val professorCountsListTemp: List<ProfessorCountModel> = professorCountsData!!.data
-        val userProfile: ProfessorCountModel? = professorCountsListTemp.firstOrNull()
-        userProfile?.let {
-            fragmentProfessorAttendanceScreenBinding.presentValueTv.text =
-                it.total_present_count.toString()
-            fragmentProfessorAttendanceScreenBinding.absentValueTv.text =
-                it.total_not_present_count.toString()
-            fragmentProfessorAttendanceScreenBinding.totalValueTv.text = it.total_count.toString()
-            fragmentProfessorAttendanceScreenBinding.lateValueTv.text =
-                it.total_late_count.toString()
-            totalProfessorPresentList.addAll(it.present_list)
-
-        }
-    }
-
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun handleProfessorAttendanceData(professorAttendanceData: CommonResponseModel<CheckProfessorAttendanceModel>?) {
         val professorAttendanceDataList: List<CheckProfessorAttendanceModel> =
             professorAttendanceData!!.data
@@ -308,6 +305,70 @@ class ProfessorAttendanceFragmentScreen : Fragment() {
         professorNameListAdapter = ProfessorNameListAdapter(context, studentsList)
         popupBinding.recyclerView.adapter = professorNameListAdapter
         professorNameListAdapter!!.notifyDataSetChanged()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun callMonthlyHolidayApi(
+        month: String,
+        year: String,
+        professorAttendanceCountData: CommonResponseModel<ProfessorCountModel>,
+    ) {
+        // Make the API call
+        professorAttendanceFragmentScreenViewModel.callMonthlyHolidaysApi(
+            requireActivity(),
+            "read",
+            "master_monthly",
+            month,
+            year
+        )
+
+        // Observe the LiveData for the response
+        professorAttendanceFragmentScreenViewModel.getMonthlyHolidaysData()?.observeForever { holidaysData ->
+            if (holidaysData.status == 200 && holidaysData.data.isNotEmpty()) {
+                val holidaysString = holidaysData.data[0].holidays
+                val holidayCount = holidaysString.split(",").size
+                CommonUtility.cancelProgressDialog(activity)
+                totalProfessorPresentList.clear()
+                val professorCountsListTemp: List<ProfessorCountModel> = professorAttendanceCountData.data
+                val userProfile: ProfessorCountModel? = professorCountsListTemp.firstOrNull()
+                userProfile?.let {
+                    fragmentProfessorAttendanceScreenBinding.presentValueTv.text =
+                        it.total_present_count.toString()
+                    fragmentProfessorAttendanceScreenBinding.absentValueTv.text =
+                        it.total_not_present_count.toString()
+                    fragmentProfessorAttendanceScreenBinding.totalValueTv.text = getDaysInMonth(month,year,holidayCount).toString()
+                    fragmentProfessorAttendanceScreenBinding.lateValueTv.text =
+                        it.total_late_count.toString()
+                    totalProfessorPresentList.addAll(it.present_list)
+
+                }
+
+            }
+            CommonUtility.cancelProgressDialog(context)
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun getDaysInMonth(month: String, year: String, holidayCount: Int): Int {
+        val monthMap = mapOf(
+            "January" to 1,
+            "February" to 2,
+            "March" to 3,
+            "April" to 4,
+            "May" to 5,
+            "June" to 6,
+            "July" to 7,
+            "August" to 8,
+            "September" to 9,
+            "October" to 10,
+            "November" to 11,
+            "December" to 12
+        )
+
+        val monthNumber = monthMap[month.capitalize()] ?: throw IllegalArgumentException("Invalid month name")
+        val yearInt = year.toIntOrNull() ?: throw IllegalArgumentException("Invalid year format")
+        val yearMonth = YearMonth.of(yearInt, monthNumber)
+        return yearMonth.lengthOfMonth() - holidayCount
     }
 
 }

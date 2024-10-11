@@ -9,6 +9,8 @@ import com.desss.collegeproduct.commonfunctions.CommonResponseModel
 import com.desss.collegeproduct.module.professorSubModule.professorAttendance.model.CheckProfessorAttendanceModel
 import com.desss.collegeproduct.module.professorSubModule.professorAttendance.model.ProfessorCountModel
 import com.desss.collegeproduct.module.professorSubModule.professorAttendance.repository.ProfessorAttendanceRepository
+import com.desss.collegeproduct.module.studentSubModule.attendance.model.MonthlyHolidaysModel
+import com.desss.collegeproduct.module.studentSubModule.attendance.repository.AttendanceRepository
 
 @SuppressLint("StaticFieldLeak")
 class ProfessorAttendanceFragmentScreenViewModel(application: Application, val activity: Activity) :
@@ -25,6 +27,9 @@ class ProfessorAttendanceFragmentScreenViewModel(application: Application, val a
         null
 
     private var checkAttendanceAlreadyDataObservable: LiveData<CommonResponseModel<CheckProfessorAttendanceModel>>? =
+        null
+
+    private var monthlyHolidayDataObservable: LiveData<CommonResponseModel<MonthlyHolidaysModel>>? =
         null
 
     fun callCheckProfessorAttendanceApi(activity: Activity, action: String, userId: String) {
@@ -72,5 +77,13 @@ class ProfessorAttendanceFragmentScreenViewModel(application: Application, val a
 
     fun getCheckProfessorAttendanceAlreadyMarkedData(): LiveData<CommonResponseModel<CheckProfessorAttendanceModel>>? {
         return checkAttendanceAlreadyDataObservable
+    }
+
+    fun callMonthlyHolidaysApi(activity: Activity, action: String, table: String, month: String, year: String) {
+        monthlyHolidayDataObservable = AttendanceRepository.getMonthlyHolidays(activity, action, table, month, year)
+    }
+
+    fun getMonthlyHolidaysData(): LiveData<CommonResponseModel<MonthlyHolidaysModel>>? {
+        return monthlyHolidayDataObservable
     }
 }

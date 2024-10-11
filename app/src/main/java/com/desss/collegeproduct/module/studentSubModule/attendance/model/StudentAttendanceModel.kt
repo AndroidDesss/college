@@ -5,5 +5,7 @@ data class StudentAttendanceModel(
     val Year: String,
     val all_count: Int,
     val count: Int,
-    val errmsg: String
+    val errmsg: String,
+    var holidayCount: Int
 )
+

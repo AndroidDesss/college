@@ -29,6 +29,7 @@ import com.desss.collegeproduct.module.studentSubModule.Lms.model.LmsDurationMod
 import com.desss.collegeproduct.module.studentSubModule.Lms.model.LmsModel
 import com.desss.collegeproduct.module.studentSubModule.Lms.model.PostLmsDurationModel
 import com.desss.collegeproduct.module.studentSubModule.Lms.model.UpdateLmsExamModel
+import com.desss.collegeproduct.module.studentSubModule.attendance.model.MonthlyHolidaysModel
 import com.desss.collegeproduct.module.studentSubModule.attendance.model.StudentAttendanceModel
 import com.desss.collegeproduct.module.studentSubModule.examTimeTable.model.ExamTimeTableModel
 import com.desss.collegeproduct.module.studentSubModule.feePay.model.FeePayModel
@@ -440,5 +441,15 @@ interface ApiServices {
         @Query("action") action: String?,
         @Query("bus_no") degree: String?
     ): Call<CommonResponseModel<TransportModel>?>?
+
+    //StudentSyllabus Api
+    @Headers(*["Content-Type: application/json;charset=UTF-8"])
+    @GET("dynamic/dynamicapi.php")
+    fun montlhyHolidays(
+        @Query("action") action: String?,
+        @Query("table") table: String?,
+        @Query("month") month: String?,
+        @Query("year") year: String?
+    ): Call<CommonResponseModel<MonthlyHolidaysModel>?>?
 
 }

@@ -16,6 +16,7 @@ import com.desss.collegeproduct.databinding.FragmentAttendanceScreenBinding
 import com.desss.collegeproduct.module.studentSubModule.attendance.adapter.StudentAttendanceAdapter
 import com.desss.collegeproduct.module.studentSubModule.attendance.model.StudentAttendanceModel
 import com.desss.collegeproduct.module.studentSubModule.attendance.viewModel.AttendanceFragmentScreenViewModel
+
 class AttendanceFragmentScreen : Fragment() {
 
     private lateinit var fragmentAttendanceScreenBinding: FragmentAttendanceScreenBinding
@@ -70,11 +71,14 @@ class AttendanceFragmentScreen : Fragment() {
 
     private fun handleAttendanceData(response: CommonResponseModel<StudentAttendanceModel>) {
         if (response.status == 200) {
-            CommonUtility.cancelProgressDialog(context)
-            val attendanceDataList: List<StudentAttendanceModel> = response.data
-            setBindingAdapter(attendanceDataList)
+            val attendanceDataList = response.data
+            attendanceDataList.forEach { attendance ->
+                callMonthlyHolidayApi(attendance.Month,attendance.Year,attendance,attendanceDataList)
+            }
         }
     }
+
+
 
     @SuppressLint("NotifyDataSetChanged")
     private fun setBindingAdapter(studentAttendanceModel: List<StudentAttendanceModel>) {
@@ -82,6 +86,44 @@ class AttendanceFragmentScreen : Fragment() {
         fragmentAttendanceScreenBinding.recyclerView.adapter = studentAttendanceAdapter
         studentAttendanceAdapter!!.notifyDataSetChanged()
         CommonUtility.cancelProgressDialog(context)
+    }
+
+    private fun callMonthlyHolidayApi(
+        month: String,
+        year: String,
+        attendanceModel: StudentAttendanceModel,
+        attendanceDataList: List<StudentAttendanceModel>
+    ) {
+        // Make the API call
+        attendanceFragmentScreenViewModel.callMonthlyHolidaysApi(
+            requireActivity(),
+            "read",
+            "master_monthly",
+            month,
+            year
+        )
+
+        // Observe the LiveData for the response
+        attendanceFragmentScreenViewModel.getMonthlyHolidaysData()?.observeForever { holidaysData ->
+            if (holidaysData.status == 200 && holidaysData.data.isNotEmpty()) {
+                val holidaysString = holidaysData.data[0].holidays
+                val holidayCount = holidaysString.split(",").size
+                attendanceModel.holidayCount = holidayCount
+                setUpdatedAttendanceData(attendanceModel, attendanceDataList)
+            } else {
+                attendanceModel.holidayCount = 0
+                setUpdatedAttendanceData(attendanceModel, attendanceDataList)
+            }
+            CommonUtility.cancelProgressDialog(context)
+        }
+    }
+
+    private fun setUpdatedAttendanceData(attendanceModel: StudentAttendanceModel, attendanceDataList: List<StudentAttendanceModel>) {
+        val updatedAttendanceDataList = mutableListOf<StudentAttendanceModel>()
+        updatedAttendanceDataList.add(attendanceModel)
+        if (updatedAttendanceDataList.size == attendanceDataList.size) {
+            setBindingAdapter(updatedAttendanceDataList)
+        }
     }
 
 }
