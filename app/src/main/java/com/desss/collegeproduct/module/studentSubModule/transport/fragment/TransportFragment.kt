@@ -67,6 +67,7 @@ class TransportFragment : Fragment() {
                 fragmentTransportFragmentBinding.routeValueTv.text = it.route
                 fragmentTransportFragmentBinding.contactNumberValueTv.text = it.phone_no
                 fragmentTransportFragmentBinding.driverNameValueTv.text = it.name
+                fragmentTransportFragmentBinding.busNoValueTv.text = it.bus_no
             }
         }
     }
