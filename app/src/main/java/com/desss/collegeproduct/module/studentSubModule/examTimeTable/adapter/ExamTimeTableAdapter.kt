@@ -48,8 +48,18 @@ class ExamTimeTableAdapter(
             getCurrentExamType = getExamType
             holder.binding.examTypeTv.visibility = View.VISIBLE
             holder.binding.examTypeTv.text = currentExamTimeTableModel.type + " Exam"
-        } else {
+        }
+        else {
             holder.binding.examTypeTv.visibility = View.GONE
+        }
+
+        if(currentExamTimeTableModel.pdf.equals("") || currentExamTimeTableModel.pdf == "")
+        {
+            holder.binding.downloadTimeTable.visibility = View.INVISIBLE
+        }
+        else
+        {
+            holder.binding.downloadTimeTable.visibility = View.VISIBLE
         }
 
         holder.binding.examNameTv.text = currentExamTimeTableModel.name

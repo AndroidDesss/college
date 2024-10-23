@@ -3,6 +3,7 @@ package com.desss.collegeproduct.module.studentSubModule.notes.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -35,11 +36,19 @@ class NotesAdapter(private val context: Context?, private val notesModelList: Li
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         notesModel = notesModelList[position]
 
-
         holder.binding.semesterValueTv.text = "Semester -" + notesModel!!.semester
         holder.binding.departmentNameTv.text = notesModel!!.course
         holder.binding.subjectNameTv.text = notesModel!!.name
         holder.binding.uploadedOnValueTv.text = notesModel!!.date
+
+        if(notesModel!!.pdf.equals("") || notesModel!!.pdf == "")
+        {
+            holder.binding.download.visibility = View.INVISIBLE
+        }
+        else
+        {
+            holder.binding.download.visibility = View.VISIBLE
+        }
 
         holder.binding.download.setOnClickListener {
             CommonUtility.showProgressDialog(context)

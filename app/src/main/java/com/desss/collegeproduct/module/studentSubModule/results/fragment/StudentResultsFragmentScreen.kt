@@ -60,7 +60,7 @@ class StudentResultsFragmentScreen : Fragment() {
         examTimeTableFragmentScreenViewModel.callExamTimeTableApi(
             requireActivity(),
             "read",
-            "student_timetables",
+            "student_timetables_results",
             SharedPref.getDegree(context).toString(),
             SharedPref.getCourse(context).toString(),
             SharedPref.getSemester(context).toString()

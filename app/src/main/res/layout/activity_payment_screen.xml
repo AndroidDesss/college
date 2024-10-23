@@ -9,6 +9,30 @@
         android:background="@color/white"
         tools:context=".paymentGateway.PaymentScreen">
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_3sdp"
+            android:background="@color/darkOrange"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/feePayTv"
+            app:layout_constraintTop_toTopOf="@id/feePayTv"/>
+
+        <TextView
+            android:id="@+id/feePayTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="@string/feePay"
+            android:textColor="@color/darkOrange"
+            android:textSize="@dimen/_18ssp"
+            app:layout_constraintStart_toEndOf="@id/view"
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <ScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -23,26 +47,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center">
 
-                <TextView
-                    android:id="@+id/loginContentTv"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_30sdp"
-                    android:fontFamily="@font/poppins_semi_bold"
-                    android:gravity="center"
-                    android:text="Development Under Progress"
-                    android:textColor="@color/darkOrange"
-                    android:textSize="@dimen/_14ssp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-<!--                @string/payFees-->
 
                 <TextView
-                    android:id="@+id/feePayTv"
+                    android:id="@+id/feePayContentTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
@@ -53,9 +60,8 @@
                     android:textColor="@color/appBackgroundColor"
                     android:textSize="@dimen/_18ssp"
                     android:textStyle="bold"
-                    android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/loginContentTv"/>
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <TextView
                     android:id="@+id/feePayValueTv"
@@ -70,10 +76,9 @@
                     android:textColor="@color/appBackgroundColor"
                     android:textSize="@dimen/_18ssp"
                     android:textStyle="bold"
-                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/feePayTv"
-                    app:layout_constraintTop_toBottomOf="@+id/loginContentTv"/>
+                    app:layout_constraintStart_toEndOf="@+id/feePayContentTv"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnPay"
@@ -88,7 +93,6 @@
                     android:textAllCaps="false"
                     android:textColor="@color/textViewColor"
                     android:textSize="@dimen/_15ssp"
-                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

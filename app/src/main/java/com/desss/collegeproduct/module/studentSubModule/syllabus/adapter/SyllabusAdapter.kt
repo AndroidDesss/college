@@ -3,6 +3,7 @@ package com.desss.collegeproduct.module.studentSubModule.syllabus.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -36,6 +37,14 @@ class SyllabusAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         syllabusModel = syllabusModelList[position]
         holder.binding.syllabusTv.text = syllabusModel!!.name
+        if(syllabusModel!!.pdf.equals("") || syllabusModel!!.pdf == "")
+        {
+            holder.binding.downloadSyllabus.visibility = View.INVISIBLE
+        }
+        else
+        {
+            holder.binding.downloadSyllabus.visibility = View.VISIBLE
+        }
         holder.binding.downloadSyllabus.setOnClickListener {
             syllabusModel = syllabusModelList[position]
             CommonUtility.showProgressDialog(context)
