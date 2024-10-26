@@ -72,8 +72,14 @@ class AttendanceFragmentScreen : Fragment() {
     private fun handleAttendanceData(response: CommonResponseModel<StudentAttendanceModel>) {
         if (response.status == 200) {
             val attendanceDataList = response.data
+            var remainingRequests = attendanceDataList.size
+            val updatedAttendanceDataList = mutableListOf<StudentAttendanceModel>()
             attendanceDataList.forEach { attendance ->
-                callMonthlyHolidayApi(attendance.Month,attendance.Year,attendance,attendanceDataList)
+                callMonthlyHolidayApi(attendance.Month,attendance.Year,attendance,updatedAttendanceDataList)
+                remainingRequests--
+                if (remainingRequests == 0) {
+                    setBindingAdapter(updatedAttendanceDataList)
+                }
             }
         }
     }
@@ -92,7 +98,7 @@ class AttendanceFragmentScreen : Fragment() {
         month: String,
         year: String,
         attendanceModel: StudentAttendanceModel,
-        attendanceDataList: List<StudentAttendanceModel>
+        updatedAttendanceDataList: MutableList<StudentAttendanceModel>
     ) {
         // Make the API call
         attendanceFragmentScreenViewModel.callMonthlyHolidaysApi(
@@ -109,21 +115,12 @@ class AttendanceFragmentScreen : Fragment() {
                 val holidaysString = holidaysData.data[0].holidays
                 val holidayCount = holidaysString.split(",").size
                 attendanceModel.holidayCount = holidayCount
-                setUpdatedAttendanceData(attendanceModel, attendanceDataList)
             } else {
                 attendanceModel.holidayCount = 0
-                setUpdatedAttendanceData(attendanceModel, attendanceDataList)
             }
             CommonUtility.cancelProgressDialog(context)
         }
-    }
 
-    private fun setUpdatedAttendanceData(attendanceModel: StudentAttendanceModel, attendanceDataList: List<StudentAttendanceModel>) {
-        val updatedAttendanceDataList = mutableListOf<StudentAttendanceModel>()
         updatedAttendanceDataList.add(attendanceModel)
-        if (updatedAttendanceDataList.size == attendanceDataList.size) {
-            setBindingAdapter(updatedAttendanceDataList)
-        }
     }
-
 }

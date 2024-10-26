@@ -1,7 +1,6 @@
 package com.desss.collegeproduct.module.studentSubModule.Lms.fragment
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,14 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import com.desss.collegeproduct.R
 import com.desss.collegeproduct.commonfunctions.CommonUtility
 import com.desss.collegeproduct.commonfunctions.SharedPref
 import com.desss.collegeproduct.databinding.FragmentLmsExamPreviewBinding
-import com.desss.collegeproduct.module.commonDashBoardFragment.home.fragment.HomeFragmentScreen
-import com.desss.collegeproduct.module.dashboard.DashBoardScreen
 import com.desss.collegeproduct.module.studentSubModule.Lms.adapter.LmsExamPreviewAdapter
 import com.desss.collegeproduct.module.studentSubModule.Lms.model.QusAns
 import com.desss.collegeproduct.module.studentSubModule.Lms.viewModel.LmsLessonScreenViewModel
