@@ -100,7 +100,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     //pdf download
-    implementation 'com.mindorks.android:prdownloader:0.6.0'
+    implementation 'com.github.amitshekhariitbhu:PRDownloader:1.0.1'
 
     //razorpay
     implementation 'com.razorpay:checkout:1.6.36'
