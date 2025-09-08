@@ -100,7 +100,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     //pdf download
-    implementation 'com.github.amitshekhariitbhu:PRDownloader:1.0.1'
+    implementation 'com.github.alexto9090:PRDownloader:1.0'
 
     //razorpay
     implementation 'com.razorpay:checkout:1.6.36'

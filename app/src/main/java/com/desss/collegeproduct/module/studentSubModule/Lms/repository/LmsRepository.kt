@@ -116,7 +116,6 @@ object LmsRepository {
             ) {
                 data.value = response.body()
             }
-
             override fun onFailure(
                 call: Call<CommonResponseModel<PostLmsDurationModel>?>,
                 t: Throwable
@@ -147,7 +146,6 @@ object LmsRepository {
             ) {
                 data.value = response.body()
             }
-
             override fun onFailure(
                 call: Call<CommonResponseModel<UpdateLmsExamModel>?>,
                 t: Throwable
